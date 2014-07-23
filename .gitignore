@@ -1,0 +1,14 @@
+#忽略临时文件、目标文件等
+*.o
+*.ldb  
+*.sln  
+.DS_Store
+
+#忽略文件夹
+bin/
+Libs/
+build/
+project.xcworkspace/
+xcuserdata/
+iOS-IMKit-demo/Libs/Debug/iOS_IMKit.framework/
+xcshareddata/
