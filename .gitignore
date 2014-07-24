@@ -1,12 +1,11 @@
-#忽略临时文件、目标文件等
+# Ignore files.
 *.o
 *.ldb  
 *.sln  
 .DS_Store
 
-#忽略文件夹
+# Ignore folders.
 bin/
-Libs/
 build/
 project.xcworkspace/
 xcuserdata/
