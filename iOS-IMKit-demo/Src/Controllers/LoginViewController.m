@@ -16,7 +16,12 @@
 
 #import "UserDataModel.h"
 
-#define RONGCLOUD_IM_APPKEY    @"e0x9wycfx7flq" //AppKey 请开发者到http://www.rongcloud.cn申请
+/*
+ *RONGCLOUD_IM_APPKEY说明： AppKey是应用与服务器通信的标识，请到http://www.rongcloud.cn申请。
+
+ 通信服务器的搭建可以参照<https://github.com/rongcloud/auth-service-nodejs>*
+ */
+#define RONGCLOUD_IM_APPKEY    @"e0x9wycfx7flq" //这个AppKey值RongCloud实例。
 
 #define NAVI_BAR_HEIGHT 44.0f
 
@@ -96,49 +101,6 @@
     //创建初始化页面
     [self layoutInitView];
     loginToken = nil;
-}
-//----Test code --need remove
--(void)copyDB
-{
-    return;
-    //获取应用程序的路径
-//    NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(
-//                                                               NSDocumentDirectory,
-//                                                               NSUserDomainMask,
-//                                                               YES);
-//    NSString *documentFolderPath = [searchPaths objectAtIndex:0];
-    NSString *documentFolderPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSLog(@"docoumentFolderPath=%@",documentFolderPath);
-    
-    //往应用程序路径中添加数据库文件名称，把它们拼接起来， 这里用到了宏定义（目的是不易出错)
-    NSString* dbFilePath = [documentFolderPath stringByAppendingPathComponent:@"/6/storage"];
-    NSLog(@"dbFilePath = %@",dbFilePath);
-    //1. 创建NSFileManager对象  NSFileManager包含了文件属性的方法
-    NSFileManager *fm = [NSFileManager defaultManager];
-    
-    //2. 通过 NSFileManager 对象 fm 来判断文件是否存在，存在 返回YES  不存在返回NO
-    BOOL isExist = [fm fileExistsAtPath:dbFilePath];
-    //- (BOOL)fileExistsAtPath:(NSString *)path;
-    
-    //如果不存在 isExist = NO，拷贝工程里的数据库到Documents下
-    if (!isExist)
-    {
-        //拷贝数据库
-        
-        //获取工程里，数据库的路径,因为我们已在工程中添加了数据库文件，所以我们要从工程里获取路径
-        NSString *backupDbPath = [[NSBundle mainBundle]
-                                  pathForResource:@"storage"
-                                  ofType:@""];
-        //这一步实现数据库的添加，
-        // 通过NSFileManager 对象的复制属性，把工程中数据库的路径拼接到应用程序的路径上
-        BOOL cp = [fm removeItemAtPath:dbFilePath error:nil];
-        cp = [fm copyItemAtPath:backupDbPath toPath:dbFilePath error:nil];
-        NSLog(@"cp = %d",cp);
-        //- (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error
-        NSLog(@"backupDbPath =%@",backupDbPath);
-        
-    }
-    NSLog(@"isExist =%d",isExist);
 }
 
 -(void)viewWillAppear:(BOOL)animated

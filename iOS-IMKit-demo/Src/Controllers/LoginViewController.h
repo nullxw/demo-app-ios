@@ -11,14 +11,6 @@
 #import "RCIM.h"
 #import "HomeViewController.h"
 
-#pragma mark Register TextField Tag enum
-//enum TAG_REGISTER_TEXTFIELD{
-//    
-//    Tag_EmailTextField  = 100,    //邮箱
-//    Tag_AccountTextField ,        //用户名
-//    Tag_TempPasswordTextField,    //登录密码
-//    Tag_ConfirmPasswordTextField, //确认登录密码
-//};
 
 @interface LoginViewController : UIViewController<RCConnectDelegate,HttpConnectionDelegate,UITextFieldDelegate>
 {
