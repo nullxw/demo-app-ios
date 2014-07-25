@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		512686E619750DAF00413B5C /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 512686E519750DAF00413B5C /* RongCloud.bundle */; };
 		B20391E4195A716500A2019F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20391E3195A716500A2019F /* SystemConfiguration.framework */; };
 		B225036819330B1D00D5E003 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B225036719330B1D00D5E003 /* QuartzCore.framework */; };
 		B225037619330BDB00D5E003 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B225037519330BDB00D5E003 /* libc++.dylib */; };
@@ -28,6 +27,8 @@
 		B267E05A1932E37400B5FFC3 /* RongCloud-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B267DFE01932E37400B5FFC3 /* RongCloud-Info.plist */; };
 		B267E0701932E37400B5FFC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B267E0061932E37400B5FFC3 /* AppDelegate.m */; };
 		B267E07A1932E37400B5FFC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B267E01D1932E37400B5FFC3 /* main.m */; };
+		B28C78601981FE62004B6B83 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C785F1981FE62004B6B83 /* HomeViewController.m */; };
+		B28C78621981FFA2004B6B83 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B28C78611981FFA2004B6B83 /* RongCloud.bundle */; };
 		B29AC0E319347E1800D38619 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29AC0E219347E1800D38619 /* libsqlite3.dylib */; };
 		B2B7A0F819752FC400FA140B /* input_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0EF19752FC400FA140B /* input_bg.png */; };
 		B2B7A0F919752FC400FA140B /* login_view_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F019752FC400FA140B /* login_view_bg.jpg */; };
@@ -53,7 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		512686E519750DAF00413B5C /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
 		B20391E3195A716500A2019F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B225036719330B1D00D5E003 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B225037519330BDB00D5E003 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -84,6 +84,9 @@
 		B267E0051932E37400B5FFC3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B267E0061932E37400B5FFC3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B267E01D1932E37400B5FFC3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B28C785E1981FE62004B6B83 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B28C785F1981FE62004B6B83 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B28C78611981FFA2004B6B83 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
 		B29AC0E219347E1800D38619 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		B2B7A0EF19752FC400FA140B /* input_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_bg.png; sourceTree = "<group>"; };
 		B2B7A0F019752FC400FA140B /* login_view_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_view_bg.jpg; sourceTree = "<group>"; };
@@ -232,8 +235,8 @@
 		B267DFC11932E37400B5FFC3 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				B28C78611981FFA2004B6B83 /* RongCloud.bundle */,
 				B2B7A0EE19752FC400FA140B /* Login */,
-				512686E519750DAF00413B5C /* RongCloud.bundle */,
 				B24014141935C44A004A8EF1 /* Images.xcassets */,
 				B24014061935C071004A8EF1 /* icons */,
 				B267DFC21932E37400B5FFC3 /* InfoPlist.strings */,
@@ -260,6 +263,8 @@
 		B267E0081932E37400B5FFC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B28C785E1981FE62004B6B83 /* HomeViewController.h */,
+				B28C785F1981FE62004B6B83 /* HomeViewController.m */,
 				B2D3DCBE1940204D008E8AB4 /* LoginViewController.h */,
 				B2D3DCBF1940204D008E8AB4 /* LoginViewController.m */,
 				B2D3DCC11940402F008E8AB4 /* RegistViewController.h */,
@@ -401,10 +406,10 @@
 				B2B7A0FA19752FC400FA140B /* login_view_login_btn_bg.png in Resources */,
 				B2B7A0F819752FC400FA140B /* input_bg.png in Resources */,
 				B2B7A0FC19752FC400FA140B /* login_view_regist_btn_bg.png in Resources */,
+				B28C78621981FFA2004B6B83 /* RongCloud.bundle in Resources */,
 				B240140E1935C071004A8EF1 /* icon-120.png in Resources */,
 				B24014151935C44A004A8EF1 /* Images.xcassets in Resources */,
 				B240140F1935C071004A8EF1 /* icon.png in Resources */,
-				512686E619750DAF00413B5C /* RongCloud.bundle in Resources */,
 				B2B7A0FF19752FC400FA140B /* split_line.png in Resources */,
 				B2B7A0FB19752FC400FA140B /* login_view_logo.png in Resources */,
 				B2B7A10019752FC400FA140B /* user_icon.png in Resources */,
@@ -423,6 +428,7 @@
 				B2FF115B196152380058A1F1 /* MMProgressHUDViewController.m in Sources */,
 				B2D3DCC01940204D008E8AB4 /* LoginViewController.m in Sources */,
 				B23DC79C1942D9B2009D9E1B /* UserDataModel.m in Sources */,
+				B28C78601981FE62004B6B83 /* HomeViewController.m in Sources */,
 				B2FF115A196152380058A1F1 /* MMProgressHUDOverlayView.m in Sources */,
 				B2D3DCC31940402F008E8AB4 /* RegistViewController.m in Sources */,
 				B2FF115E196152380058A1F1 /* MMVectorImage.m in Sources */,

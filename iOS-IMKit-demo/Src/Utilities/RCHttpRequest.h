@@ -3,7 +3,7 @@
 //  iOS-IMLib
 //
 //  Created by Heq.Shinoda on 14-6-9.
-//  Copyright (c) 2014年 Heq.Shinoda. All rights reserved.
+//  Copyright (c) 2014年 RongCloud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

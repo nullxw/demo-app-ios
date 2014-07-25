@@ -3,7 +3,7 @@
 //  iOS-IMKit-demo
 //
 //  Created by Heq.Shinoda on 14-6-5.
-//  Copyright (c) 2014年 Heq.Shinoda. All rights reserved.
+//  Copyright (c) 2014年 RongCloud. All rights reserved.
 //
 
 #import "LoginViewController.h"
@@ -20,8 +20,6 @@
 
 #define NAVI_BAR_HEIGHT 44.0f
 
-
-static UserDataModel* mainUser = nil; // 当前登录用户
 
 @interface LoginViewController () <RCIMFriendsFetcherDelegate, RCIMUserInfoFetcherDelegagte>
 @property(nonatomic, strong) NSMutableArray *allFriendsArray;
@@ -457,7 +455,7 @@ static UserDataModel* mainUser = nil; // 当前登录用户
             loginToken = token;
             
             UserDataModel* curUser = [[UserDataModel alloc] initWithUserData:[NSString stringWithFormat:@"%d",[[regDataDict objectForKey:KUserDataModel_Key_UserID] intValue]] userName:[regDataDict objectForKey:KUserDataModel_Key_UserName] userNamePY:@"" portrait:@"" user_Email:[regDataDict objectForKey:KUserDataModel_Key_UserEmail]];
-            mainUser = curUser;
+            [UserManager shareMainUser].mainUser = curUser;
             [self requestFriendsList];
         }
         else
@@ -522,7 +520,7 @@ static UserDataModel* mainUser = nil; // 当前登录用户
     //获取好友列表
     NSString *url = [NSString stringWithFormat:@"%@%@",FAKE_SERVER,@"friends"];
     
-    NSString* strParams = [NSString stringWithFormat:@"cookie=%@",mainUser.userEmail];
+    NSString* strParams = [NSString stringWithFormat:@"cookie=%@",[UserManager shareMainUser].mainUser.userEmail];
     NSLog(@"http reuqest body %@",strParams);
     self.friendRquest = [[RCHttpRequest alloc]init];
     self.friendRquest.tag = 1001;
@@ -536,7 +534,10 @@ static UserDataModel* mainUser = nil; // 当前登录用户
     [MMProgressHUD dismissWithSuccess:@"登录成功!"];
 //    [self copyDB];    //----need remove--
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[RCIM sharedRCIM] launchConversationList:self];
+        HomeViewController *temp = [[HomeViewController alloc]init];
+        
+        [self.navigationController pushViewController:temp animated:YES];
+//        [[RCIM sharedRCIM] launchConversationList:self];
     });
 }
 -(void)responseConnectError:(KConnectErrorCode)status

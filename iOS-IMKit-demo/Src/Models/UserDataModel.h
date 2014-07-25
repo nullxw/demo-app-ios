@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 #define KUserDataModel_Key_UserID       @"userId"
 #define KUserDataModel_Key_UserName     @"userName"
 #define KUserDataModel_Key_UserEmail    @"cookie"
@@ -22,4 +21,11 @@
 @property(nonatomic, strong) NSString* portraitPath;
 
 -(id)initWithUserData:(NSString*)aUID userName:(NSString*)aUName userNamePY:(NSString*)aUNPY portrait:(NSString*)aPortrait user_Email:(NSString*)aUserEmail;
+@end
+
+
+//-----User Manager----//
+@interface UserManager : NSObject
+@property(strong, atomic) UserDataModel* mainUser;
++(UserManager*)shareMainUser;
 @end

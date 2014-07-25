@@ -3,7 +3,7 @@
 //  iOS-IMKit-demo
 //
 //  Created by Heq.Shinoda on 14-6-5.
-//  Copyright (c) 2014年 Heq.Shinoda. All rights reserved.
+//  Copyright (c) 2014年 RongCloud. All rights reserved.
 //
 
 #import "RegistViewController.h"
