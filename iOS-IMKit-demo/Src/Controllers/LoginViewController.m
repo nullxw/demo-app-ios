@@ -418,6 +418,10 @@
             
             UserDataModel* curUser = [[UserDataModel alloc] initWithUserData:[NSString stringWithFormat:@"%d",[[regDataDict objectForKey:KUserDataModel_Key_UserID] intValue]] userName:[regDataDict objectForKey:KUserDataModel_Key_UserName] userNamePY:@"" portrait:@"" user_Email:[regDataDict objectForKey:KUserDataModel_Key_UserEmail]];
             [UserManager shareMainUser].mainUser = curUser;
+            
+            RCUserInfo *userInfo = [RCUserInfo new];
+            userInfo.userId = [regDataDict objectForKey:KUserDataModel_Key_UserID];
+            userInfo.name = [regDataDict objectForKey:KUserDataModel_Key_UserName];
             [self requestFriendsList];
         }
         else
@@ -490,23 +494,26 @@
 }
 
 
-#pragma mark - RCConnectToServerDelegate
--(void)responseConnectSuccess:(NSString *)userId
+#pragma mark - RCConnectFinishedDelegate
+-(void)responseConnectFinished:(KConnectErrorCode)status
 {
-    [MMProgressHUD dismissWithSuccess:@"登录成功!"];
-//    [self copyDB];    //----need remove--
-    dispatch_async(dispatch_get_main_queue(), ^{
-        HomeViewController *temp = [[HomeViewController alloc]init];
+    if(status == ConnectStatus__ACCEPTED)
+    {
+        [MMProgressHUD dismissWithSuccess:@"登录成功!"];
         
-        [self.navigationController pushViewController:temp animated:YES];
-//        [[RCIM sharedRCIM] launchConversationList:self];
-    });
-}
--(void)responseConnectError:(KConnectErrorCode)status
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MMProgressHUD dismissWithSuccess:[NSString stringWithFormat:@"登录失败！\n Code: %d！",status]];
-    });
+        
+            HomeViewController *temp = [[HomeViewController alloc]init];
+            
+            [self.navigationController pushViewController:temp animated:YES];
+            
+        
+    }
+    else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MMProgressHUD dismissWithSuccess:[NSString stringWithFormat:@"登录失败！\n Code: %d！",status]];
+        });
+    }
 }
 
 #pragma mark - RCIMFriendsFetcherDelegate method

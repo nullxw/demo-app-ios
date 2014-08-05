@@ -125,7 +125,7 @@
 
 -(void)layoutAllSubView
 {
-    UIImageView* emailBG = [[UIImageView alloc] initWithFrame:CGRectMake(13.f, 13.f, 294.f, 38.f)];
+    UIImageView* emailBG = [[UIImageView alloc] initWithFrame:CGRectMake(13.f, 13.f+(IOS_FSystenVersion>=7.0?64:0), 294.f, 38.f)];
     emailBG.backgroundColor = [UIColor whiteColor];
     emailBG.userInteractionEnabled = YES;
     emailBG.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -133,7 +133,7 @@
     emailBG.layer.borderWidth = 1.2;
     [self.view addSubview:emailBG];
     
-    UITextField *emailTF= [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 15.f)];
+    UITextField *emailTF= [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 19.f)];
     emailTF.tag = Tag_EmailTextField;
     emailTF.returnKeyType = UIReturnKeyDone;
     emailTF.delegate = self;
@@ -150,7 +150,7 @@
     passwordBG.layer.borderWidth = 1.2;
     [self.view addSubview:passwordBG];
     
-    UITextField *passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 15.f)];
+    UITextField *passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 19.f)];
     passwordTF.tag = Tag_TempPasswordTextField;
     passwordTF.returnKeyType = UIReturnKeyDone;
     passwordTF.secureTextEntry = YES;
@@ -166,7 +166,7 @@
     usernameBG.layer.borderWidth = 1.2;
     [self.view addSubview:usernameBG];
     
-    UITextField *userNameTF = [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 15.f)];
+    UITextField *userNameTF = [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 19.f)];
     userNameTF.tag = Tag_AccountTextField;
     userNameTF.returnKeyType = UIReturnKeyDone;
     userNameTF.delegate = self;
