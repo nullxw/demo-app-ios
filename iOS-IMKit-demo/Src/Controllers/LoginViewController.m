@@ -459,7 +459,7 @@
             NSString* deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"DeviceToken"];
             NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
             //----登录server----//
-            [RCIM initWithAppKey:appName appKey:RONGCLOUD_IM_APPKEY deviceToken:(deviceToken==nil)?@"":deviceToken];
+            [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:(deviceToken==nil)?@"":deviceToken];
             [RCIM connectWithToken:loginToken delegate:self];
             [RCIM setFriendsFetcherWithDelegate:self];
             [RCIM setUserInfoFetcherWithDelegate:self isCacheUserInfo:NO];
@@ -496,17 +496,27 @@
 
 
 #pragma mark - RCConnectFinishedDelegate
--(void)responseConnectFinished:(KConnectErrorCode)status
+-(void)responseConnectSuccess:(NSString *)userId
+{
+    [MMProgressHUD dismissWithSuccess:@"登录成功!"];
+    
+    
+    HomeViewController *temp = [[HomeViewController alloc]init];
+    
+    [self.navigationController pushViewController:temp animated:YES];
+}
+
+-(void)responseConnectError:(KConnectErrorCode)status
 {
     if(status == ConnectStatus__ACCEPTED)
     {
         [MMProgressHUD dismissWithSuccess:@"登录成功!"];
         
         
-            HomeViewController *temp = [[HomeViewController alloc]init];
-            
-            [self.navigationController pushViewController:temp animated:YES];
-            
+        HomeViewController *temp = [[HomeViewController alloc]init];
+        
+        [self.navigationController pushViewController:temp animated:YES];
+        
         
     }
     else
