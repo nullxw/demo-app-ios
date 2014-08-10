@@ -129,7 +129,7 @@
     //启动会话列表
     
     if (0==indexPath.row) {
-        UIViewController *temp = [[RCIM sharedRCIM]createConversationList];
+        UIViewController *temp = [[RCIM sharedRCIM]createConversationList:NULL];
         [self.navigationController pushViewController:temp animated:YES];
         
         //[[RCIM sharedRCIM] launchConversationList:self];
@@ -140,12 +140,12 @@
     //启动单聊
     if (1 == indexPath.row) {
         
-        UIViewController * temp= [[RCIM sharedRCIM]createPrivateChat:[UserManager shareMainUser ].mainUser.userId title:@"单聊"];
+        UIViewController * temp= [[RCIM sharedRCIM]createPrivateChat:[UserManager shareMainUser ].mainUser.userId title:@"单聊" completion:NULL];
         [self.navigationController pushViewController:temp animated:YES];
     }
     //启动客户
     if (2 == indexPath.row) {
-        [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"rongcloud.net.kefu.service112" title:@"客服"];
+        [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"rongcloud.net.kefu.service112" title:@"客服" completion:NULL];
     }
     
     //注销

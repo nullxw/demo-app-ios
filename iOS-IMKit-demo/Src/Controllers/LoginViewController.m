@@ -457,10 +457,11 @@
             }
             
             NSString* deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"DeviceToken"];
+            NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
             //----登录server----//
-            [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:(deviceToken==nil)?@"":deviceToken];
+            [RCIM initWithAppKey:appName appKey:RONGCLOUD_IM_APPKEY deviceToken:(deviceToken==nil)?@"":deviceToken];
             [RCIM connectWithToken:loginToken delegate:self];
-            [RCIM setFriendsListFetcherWithDelegate:self];
+            [RCIM setFriendsFetcherWithDelegate:self];
             [RCIM setUserInfoFetcherWithDelegate:self isCacheUserInfo:NO];
         }
         else
