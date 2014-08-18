@@ -117,9 +117,9 @@
 		B2D3DCBF1940204D008E8AB4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B2D3DCC11940402F008E8AB4 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		B2D3DCC21940402F008E8AB4 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		B2FA336019A1F31500D09433 /* RCloudClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCloudClientDelegate.h; sourceTree = "<group>"; };
 		B2FF1122195F02910058A1F1 /* RCConnectStatusDefination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConnectStatusDefination.h; sourceTree = "<group>"; };
 		B2FF1125195F02910058A1F1 /* RCIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCIM.h; sourceTree = "<group>"; };
-		B2FF1127195F02910058A1F1 /* RCloudClinetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCloudClinetDelegate.h; sourceTree = "<group>"; };
 		B2FF1128195F02910058A1F1 /* RCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMessage.h; sourceTree = "<group>"; };
 		B2FF1129195F02910058A1F1 /* RCUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserInfo.h; sourceTree = "<group>"; };
 		B2FF1148196152380058A1F1 /* MMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHud.h; sourceTree = "<group>"; };
@@ -329,9 +329,9 @@
 		B2FF1111195F010E0058A1F1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				B2FA336019A1F31500D09433 /* RCloudClientDelegate.h */,
 				B2FF1122195F02910058A1F1 /* RCConnectStatusDefination.h */,
 				B2FF1125195F02910058A1F1 /* RCIM.h */,
-				B2FF1127195F02910058A1F1 /* RCloudClinetDelegate.h */,
 				B2FF1128195F02910058A1F1 /* RCMessage.h */,
 				B2FF1129195F02910058A1F1 /* RCUserInfo.h */,
 			);
@@ -568,8 +568,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/Libs";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EE6C5180-3DF4-418E-ABD2-385BDA80F94A";
+				PROVISIONING_PROFILE = "bedc328a-0c0d-4182-92bc-0e9e5e744849";
 				VALID_ARCHS = "armv7 i386";
 				WRAPPER_EXTENSION = app;
 			};
@@ -593,6 +594,7 @@
 				INFOPLIST_FILE = "iOS-IMKit-demo/iOS-IMKit-demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/Libs";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "CFE5D2E7-E15A-4D4A-9B31-05C78CEF4FDE";
 				VALID_ARCHS = "armv7 i386";
