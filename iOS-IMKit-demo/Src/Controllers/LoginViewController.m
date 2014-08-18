@@ -21,7 +21,7 @@
 
  通信服务器的搭建可以参照<https://github.com/rongcloud/auth-service-nodejs>*
  */
-#define RONGCLOUD_IM_APPKEY    @"e0x9wycfx7flq" //这个AppKey值RongCloud实例。
+#define RONGCLOUD_IM_APPKEY    @"z3v5yqkbv8v30" //这个AppKey值RongCloud实例。
 
 #define NAVI_BAR_HEIGHT 44.0f
 
