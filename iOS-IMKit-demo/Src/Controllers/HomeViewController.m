@@ -145,7 +145,7 @@
     }
     //启动客户
     if (2 == indexPath.row) {
-        [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"rongcloud.net.kefu.service112" title:@"客服" completion:NULL];
+        [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
     }
     
     //注销
