@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "DemoUIConstantDefine.h"
 
+#define RONGCLOUD_IM_APPKEY    @"z3v5yqkbv8v30" //这个AppKey值RongCloud实例。
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -65,6 +67,7 @@
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"error:%@",error);
+    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -81,6 +84,7 @@
                         stringByReplacingOccurrencesOfString:@" " withString:@""];
     [[NSUserDefaults standardUserDefaults] setObject:dToken forKey:@"DeviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:(dToken==nil)?@"":dToken];
 }
 
 -(UIImage *)createImageWithColor:(UIColor *)color

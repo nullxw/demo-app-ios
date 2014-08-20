@@ -21,8 +21,6 @@
 
  通信服务器的搭建可以参照<https://github.com/rongcloud/auth-service-nodejs>*
  */
-#define RONGCLOUD_IM_APPKEY    @"z3v5yqkbv8v30" //这个AppKey值RongCloud实例。
-
 #define NAVI_BAR_HEIGHT 44.0f
 
 
@@ -456,10 +454,6 @@
                 [self.allFriendsArray addObject:userInfo];
             }
             
-            NSString* deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"DeviceToken"];
-            NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-            //----登录server----//
-            [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:(deviceToken==nil)?@"":deviceToken];
             [RCIM connectWithToken:loginToken delegate:self];
             [RCIM setFriendsFetcherWithDelegate:self];
             [RCIM setUserInfoFetcherWithDelegate:self isCacheUserInfo:NO];

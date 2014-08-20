@@ -46,6 +46,10 @@
         self.edgesForExtendedLayout =UIRectEdgeNone;
     }
     
+    [[RCIM sharedRCIM] setUserPortraitClickEvent:^(UIViewController *viewController, RCUserInfo *userInfo) {
+        NSLog(@"%@,%@",viewController,userInfo);
+    }];
+    
     self.navigationItem.hidesBackButton = YES;
     
     self.navigationController.navigationBar.hidden =NO;
