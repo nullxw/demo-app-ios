@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "UserDataModel.h"
+#import "UserInfoViewController.h"
 
 @interface HomeViewController ()
 
@@ -48,6 +49,21 @@
     
     [[RCIM sharedRCIM] setUserPortraitClickEvent:^(UIViewController *viewController, RCUserInfo *userInfo) {
         NSLog(@"%@,%@",viewController,userInfo);
+        
+        UserInfoViewController *temp = [[UserInfoViewController alloc]init];
+        temp.nameLabel.text = userInfo.name;
+        
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
+        
+        //导航和的配色保持一直
+        UIImage *image= [viewController.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+        
+        [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+        //[nav.navigationBar setBackgroundImage:self.navigationController.navigationBar. forBarMetrics:UIBarMetricsDefault];
+        
+        
+        [viewController presentViewController:nav animated:YES completion:NULL];
+        
     }];
     
     self.navigationItem.hidesBackButton = YES;

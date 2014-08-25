@@ -34,6 +34,7 @@
 		B267E05A1932E37400B5FFC3 /* RongCloud-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B267DFE01932E37400B5FFC3 /* RongCloud-Info.plist */; };
 		B267E0701932E37400B5FFC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B267E0061932E37400B5FFC3 /* AppDelegate.m */; };
 		B267E07A1932E37400B5FFC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B267E01D1932E37400B5FFC3 /* main.m */; };
+		B26D3F7219AB7DA200CEF8B4 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26D3F7119AB7DA200CEF8B4 /* UserInfoViewController.m */; };
 		B28C78601981FE62004B6B83 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C785F1981FE62004B6B83 /* HomeViewController.m */; };
 		B28C78621981FFA2004B6B83 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B28C78611981FFA2004B6B83 /* RongCloud.bundle */; };
 		B29AC0E319347E1800D38619 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29AC0E219347E1800D38619 /* libsqlite3.dylib */; };
@@ -98,6 +99,8 @@
 		B267E0051932E37400B5FFC3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B267E0061932E37400B5FFC3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B267E01D1932E37400B5FFC3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B26D3F7019AB7DA200CEF8B4 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		B26D3F7119AB7DA200CEF8B4 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		B28C785E1981FE62004B6B83 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B28C785F1981FE62004B6B83 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B28C78611981FFA2004B6B83 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 		B267E0081932E37400B5FFC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B26D3F7019AB7DA200CEF8B4 /* UserInfoViewController.h */,
+				B26D3F7119AB7DA200CEF8B4 /* UserInfoViewController.m */,
 				B28C785E1981FE62004B6B83 /* HomeViewController.h */,
 				B28C785F1981FE62004B6B83 /* HomeViewController.m */,
 				B2D3DCBE1940204D008E8AB4 /* LoginViewController.h */,
@@ -456,6 +461,7 @@
 				B2FF115B196152380058A1F1 /* MMProgressHUDViewController.m in Sources */,
 				B2D3DCC01940204D008E8AB4 /* LoginViewController.m in Sources */,
 				B23DC79C1942D9B2009D9E1B /* UserDataModel.m in Sources */,
+				B26D3F7219AB7DA200CEF8B4 /* UserInfoViewController.m in Sources */,
 				B28C78601981FE62004B6B83 /* HomeViewController.m in Sources */,
 				B2FF115A196152380058A1F1 /* MMProgressHUDOverlayView.m in Sources */,
 				B2D3DCC31940402F008E8AB4 /* RegistViewController.m in Sources */,

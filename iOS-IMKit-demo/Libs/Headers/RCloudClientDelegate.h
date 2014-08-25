@@ -19,35 +19,29 @@
 - (void)responseConnectError:(KConnectErrorCode)status;
 @end
 
-//异常状态监听
-@protocol RCConnectionStatusDelegate <NSObject>
--(void)receivedExpcetionStatus:(KExceptionStatus)status desc:(NSString*)description;
-@end
-
-
-
 //App网络连接状态
-@protocol RCEnvChangeNotifyDelegate <NSObject>
--(void)responseEnvChangedNotify:(KAppCurrentEnvironment)environmentType attachment:(NSString*)attachment;
+@protocol RCConnectionStatusDelegate <NSObject>
+-(void)receivedConnectionStatus:(KConnectionStatus)status desc:(NSString*)description;
 @end
 
 //发送消息返回.
 @protocol RCSendMessageDelegate <NSObject>
-- (void)responseSendMessageStatus:(KMessageSentStatus)status messageId:(long)messageId object:(id)object;
+- (void)responseSendMessageStatus:(KErrorCode)status messageId:(long)messageId object:(id)object;
 @optional
--(void)responseUploadFileProgress:(int)iProgress messageId:(long)messageId object:(id)object;//发送（如：图片或视频）文件返回进度状态。
--(void)responseUploadFileError:(int)nErrorCode messageId:(long)messageId object:(id)object;//发送（如：图片或视频）文件返回错误处理。
+-(void)responseProgress:(int)iProgress messageId:(long)messageId object:(id)object;//发送（如：图片或视频）文件返回进度状态。
+-(void)responseError:(int)nErrorCode messageId:(long)messageId object:(id)object;//发送（如：图片或视频）文件返回错误处理。
 @end
 
 //创建讨论组
 @protocol RCCreateDiscussionDelegate <NSObject>
 - (void)responseCreateDiscussionSuccess:(NSString*)discussionId discussionName:(NSString*)discussionName userIdList:(NSArray*)userIdList object:(id)object;
-- (void)responseCreateDiscussionError:(KDiscussionStatus)status;
+- (void)responseCreateDiscussionError:(KErrorCode)status;
 @end
 
 //讨论组：邀请、移除、退出
 @protocol RCOperationDelegate <NSObject>
-- (void)responseOperateDiscussionStatus:(KDiscussionStatus)status discussionId:(NSString*)discussionId memberIds:(NSArray*)memberIds removedUserId:(NSString*)removedUserId object:(id)object;
+- (void)responseOperateSuccess:(id)object;
+- (void)responseOperateError:(KErrorCode)status object:(id)object;
 @end
 
 //设置接收消息返回监听.
@@ -55,30 +49,28 @@
 -(void)responseOnReceived:(RCMessage*)message object:(id)object;
 @end
 
-////发送文件回调
-//@protocol RCUploadFileDelegate <NSObject>
-//-(void)responseUploadFileProgress:(int)iProgress userInfo:(NSDictionary*)userInfo;//发送（如：图片或视频）文件返回进度状态。
-//-(void)responseUploadFileError:(int)nErrorCode ErrDescription:(NSString*)strDescription type:(int)type userInfo:(NSDictionary*)userInfo;//发送（如：图片或视频）文件返回错误处理。
-//@end
 
 //下载文件回调
 @protocol RCDownloadMediaDelegate <NSObject>
-//-(void)responseDownloadFile:(NSData*)dataFromDown;
--(void)responseFileDownloadProgress:(int)iProgress object:(id)object;//接收（如：图片或视频）文件返回进度状态。
--(void)responseFileDownloadFinished:(int)nErrorCode imagePath:(NSString*)imagePath object:(id)object;//发送（如：图片或视频）文件返回错误处理。
+-(void)responseProgress:(int)iProgress object:(id)object;//接收（如：图片或视频）文件返回进度状态。
+-(void)responseSuccess:(NSString*)localMediaPath;//成功（如：图片或视频）文件返回进度状态。
+-(void)responseError:(int)nErrorCode object:(id)object;//发送（如：图片或视频）文件返回错误处理。
 @end
 
 //获取用户信息
 @protocol RCGetUserInfoDelegate<NSObject>
 //-获取用户信息返回函数。
--(void)responseGetUserInfo:(RCUserInfo*)userInfo;
+-(void)responseGetUserInfoSuccess:(RCUserInfo*)userInfo;
+-(void)responseGetUserInfoError:(KErrorCode)status;
 @end
 
 //获取讨论组信息
 @protocol RCGetDiscussionDelegate<NSObject>
 //-获取用户信息返回函数。
--(void)responseDiscussionInfo:(RCDiscussionInfo*)discussionInfo object:(id)object;
+-(void)responseDiscussionInfoSuccess:(RCDiscussionInfo*)discussionInfo object:(id)object;
+-(void)responseDiscussionInfoError:(KErrorCode)status object:(id)object;
 @end
+
 
 
 

@@ -502,7 +502,7 @@
 
 -(void)responseConnectError:(KConnectErrorCode)status
 {
-    if(status == ConnectStatus__ACCEPTED)
+    if(status == 0)
     {
         [MMProgressHUD dismissWithSuccess:@"登录成功!"];
         
