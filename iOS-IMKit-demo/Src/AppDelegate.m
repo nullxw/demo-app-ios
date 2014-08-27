@@ -32,7 +32,11 @@
     [self.window makeKeyAndVisible];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
+#if TARGET_IPHONE_SIMULATOR
+    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
+#else
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
+#endif//TARGET_IPHONE_SIMULATOR
     
     return YES;
 }
