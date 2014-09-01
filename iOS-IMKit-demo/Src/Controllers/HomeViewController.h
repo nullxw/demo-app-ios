@@ -13,5 +13,6 @@
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dataList;
+@property (nonatomic,strong)UISegmentedControl *segment;
 
 @end
