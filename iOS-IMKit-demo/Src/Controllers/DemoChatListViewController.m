@@ -8,6 +8,7 @@
 
 #import "DemoChatListViewController.h"
 #import "DemoChatViewController.h"
+#import "RCSelectPersonViewController.h"
 
 @implementation DemoChatListViewController
 

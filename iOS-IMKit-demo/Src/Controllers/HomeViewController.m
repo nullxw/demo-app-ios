@@ -10,6 +10,10 @@
 #import "UserDataModel.h"
 #import "UserInfoViewController.h"
 
+#import "DemoChatListViewController.h"
+#import "DemoChatViewController.h"
+#import "RCHandShakeMessage.h"
+
 @interface HomeViewController ()
 
 @end
@@ -46,6 +50,13 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         self.edgesForExtendedLayout =UIRectEdgeNone;
     }
+    
+    NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"Normal",@"Custom",nil];
+    self.segment = [[UISegmentedControl alloc]initWithItems:segmentedArray];
+    self.segment.segmentedControlStyle = UISegmentedControlStyleBar;
+    self.segment.selectedSegmentIndex = 0;
+    self.segment.tintColor = [UIColor whiteColor];
+    self.navigationItem.titleView  = self.segment;
     
     [[RCIM sharedRCIM] setUserPortraitClickEvent:^(UIViewController *viewController, RCUserInfo *userInfo) {
         NSLog(@"%@,%@",viewController,userInfo);
@@ -148,32 +159,99 @@
     
     //启动会话列表
     
-    if (0==indexPath.row) {
-        UIViewController *temp = [[RCIM sharedRCIM]createConversationList:NULL];
-        [self.navigationController pushViewController:temp animated:YES];
+    if (0 == self.segment.selectedSegmentIndex) {
         
-        //[[RCIM sharedRCIM] launchConversationList:self];
-    }
-    
-    
-    
-    //启动单聊
-    if (1 == indexPath.row) {
+        if (0==indexPath.row) {
+            UIViewController *temp = [[RCIM sharedRCIM]createConversationList:NULL];
+            [self.navigationController pushViewController:temp animated:YES];
+            
+            //[[RCIM sharedRCIM] launchConversationList:self];
+        }
         
-        UIViewController * temp= [[RCIM sharedRCIM]createPrivateChat:[UserManager shareMainUser ].mainUser.userId title:@"单聊" completion:NULL];
-        [self.navigationController pushViewController:temp animated:YES];
-    }
-    //启动客户
-    if (2 == indexPath.row) {
-        [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
+        
+        
+        //启动单聊
+        if (1 == indexPath.row) {
+            
+            UIViewController * temp= [[RCIM sharedRCIM]createPrivateChat:[UserManager shareMainUser ].mainUser.userId title:@"单聊" completion:NULL];
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        //启动客户
+        if (2 == indexPath.row) {
+            
+            //线上
+            //[[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
+            
+            //测试
+            [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
+        }
+        
+        //注销
+        if (3 == indexPath.row) {
+            [[RCIM sharedRCIM] disconnect];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
     }
     
-    //注销
-    if (3 == indexPath.row) {
-        [[RCIM sharedRCIM] disconnect];
-        [self.navigationController popViewControllerAnimated:YES];
+    //自定义模式
+    if (1 == self.segment.selectedSegmentIndex) {
+        
+        if (0==indexPath.row) {
+            
+            DemoChatListViewController *temp = [[DemoChatListViewController alloc]init];
+            
+            [self.navigationController pushViewController:temp animated:YES];
+            
+            //[[RCIM sharedRCIM] launchConversationList:self];
+        }
+        
+        
+        
+        //启动单聊
+        if (1 == indexPath.row) {
+            
+            DemoChatViewController *temp = [[DemoChatViewController alloc]init];
+            
+            temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
+            temp.conversationType = ConversationType_PRIVATE;
+            temp.currentTargetName = @"单聊";
+            temp.isPriavteChat = YES;
+            
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        //启动客户
+        if (2 == indexPath.row) {
+            NSString *customerServiceUserId = @"kefu114";
+            //线上
+            //[[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
+            
+            //测试
+            //[[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:customerServiceUserId title:@"客服" completion:NULL];
+            
+            
+            DemoChatViewController *temp = [[DemoChatViewController alloc]init];
+            
+            temp.currentTarget = @"kefu114";
+            temp.conversationType = ConversationType_PRIVATE;
+            temp.currentTargetName = @"客服";
+            temp.isPriavteChat = YES;
+            temp.enableViop = NO;
+            RCHandShakeMessage* textMsg = [[RCHandShakeMessage alloc] initWithType:1];
+            [[RCIM sharedRCIM] sendMessageWithConversationType:ConversationType_PRIVATE targetId:customerServiceUserId content:textMsg delegate:nil];
+            
+            [self.navigationController pushViewController:temp animated:YES];
+            
+            
+        }
+        
+        //注销
+        if (3 == indexPath.row) {
+            [[RCIM sharedRCIM] disconnect];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
     }
-    
 }
 /*
 #pragma mark - Navigation

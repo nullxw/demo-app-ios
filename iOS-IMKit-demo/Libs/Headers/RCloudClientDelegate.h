@@ -34,7 +34,7 @@
 
 //创建讨论组
 @protocol RCCreateDiscussionDelegate <NSObject>
-- (void)responseCreateDiscussionSuccess:(NSString*)discussionId discussionName:(NSString*)discussionName userIdList:(NSArray*)userIdList object:(id)object;
+- (void)responseCreateDiscussionSuccess:(RCDiscussionInfo*)discussInfo object:(id)object;
 - (void)responseCreateDiscussionError:(KErrorCode)status;
 @end
 
