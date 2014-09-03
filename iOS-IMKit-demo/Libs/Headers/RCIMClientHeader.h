@@ -14,7 +14,7 @@
 #import "RCConversation.h"
 #import "RCImageMessage.h"
 #import "RCIMClient.h"
-#import "RCloudClientDelegate.h"
+#import "RCClientDelegate.h"
 #import "RCMessage.h"
 #import "RCMessageContent.h"
 #import "RCTextMessage.h"

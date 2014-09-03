@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "RCloudClientDelegate.h"
+#import "RCClientDelegate.h"
 #import "RCUserInfo.h"
 
 
@@ -58,19 +58,6 @@
 @end
 
 /**
- *  服务器连接返回状态。
- */
-@protocol RCConnectFinishedDelegate <NSObject>
-/**
- *  /
- *
- *  @param status 返回链接code
- */
--(void)responseConnectSuccess:(NSString*)userId;
--(void)responseConnectError:(KConnectErrorCode)status;
-@end
-
-/**
  *  IM 界面组件核心类。
  *
  *  所有 IM 相关界面、功能都由此调用和设置。
@@ -98,7 +85,7 @@
  *  @param token    从服务端获取的用户身份令牌（Token）</a>。
  *  @param delegate 登录回调。
  */
-+(void)connectWithToken:(NSString*)token delegate:(id<RCConnectFinishedDelegate>)delegate;
++(void)connectWithToken:(NSString*)token completion:(void (^)(NSString* userId))completion error:(void (^)(KConnectErrorCode status))error;
 
 /**
  *  设置获取好友列表的获取器，供 RongIM 调用获取好友列表以及好友的名称和头像信息。

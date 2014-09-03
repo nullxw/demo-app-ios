@@ -1,5 +1,5 @@
 //
-//  RCloudClientDelegate.h
+//  RCClientDelegate.h
 //  iOS-IMLib
 //
 //  Created by Heq.Shinoda on 14-6-12.

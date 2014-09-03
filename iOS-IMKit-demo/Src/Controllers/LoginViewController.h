@@ -12,7 +12,7 @@
 #import "HomeViewController.h"
 
 
-@interface LoginViewController : UIViewController<RCConnectFinishedDelegate,HttpConnectionDelegate,UITextFieldDelegate>
+@interface LoginViewController : UIViewController<HttpConnectionDelegate,UITextFieldDelegate>
 {
     NSString* loginToken;
 }

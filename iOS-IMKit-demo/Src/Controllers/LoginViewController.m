@@ -454,7 +454,28 @@
                 [self.allFriendsArray addObject:userInfo];
             }
             
-            [RCIM connectWithToken:loginToken delegate:self];
+            typeof(self) __weak weakSelf = self;
+            [RCIM connectWithToken:loginToken completion:^(NSString *userId) {
+                [MMProgressHUD dismissWithSuccess:@"登录成功!"];
+                
+                HomeViewController *temp = [[HomeViewController alloc]init];
+                
+                [weakSelf.navigationController pushViewController:temp animated:YES];
+            } error:^(KConnectErrorCode status) {
+                if(status == 0)
+                {
+                    [MMProgressHUD dismissWithSuccess:@"登录成功!"];
+                    
+                    HomeViewController *temp = [[HomeViewController alloc]init];
+                    
+                    [weakSelf.navigationController pushViewController:temp animated:YES];
+                }
+                else
+                {
+                    [MMProgressHUD dismissWithSuccess:[NSString stringWithFormat:@"登录失败！\n Code: %d！",status]];
+                }
+            }];
+            
             [RCIM setFriendsFetcherWithDelegate:self];
             [RCIM setUserInfoFetcherWithDelegate:self isCacheUserInfo:NO];
         }
@@ -486,39 +507,6 @@
     self.friendRquest = [[RCHttpRequest alloc]init];
     self.friendRquest.tag = 1001;
     [self.friendRquest httpConnectionWithURL:url bodyData:[strParams dataUsingEncoding:NSUTF8StringEncoding] delegate:self];
-}
-
-
-#pragma mark - RCConnectFinishedDelegate
--(void)responseConnectSuccess:(NSString *)userId
-{
-    [MMProgressHUD dismissWithSuccess:@"登录成功!"];
-    
-    
-    HomeViewController *temp = [[HomeViewController alloc]init];
-    
-    [self.navigationController pushViewController:temp animated:YES];
-}
-
--(void)responseConnectError:(KConnectErrorCode)status
-{
-    if(status == 0)
-    {
-        [MMProgressHUD dismissWithSuccess:@"登录成功!"];
-        
-        
-        HomeViewController *temp = [[HomeViewController alloc]init];
-        
-        [self.navigationController pushViewController:temp animated:YES];
-        
-        
-    }
-    else
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MMProgressHUD dismissWithSuccess:[NSString stringWithFormat:@"登录失败！\n Code: %d！",status]];
-        });
-    }
 }
 
 #pragma mark - RCIMFriendsFetcherDelegate method

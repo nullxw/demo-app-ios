@@ -139,12 +139,12 @@
 		B2B7A0F619752FC400FA140B /* split_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = split_line.png; sourceTree = "<group>"; };
 		B2B7A0F719752FC400FA140B /* user_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_icon.png; sourceTree = "<group>"; };
 		B2C5128A1937128D00828B31 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B2CEEA2919B7219900DC76B4 /* RCClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCClientDelegate.h; sourceTree = "<group>"; };
 		B2D05E0A1953E84C0084351E /* iOS_IMKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = iOS_IMKit.a; sourceTree = "<group>"; };
 		B2D3DCBE1940204D008E8AB4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B2D3DCBF1940204D008E8AB4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B2D3DCC11940402F008E8AB4 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		B2D3DCC21940402F008E8AB4 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
-		B2FA336019A1F31500D09433 /* RCloudClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCloudClientDelegate.h; sourceTree = "<group>"; };
 		B2FF1122195F02910058A1F1 /* RCConnectStatusDefination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConnectStatusDefination.h; sourceTree = "<group>"; };
 		B2FF1125195F02910058A1F1 /* RCIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCIM.h; sourceTree = "<group>"; };
 		B2FF1128195F02910058A1F1 /* RCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMessage.h; sourceTree = "<group>"; };
@@ -364,6 +364,7 @@
 		B2FF1111195F010E0058A1F1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				B2CEEA2919B7219900DC76B4 /* RCClientDelegate.h */,
 				5160E0ED19B497C600983874 /* RCHandShakeMessage.h */,
 				5160E0DF19B4972C00983874 /* RCBasicViewController.h */,
 				5160E0E019B4972C00983874 /* RCChatListViewController.h */,
@@ -379,7 +380,6 @@
 				5160E0EA19B4972C00983874 /* RCSelectPersonViewController.h */,
 				5160E0EB19B4972C00983874 /* RCTextMessage.h */,
 				5160E0EC19B4972C00983874 /* RCVoiceMessage.h */,
-				B2FA336019A1F31500D09433 /* RCloudClientDelegate.h */,
 				B2FF1122195F02910058A1F1 /* RCConnectStatusDefination.h */,
 				B2FF1125195F02910058A1F1 /* RCIM.h */,
 				B2FF1128195F02910058A1F1 /* RCMessage.h */,

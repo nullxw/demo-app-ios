@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 RongCloud. All rights reserved.
 //
 
-#include "RCloudClientDelegate.h"
+#include "RCClientDelegate.h"
 
 @class RCNotificationMessage;
 @class RCStatusMessage;
@@ -205,8 +205,8 @@
  *  @param delegate     获取讨论组的回调。
  *  @param userData     用户自定义数据，该值会在 delegate 中返回。
  */
--(void)getDiscussion:(NSString*)discussionId conversationType:(KConversationType)conversationType delegate:(id<RCGetDiscussionDelegate>)delegate isGetFromServer:(BOOL)isGetFromServer object:(id)userData;
--(void)getDiscussion:(NSString*)discussionId conversationType:(KConversationType)conversationType completion:(void (^)(RCDiscussionInfo* dInfo))completion error:(void (^)(KErrorCode status))error isGetFromServer:(BOOL)isGetFromServer;
+-(void)getDiscussion:(NSString*)discussionId conversationType:(KConversationType)conversationType delegate:(id<RCGetDiscussionDelegate>)delegate object:(id)userData;
+-(void)getDiscussion:(NSString*)discussionId conversationType:(KConversationType)conversationType completion:(void (^)(RCDiscussionInfo* dInfo))completion error:(void (^)(KErrorCode status))error;
 
 /**
  *  创建讨论组。
