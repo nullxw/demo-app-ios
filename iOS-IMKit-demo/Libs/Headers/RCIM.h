@@ -209,6 +209,14 @@
 -(void)disconnect;
 
 /**
+ *  获取会话列表
+ *
+ *  @return 返回会话RCConversation数组
+ */
+-(NSArray*)getConversationList;
+
+
+/**
  *  获取所有未读消息数。
  *
  *  @return 未读消息数。
