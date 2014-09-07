@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "RCMessageContent.h"
-#import "RCConnectStatusDefination.h"
+#import "RCStatusDefine.h"
 
 
 @interface RCConversation : NSObject
-@property(nonatomic, assign) KConversationType conversationType;
+@property(nonatomic, assign) RCConversationType conversationType;
 @property(nonatomic, strong) NSString* targetId;
 @property(nonatomic, strong) NSString* conversationTitle;
 @property(nonatomic, assign) int unreadMessageCount;
 @property(nonatomic, assign) BOOL isTop;
-@property(nonatomic, assign) KReceivedStatus receivedStatus;
-@property(nonatomic, assign) KSentStatus sentStatus;
+@property(nonatomic, assign) RCReceivedStatus receivedStatus;
+@property(nonatomic, assign) RCSentStatus sentStatus;
 @property(nonatomic, assign) long long receivedTime;
 @property(nonatomic, assign) long long sentTime;
 @property(nonatomic, strong) NSString* draft;

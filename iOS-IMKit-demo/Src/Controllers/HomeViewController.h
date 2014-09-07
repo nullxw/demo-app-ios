@@ -15,4 +15,6 @@
 @property (nonatomic,strong)NSMutableArray *dataList;
 @property (nonatomic,strong)UISegmentedControl *segment;
 
+@property (nonatomic,strong)NSMutableArray *groupList;
+
 @end

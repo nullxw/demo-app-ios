@@ -11,15 +11,15 @@
 
 @interface RCImageMessage : RCMessageContent
 @property(nonatomic, strong) UIImage* thumbnailImage;
-@property(nonatomic, strong) NSString* imageKey;
-@property(nonatomic, strong) NSString* imageUri;
+//@property(nonatomic, strong) NSString* imageKey;
+@property(nonatomic, strong) NSString* imageUrl;
 @property(nonatomic, strong) UIImage* originalImage;
 
--(RCImageMessage*)initWithImagePath:(NSString*)imageUri;
+-(RCImageMessage*)initWithImagePath:(NSString*)imageUrl;
 
 -(RCImageMessage*)initWithOriginalImage:(UIImage*)oriImage;
 
 +(NSString*)getClassObjectName;
-+(int)getClassObjectFlag;
++(RCMessagePersistent)getClassObjectFlag;
 +(void)setObjectFlag:(int)objFlag;
 @end

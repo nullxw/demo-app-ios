@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RCCommonDefine.h"
-#import "RCConnectStatusDefination.h"
+#import "RCStatusDefine.h"
 
 @interface RCMessageContent : NSObject
 {
-@protected KConversationType conversationType;
+@protected RCConversationType conversationType;
 @private NSString* targetId;
 }
 @property(nonatomic, strong) NSString* jsonData;

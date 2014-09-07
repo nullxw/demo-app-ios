@@ -11,22 +11,23 @@
 #import "RCBasicViewController.h"
 #import "RCIMClientHeader.h"
 #import "RCSelectPersonViewController.h"
+#import "RCGroupListViewController.h"
 
 typedef enum{
     TableIsScroll = 0,
     TableIsForbiddenScroll
 }IsAllowScroll;
-
 @interface RCChatListViewController : RCBasicViewController<RCSelectPersonViewControllerDelegate>
 {
     NSTimeInterval startTime, endTime;
     BOOL isNeedPlaySound;
 }
 @property(nonatomic, strong) NSMutableArray* allConversationItemData;
-@property(nonatomic, strong) NSMutableArray* allConversationItemCell;
+//@property(nonatomic, strong) NSMutableArray* allConversationItemCell;
 @property (strong, nonatomic) UITableView *conversationListView;
 @property(nonatomic, assign) IsAllowScroll isAllowScroll;
 @property(nonatomic, assign) NSInteger editingCellNum;
+@property (nonatomic, strong) RCGroupListViewController* currentGroupListView;
 
 - (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 /**
@@ -70,7 +71,7 @@ typedef enum{
  *
  *  @return chatController
  */
--(id)getChatController:(NSString*)targetId conversationType:(KConversationType)conversationType;
+-(id)getChatController:(NSString*)targetId conversationType:(RCConversationType)conversationType;
 
 
 @end

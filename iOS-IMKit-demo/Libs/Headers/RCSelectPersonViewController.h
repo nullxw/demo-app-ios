@@ -21,7 +21,7 @@ typedef enum {
 
 
 @class RCBasicViewController;
-@class RCDiscussionInfo;
+@class RCDiscussion;
 @class RCUserInfo;
 @protocol RCSelectPersonViewControllerDelegate;
 
@@ -42,7 +42,7 @@ typedef enum {
 
 
 //邀请模式下，传递讨论组信息
-@property (nonatomic,strong) RCDiscussionInfo *discussionInfo_invite;
+@property (nonatomic,strong) RCDiscussion *discussionInfo_invite;
 
 //设置选择模式
 @property (nonatomic,assign) UseMode useMode;

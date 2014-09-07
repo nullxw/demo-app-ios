@@ -9,12 +9,13 @@
 #import "HomeViewController.h"
 #import "UserDataModel.h"
 #import "UserInfoViewController.h"
-
 #import "DemoChatListViewController.h"
 #import "DemoChatViewController.h"
 #import "RCHandShakeMessage.h"
+#import "RCGroup.h"
+#import "DemoCommonConfig.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<RCIMConnectionStatusDelegate>
 
 @end
 
@@ -25,6 +26,31 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.groupList = [[NSMutableArray alloc]init];
+        
+        RCGroup *group001 = [[RCGroup alloc]init];
+        group001.groupId = @"group001";
+        group001.groupName =@"融云群聊group001";
+        [_groupList addObject:group001];
+        
+        RCGroup *group002 = [[RCGroup alloc]init];
+        group002.groupId = @"group002";
+        group002.groupName =@"融云群聊group002";
+        [_groupList addObject:group002];
+        
+        RCGroup *group003 = [[RCGroup alloc]init];
+        group003.groupId = @"group003";
+        group003.groupName =@"融云群聊group003";
+        [_groupList addObject:group003];
+        
+        [[RCIMClient sharedRCIMClient]syncGroups:_groupList completion:^{
+            
+        } error:^(RCErrorCode status) {
+            NSLog(@"同步群数据status%d",status);
+        }];
+        
+        
+        
     }
     return self;
 }
@@ -51,19 +77,20 @@
         self.edgesForExtendedLayout =UIRectEdgeNone;
     }
     
-    NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"Normal",@"Custom",nil];
+     NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"默认",@"自定义",nil];
     self.segment = [[UISegmentedControl alloc]initWithItems:segmentedArray];
     self.segment.segmentedControlStyle = UISegmentedControlStyleBar;
     self.segment.selectedSegmentIndex = 0;
     self.segment.tintColor = [UIColor whiteColor];
     self.navigationItem.titleView  = self.segment;
     
+    
     [[RCIM sharedRCIM] setUserPortraitClickEvent:^(UIViewController *viewController, RCUserInfo *userInfo) {
         NSLog(@"%@,%@",viewController,userInfo);
         
         UserInfoViewController *temp = [[UserInfoViewController alloc]init];
         temp.nameLabel.text = userInfo.name;
-        
+  
         UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
         
         //导航和的配色保持一直
@@ -72,10 +99,11 @@
         [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
         //[nav.navigationBar setBackgroundImage:self.navigationController.navigationBar. forBarMetrics:UIBarMetricsDefault];
         
-        
+
         [viewController presentViewController:nav animated:YES completion:NULL];
-        
+
     }];
+    
     
     self.navigationItem.hidesBackButton = YES;
     
@@ -83,7 +111,7 @@
     
     self.dataList = [NSMutableArray array];
     
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<7; i++) {
         
         UITableViewCell* cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         
@@ -100,7 +128,23 @@
             cell.textLabel.text = @"启动客服";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-        if (3==i) {
+        
+        if (3 ==i) {
+            cell.textLabel.text = @"启动群聊group001";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+        if (4 ==i) {
+            cell.textLabel.text = @"启动群聊group002";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+        if (5 ==i) {
+            cell.textLabel.text = @"启动群聊group003";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+        if (6 == i) {
             cell.textLabel.text = @"注销";
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
@@ -127,8 +171,25 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
     
-    self.navigationItem.title = @"DEMO";
+    
+    [[RCIM sharedRCIM]setConnectionStatusDelegate:self];
+
+    
+    //self.navigationItem.title = @"DEMO";
    // self.navigationItem.leftBarButtonItem = nil;
+}
+
+-(void)responseConnectionStatus:(RCConnectionStatus)status{
+    if (ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT == status) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"您已下线，重新连接？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定",nil];
+            alert.tag = 2000;
+            [alert show];
+        });
+        
+        
+    }
 }
 - (void)didReceiveMemoryWarning
 {
@@ -186,12 +247,46 @@
             [[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
         }
         
-        //注销
         if (3 == indexPath.row) {
+            
+            RCGroup *group = [_groupList objectAtIndex:0];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = group.groupId;
+            temp.conversationType = ConversationType_GROUP;
+            temp.currentTargetName = group.groupName;
+            [self.navigationController pushViewController:temp animated:YES];
+            
+        }
+        
+        if (4 == indexPath.row) {
+            
+            RCGroup *group = [_groupList objectAtIndex:1];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = group.groupId;
+            temp.conversationType = ConversationType_GROUP;
+            temp.currentTargetName = group.groupName;
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
+        if (5 == indexPath.row) {
+            
+            RCGroup *group = [_groupList objectAtIndex:2];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = group.groupId;
+            temp.conversationType = ConversationType_GROUP;
+            temp.currentTargetName = group.groupName;
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
+        //注销
+        if (6 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect];
             [self.navigationController popViewControllerAnimated:YES];
         }
-        
+
     }
     
     //自定义模式
@@ -238,7 +333,7 @@
             temp.isPriavteChat = YES;
             temp.enableViop = NO;
             RCHandShakeMessage* textMsg = [[RCHandShakeMessage alloc] initWithType:1];
-            [[RCIM sharedRCIM] sendMessageWithConversationType:ConversationType_PRIVATE targetId:customerServiceUserId content:textMsg delegate:nil];
+            [[RCIM sharedRCIM] sendMessage:ConversationType_PRIVATE targetId:customerServiceUserId content:textMsg delegate:nil];
             
             [self.navigationController pushViewController:temp animated:YES];
             
@@ -246,7 +341,7 @@
         }
         
         //注销
-        if (3 == indexPath.row) {
+        if (6 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect];
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -264,4 +359,22 @@
 }
 */
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (2000 == alertView.tag) {
+        
+        if (0 == buttonIndex) {
+            
+            NSLog(@"NO");
+        }
+        
+        if (1 == buttonIndex) {
+            
+            NSLog(@"YES");
+            
+            [RCIMClient reconnect:nil];
+        }
+    }
+    
+}
 @end

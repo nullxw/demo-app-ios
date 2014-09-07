@@ -14,6 +14,6 @@
 -(RCTextMessage*)initWithContent:(NSString *)content;
 
 +(NSString*)getClassObjectName;
-+(int)getClassObjectFlag;
++(RCMessagePersistent)getClassObjectFlag;
 +(void)setObjectFlag:(int)objFlag;
 @end

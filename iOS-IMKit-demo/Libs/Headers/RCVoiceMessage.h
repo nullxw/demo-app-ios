@@ -16,6 +16,6 @@
 -(RCVoiceMessage*)initWithAudioData:(NSData*)wavData duration:(long)duration;
 
 +(NSString*)getClassObjectName;
-+(int)getClassObjectFlag;
++(RCMessagePersistent)getClassObjectFlag;
 +(void)setObjectFlag:(int)objFlag;
 @end

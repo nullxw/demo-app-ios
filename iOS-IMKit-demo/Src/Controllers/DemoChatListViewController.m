@@ -8,7 +8,7 @@
 
 #import "DemoChatListViewController.h"
 #import "DemoChatViewController.h"
-#import "RCSelectPersonViewController.h"
+#import "DemoGroupListViewController.h"
 
 @implementation DemoChatListViewController
 
@@ -131,7 +131,7 @@
 
     //[[RCIMClient sharedRCIMClient] createDiscussion:discussionName userIdList:memberIdArray delegate:self object:nil];
     
-    [[RCIMClient sharedRCIMClient]createDiscussion:discussionName userIdList:memberIdArray completion:^(RCDiscussionInfo *discussInfo) {
+    [[RCIMClient sharedRCIMClient]createDiscussion:discussionName userIdList:memberIdArray completion:^(RCDiscussion *discussInfo) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -149,7 +149,7 @@
         
         
         
-    } error:^(KErrorCode status) {
+    } error:^(RCErrorCode status) {
         UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"创建讨论组失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alert show];
     }];
@@ -161,6 +161,15 @@
  *  @param conversation <#conversation description#>
  */
 -(void)onSelectedTableRow:(RCConversation*)conversation{
+    
+    
+    if(conversation.conversationType == ConversationType_GROUP)
+    {
+        DemoGroupListViewController* groupVC = [[DemoGroupListViewController alloc] init];
+        self.currentGroupListView = groupVC;
+        [self.navigationController pushViewController:groupVC animated:YES];
+        return;
+    }
     
     DemoChatViewController* chat = [self getChatController:conversation.targetId conversationType:conversation.conversationType];
     if (nil == chat) {

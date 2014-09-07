@@ -51,7 +51,7 @@ typedef enum
 @property (strong, nonatomic) RCConversationTableHeaderView *tableHeaderView;
 
 
-@property (nonatomic,assign) KConversationType conversationType;
+@property (nonatomic,assign) RCConversationType conversationType;
 @property (nonatomic,strong) NSString* currentTarget;
 @property (nonatomic,strong) NSString* currentTargetName;
 

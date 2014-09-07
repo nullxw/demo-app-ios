@@ -10,7 +10,7 @@
 #import "MMProgressHUD.h"
 #import "RCHttpRequest.h"
 #import "DemoUIConstantDefine.h"
-
+#import "DemoCommonConfig.h"
 
 
 @interface RegistViewController ()<UITextFieldDelegate,HttpConnectionDelegate>

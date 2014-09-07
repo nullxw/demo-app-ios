@@ -15,6 +15,7 @@
 #import "DemoUIConstantDefine.h"
 
 #import "UserDataModel.h"
+#import "DemoCommonConfig.h"
 
 /*
  *RONGCLOUD_IM_APPKEY说明： AppKey是应用与服务器通信的标识，请到http://www.rongcloud.cn申请。
@@ -461,7 +462,7 @@
                 HomeViewController *temp = [[HomeViewController alloc]init];
                 
                 [weakSelf.navigationController pushViewController:temp animated:YES];
-            } error:^(KConnectErrorCode status) {
+            } error:^(RCConnectErrorCode status) {
                 if(status == 0)
                 {
                     [MMProgressHUD dismissWithSuccess:@"登录成功!"];
@@ -490,7 +491,7 @@
 
 - (void)responseHttpConnectionFailed:(RCHttpRequest *)connection didFailWithError:(NSError *)error
 {
-    if (1001 == connection.tag) {
+    if (1000 == connection.tag) {
         [MMProgressHUD dismiss];
         [self alertTitle:@"提示" message:@"网络原因，登录失败" delegate:nil cancelBtn:@"确定" otherBtnName:nil];
     }

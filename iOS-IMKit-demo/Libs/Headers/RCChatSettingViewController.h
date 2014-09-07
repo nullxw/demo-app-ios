@@ -23,9 +23,9 @@
 @property (nonatomic,strong) NSMutableArray *iconArray;
 //对方ID或者群ID
 @property (nonatomic,strong) NSString *targetId;
-@property (nonatomic,assign) KConversationType conversationType;
+@property (nonatomic,assign) RCConversationType conversationType;
 
-@property (nonatomic,strong)  RCDiscussionInfo* discussionInfo;
+@property (nonatomic,strong)  RCDiscussion* discussionInfo;
 
 //功能列表
 @property (nonatomic,strong) NSMutableArray *cellArray;

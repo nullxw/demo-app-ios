@@ -1,5 +1,5 @@
 //
-//  RCConnectStatusDefination.h
+//  RCStatusDefine.h
 //  iOS-IMLib
 //
 //  Created by Heq.Shinoda on 14-6-15.
@@ -51,8 +51,13 @@ typedef enum  {
      */
     ConnectErrorCode_TIMEOUT = 5004, //"Server is timed out."
     
+    /**
+     * 参数错误。
+     */
+    ConnectionStatus_INVALID_ARGUMENT = -1000
     
-}KConnectErrorCode;
+    
+}RCConnectErrorCode;
 
 typedef enum
 {
@@ -104,9 +109,9 @@ typedef enum
     /**
      * 验证异常(可能由于user验证、版本验证、auth验证)。
      */
-    ConnectionStatus_VALIDATE_INVALID = 9
+    ConnectionStatus_VALIDATE_INVALID = 9,
     
-}KConnectionStatus;
+}RCConnectionStatus;
 
 
 //-----会话类型----//
@@ -132,7 +137,7 @@ typedef enum
      *  客服消息
      */
     ConversationType_CUSTOMERSERVICE
-}KConversationType;
+}RCConversationType;
 
 /**
  * 消息方向枚举。
@@ -147,7 +152,7 @@ typedef enum {
      * 接收
      */
     MessageDirection_RECEIVE//true
-}KMessageDirection;
+}RCMessageDirection;
 /**
  * 媒体文件类型枚举。
  */
@@ -172,7 +177,7 @@ typedef enum
      * 通用文件。
      */
     MediaType_FILE = 100
-}KMediaType;
+}RCMediaType;
 
 /**
  *  消息记录状态
@@ -182,7 +187,7 @@ typedef enum
     MessagePersistent_NONE = 0,
     MessagePersistent_ISPERSISTED = 0x01,
     MessagePersistent_ISCOUNTED = 0x02
-}KMessagePersistent;
+}RCMessagePersistent;
 
 /**
  * 发送出的消息的状态。
@@ -218,7 +223,7 @@ typedef enum
      * 对方已销毁。
      */
     SentStatus_DESTROYED = 60
-}KSentStatus;
+}RCSentStatus;
 
 //----消息阅读状态----//
 typedef enum
@@ -236,24 +241,33 @@ typedef enum
      */
     ReceivedStatus_LISTENED = 2,
     
-    ReceivedStatus_DOWNLOAD = 4,
+    ReceivedStatus_DOWNLOADED = 4,
     
-}KReceivedStatus;
+}RCReceivedStatus;
 
 //----
 typedef enum
 {
     ErrorCode_UNKNOWN = -1,
     ErrorCode_TIMEOUT = 5004
-}KErrorCode;
+}RCErrorCode;
 
 typedef enum
 {
-    //默认返回值
-    RC_BIZ_DEFAULT = 0,
+    //免打扰
+    DO_NOT_DISTURB = 0,
     //新消息阻止枚举
-    RC_BIZ_BLOCK_MESSAGE_NOTIFY = 100,
-}KBizAckStatus;
+    NOTIFY = 1,
+}RCConversationNotificationStatus;
+
+#define KNotificationCenterRCMessageReceiver @"NotificationCenterRCMessageReceiver"
+
+#define MESSAGE_TXT_OBJ_NAME    @"RC:TxtMsg"
+#define MESSAGE_IMG_OBJ_NAME    @"RC:ImgMsg"
+#define MESSAGE_VOICE_OBJ_NAME    @"RC:VcMsg"
+#define MESSAGE_DIZNTF_OBJ_NAME    @"RC:DizNtf"
+//#define MESSAGE_NTF_OBJ_NAME    @"RC:NtfMsg"
+//#define MESSAGE_STATUS_OBJ_NAME    @"RC:StMsg"
 
 
 #endif//iOS_IMLib_ConstanstOfConnectStatus_h

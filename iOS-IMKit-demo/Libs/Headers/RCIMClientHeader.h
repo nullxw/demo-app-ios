@@ -9,8 +9,7 @@
 #ifndef iOS_IMLib_RCIMClientHeader_h
 #define iOS_IMLib_RCIMClientHeader_h
 
-#import "RCCommonDefine.h"
-#import "RCConnectStatusDefination.h"
+#import "RCStatusDefine.h"
 #import "RCConversation.h"
 #import "RCImageMessage.h"
 #import "RCIMClient.h"
@@ -19,7 +18,7 @@
 #import "RCMessageContent.h"
 #import "RCTextMessage.h"
 #import "RCUserInfo.h"
-#import "RCDiscussionInfo.h"
+#import "RCDiscussion.h"
 #import "RCVoiceMessage.h"
 
 
