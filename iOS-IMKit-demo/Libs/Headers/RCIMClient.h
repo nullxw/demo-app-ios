@@ -124,6 +124,15 @@
 -(int)getUnreadCount:(RCConversationType)conversationType targetId:(NSString*)targetId;
 
 /**
+ *  获取某会话类型的未读消息数.
+ *
+ *  @param conversationTypes 会话类型
+ *
+ *  @return 未读消息数。
+ */
+-(int)getUnreadCount:(NSArray*)conversationTypes;
+
+/**
  *  获取最新消息记录。
  *
  *  @param conversationType 会话类型。
@@ -478,6 +487,7 @@
  *  @param delegate 连接状态变化的监听器。
  */
 -(void)setConnectionStatusDelegate:(id<RCConnectionStatusDelegate>)delegate;
+
 
 /**
  *  获取当前组件的版本号。

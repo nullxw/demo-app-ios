@@ -65,7 +65,7 @@ typedef enum
 @property (nonatomic ,assign) BOOL isPriavteChat;
 
 @property (nonatomic,assign) BOOL enableViop;
-
+-(void)reSendMessage:(NSNotification*)notification;
 
 //发送文本消息
 -(void)sendTextMessage;
@@ -80,5 +80,6 @@ typedef enum
  *  导航右面按钮点击事件
  */
 -(void)rightBarButtonItemPressed:(id)sender;
+
 
 @end

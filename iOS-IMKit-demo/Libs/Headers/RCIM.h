@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "RCClientDelegate.h"
 #import "RCUserInfo.h"
+#import "RCGroup.h"
 
 @class RCChatListViewController;
 @class RCChatViewController;
@@ -45,6 +46,24 @@
  */
 -(NSArray*)getFriends;
 @end
+
+/**
+ *  群组信息的获取器。
+ *
+ *  RongIM 本身不保存群组信息，如果在聊天中需要使用群组信息，RongIM 将调用此 Delegagte 获取群组信息。
+ */
+@protocol RCIMGroupInfoFetcherDelegate <NSObject>
+
+/**
+ *  获取群组信息。
+ *
+ *  @param groupId 群组 Id。
+ *
+ *  @return 群组信息。
+ */
+-(RCGroup*)getGroupInfoWithGroupId:(NSString*)groupId;
+@end
+
 
 /**
  *  接收消息的监听器。
@@ -209,7 +228,7 @@
 /**
  *  设置获取用户信息的获取器，供 RongIM 调用获取用户名称和头像信息。
  *
- *  @param delegate        获取用户信息获取器。
+ *  @param delegate        用户信息获取器。
  *  @param isCacheUserInfo 设置是否由 IMKit 来缓存用户信息。<br>
  *            如果 App 提供的 RCIMUserInfoFetcherDelegagte 每次都需要通过网络请求用户数据，而不是将用户数据缓存到本地，会影响用户信息的加载速度；<br>
  *            此时最好将本参数设置为 true，由 IMKit 来缓存用户信息。
@@ -222,6 +241,13 @@
  *  @param delegate 获取好友列表的获取器。
  */
 +(void)setFriendsFetcherWithDelegate:(id<RCIMFriendsFetcherDelegate>)delegate;
+
+/**
+ *  设置获取群组信息的获取器，供 RongIM 调用获取群组名称和头像信息。
+ *
+ *  @param delegate 群组信息获取器。
+ */
++(void)setGroupInfoFetcherWithDelegate:(id<RCIMGroupInfoFetcherDelegate>)delegate;
 
 /**
  *  设置接收消息的监听器。

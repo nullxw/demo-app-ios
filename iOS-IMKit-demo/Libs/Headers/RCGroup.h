@@ -11,6 +11,7 @@
 @interface RCGroup : NSObject
 @property(nonatomic, strong) NSString* groupId;
 @property(nonatomic, strong) NSString* groupName;
+@property(nonatomic, strong) NSString* portraitUri;
 
--(RCGroup*)initWithGroupId:(NSString*)groupID groupName:(NSString*)groupName;
+-(RCGroup*)initWithGroupId:(NSString*)groupID groupName:(NSString*)groupName portraitUri:(NSString*)portraitUri;
 @end

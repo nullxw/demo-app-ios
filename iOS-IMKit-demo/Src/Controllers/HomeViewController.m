@@ -15,7 +15,8 @@
 #import "RCGroup.h"
 #import "DemoCommonConfig.h"
 
-@interface HomeViewController ()<RCIMConnectionStatusDelegate>
+@interface HomeViewController ()<RCIMConnectionStatusDelegate,RCIMGroupInfoFetcherDelegate>
+
 
 @end
 
@@ -104,7 +105,8 @@
 
     }];
     
-    
+    [RCIM setGroupInfoFetcherWithDelegate:self];
+
     self.navigationItem.hidesBackButton = YES;
     
     self.navigationController.navigationBar.hidden =NO;
@@ -377,4 +379,23 @@
     }
     
 }
+
+
+#pragma mark - RCIMGroupInfoFetcherDelegate method
+-(RCGroup*)getGroupInfoWithGroupId:(NSString*)groupId
+{
+    RCGroup *group  = nil;
+    if([groupId length] == 0)
+        return nil;
+    for(RCGroup *__g in self.groupList)
+    {
+        if([__g.groupId isEqualToString:groupId])
+        {
+            group = __g;
+            break;
+        }
+    }
+    return group;
+}
+
 @end
