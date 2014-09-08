@@ -30,17 +30,17 @@
         
         RCGroup *group001 = [[RCGroup alloc]init];
         group001.groupId = @"group001";
-        group001.groupName =@"融云群聊group001";
+        group001.groupName =@"群组一";
         [_groupList addObject:group001];
         
         RCGroup *group002 = [[RCGroup alloc]init];
         group002.groupId = @"group002";
-        group002.groupName =@"融云群聊group002";
+        group002.groupName =@"群组二";
         [_groupList addObject:group002];
         
         RCGroup *group003 = [[RCGroup alloc]init];
         group003.groupId = @"group003";
-        group003.groupName =@"融云群聊group003";
+        group003.groupName =@"群组三";
         [_groupList addObject:group003];
         
         [[RCIMClient sharedRCIMClient]syncGroups:_groupList completion:^{
@@ -130,17 +130,17 @@
         }
         
         if (3 ==i) {
-            cell.textLabel.text = @"启动群聊group001";
+            cell.textLabel.text = @"启动群组一";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
         if (4 ==i) {
-            cell.textLabel.text = @"启动群聊group002";
+            cell.textLabel.text = @"启动群组二";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
         if (5 ==i) {
-            cell.textLabel.text = @"启动群聊group003";
+            cell.textLabel.text = @"启动群组三";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
