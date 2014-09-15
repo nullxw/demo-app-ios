@@ -167,6 +167,28 @@
 -(void)launchPrivateChat:(UIViewController*)viewController targetUserId:(NSString*)targetUserId title:(NSString*)title completion:(void(^)(void))completion;
 
 /**
+ *  启动群组聊天界面
+ *
+ *  @param viewController 视图控制器。
+ *  @param targetGroupId  群组Id。
+ *  @param title          聊天的标题，如果传入空值，则默认显示群组名称。
+ *  @param completion     调用完成的处理。
+ */
+-(void)launchGroupChat:(UIViewController*)viewController targetGroupId:(NSString*)targetGroupId title:(NSString*)title completion:(void(^)(void))completion;
+
+/**
+ *  启动群组聊天界面
+ *
+ *  @param targetGroupId 群组Id。
+ *  @param title         聊天的标题，如果传入空值，则默认显示群组名称。
+ *  @param completion    调用完成的处理。
+ *
+ *  @return 群组聊天的视图控制器。
+ */
+-(RCChatViewController*)createGroupChat:(NSString*)targetGroupId title:(NSString*)title completion:(void(^)(void))completion;
+
+
+/**
  *  创建客户服聊天界面。
  *
  *  @param customerServiceUserId 要与之聊天的客服 Id。

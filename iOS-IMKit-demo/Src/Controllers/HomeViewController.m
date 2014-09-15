@@ -313,7 +313,7 @@
             temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
-            temp.isPriavteChat = YES;
+            temp.enableSetting = NO;
             
             [self.navigationController pushViewController:temp animated:YES];
         }
@@ -332,7 +332,7 @@
             temp.currentTarget = @"kefu114";
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"客服";
-            temp.isPriavteChat = YES;
+            temp.enableSetting = NO;
             temp.enableViop = NO;
             RCHandShakeMessage* textMsg = [[RCHandShakeMessage alloc] initWithType:1];
             [[RCIM sharedRCIM] sendMessage:ConversationType_PRIVATE targetId:customerServiceUserId content:textMsg delegate:nil];

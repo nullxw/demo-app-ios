@@ -25,7 +25,7 @@
     self.navigationItem.leftBarButtonItem = leftButton;
     
     
-    if (self.isPriavteChat) {
+    if (!self.enableSetting) {
         self.navigationItem.rightBarButtonItem = nil;
     }else{
         //自定义导航左右按钮

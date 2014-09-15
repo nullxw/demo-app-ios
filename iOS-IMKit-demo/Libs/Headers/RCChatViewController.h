@@ -60,10 +60,12 @@ typedef enum
 @property (nonatomic,strong) RCPopupMenu *popupMenu;
 
 /**
- *  判断是否是单聊,默认NO，设置YES，会屏蔽有导航按钮
+ *  是否屏蔽右导航按钮，默认YES
  */
-@property (nonatomic ,assign) BOOL isPriavteChat;
-
+@property (nonatomic ,assign) BOOL enableSetting;
+/**
+ *  是否开启voip
+ */
 @property (nonatomic,assign) BOOL enableViop;
 -(void)reSendMessage:(NSNotification*)notification;
 
