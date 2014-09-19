@@ -114,6 +114,13 @@
 +(void)initWithAppKey:(NSString*)appKey deviceToken:(NSData*)deviceToken;
 
 /**
+ *  设置DeviceToken
+ *
+ *  @param deviceToken 从苹果服务器获取的设备唯一标识
+ */
+-(void)setDeviceToken:(NSData*)deviceToken;
+
+/**
  *  IM 界面组件登录。
  *
  *  @param token      从服务端获取的用户身份令牌（Token）。
@@ -125,7 +132,7 @@
 /**
  *  注销当前登录。
  */
--(void)disconnect;
+-(void)disconnect:(BOOL)isReceivePush;
 
 /**
  *  创建会话列表界面，供应用程序使用。

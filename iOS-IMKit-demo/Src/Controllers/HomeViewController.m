@@ -285,7 +285,7 @@
         
         //注销
         if (6 == indexPath.row) {
-            [[RCIM sharedRCIM] disconnect];
+            [[RCIM sharedRCIM] disconnect:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }
 
@@ -314,7 +314,7 @@
             temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
-            temp.enableSetting = NO;
+            temp.enableSettings = NO;
             temp.portraitStyle = UIPortraitViewRound;
             
             [self.navigationController pushViewController:temp animated:YES];
@@ -334,8 +334,8 @@
             temp.currentTarget = @"kefu114";
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"客服";
-            temp.enableSetting = NO;
-            temp.enableViop = NO;
+            temp.enableSettings = NO;
+            temp.enableVOIP = NO;
             RCHandShakeMessage* textMsg = [[RCHandShakeMessage alloc] initWithType:1];
             [[RCIM sharedRCIM] sendMessage:ConversationType_PRIVATE targetId:customerServiceUserId content:textMsg delegate:nil];
             
@@ -389,7 +389,7 @@
         
         //注销
         if (6 == indexPath.row) {
-            [[RCIM sharedRCIM] disconnect];
+            [[RCIM sharedRCIM] disconnect:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }
         

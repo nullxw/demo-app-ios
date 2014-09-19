@@ -26,7 +26,7 @@
     self.navigationItem.leftBarButtonItem = leftButton;
     
     
-    if (!self.enableSetting) {
+    if (!self.enableSettings) {
         self.navigationItem.rightBarButtonItem = nil;
     }else{
         //自定义导航左右按钮

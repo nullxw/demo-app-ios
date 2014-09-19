@@ -61,8 +61,17 @@
 
 /**
  *  断开连接。
+ *
+ *  @param isReceivePush 是否接收回调。
  */
--(void)disconnect;
+-(void)disconnect:(BOOL)isReceivePush;
+
+/**
+ *  设置DeviceToken
+ *
+ *  @param deviceToken 从苹果服务器获取的设备唯一标识
+ */
+-(void)setDeviceToken:(NSData*)deviceToken;
 
 /**
  *  获取会话列表。

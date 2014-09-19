@@ -63,15 +63,15 @@ typedef enum
 /**
  *  是否屏蔽右导航按钮，默认YES
  */
-@property (nonatomic ,assign) BOOL enableSetting;
+@property (nonatomic ,assign) BOOL enableSettings;
 /**
  *  是否开启voip
  */
-@property (nonatomic,assign) BOOL enableViop;
+@property (nonatomic,assign) BOOL enableVOIP;
 /**
  *  是否开启右上角未读，默认开启 YES
  */
-@property (nonatomic,assign) BOOL enableUnreadTip;
+@property (nonatomic,assign) BOOL enableUnreadBadge;
 
 
 -(void)reSendMessage:(NSNotification*)notification;
