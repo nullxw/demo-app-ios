@@ -344,6 +344,49 @@
             
         }
         
+        if (3 == indexPath.row) {
+            
+            RCGroup *group = [_groupList objectAtIndex:0];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = group.groupId;
+            temp.conversationType = ConversationType_GROUP;
+            temp.currentTargetName = group.groupName;
+            temp.enableUnreadBadge = NO;
+            temp.enableVOIP = NO;
+            temp.portraitStyle = UIPortraitViewRound;
+            [self.navigationController pushViewController:temp animated:YES];
+            
+        }
+        
+        if (4 == indexPath.row) {
+            
+            RCGroup *group = [_groupList objectAtIndex:1];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = group.groupId;
+            temp.conversationType = ConversationType_GROUP;
+            temp.currentTargetName = group.groupName;
+            temp.enableUnreadBadge = NO;
+            temp.enableVOIP = NO;
+            temp.portraitStyle = UIPortraitViewRound;
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
+        if (5 == indexPath.row) {
+            
+            RCGroup *group = [_groupList objectAtIndex:2];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = group.groupId;
+            temp.conversationType = ConversationType_GROUP;
+            temp.currentTargetName = group.groupName;
+            temp.enableUnreadBadge = NO;
+            temp.enableVOIP = NO;
+            temp.portraitStyle = UIPortraitViewRound;
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
         //注销
         if (6 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect];
