@@ -10,6 +10,7 @@
 #import "RCBasicViewController.h"
 #import "RCIMClientHeader.h"
 
+
 typedef enum {
 
     NormalMode=0,
@@ -26,7 +27,7 @@ typedef enum {
 @protocol RCSelectPersonViewControllerDelegate;
 
 #define MAX_ARRAY_SECTION 30
-#define MaX_ARRAY_ROW 500
+#define MaX_ARRAY_ROW 5000
 
 @interface RCSelectPersonViewController : RCBasicViewController
 {
@@ -39,6 +40,8 @@ typedef enum {
 @property (nonatomic,retain) UISearchBar *serachBar;
 
 @property (nonatomic,strong) RCUserInfo *currentUserinfo;
+
+@property (nonatomic) UIPortraitViewStyle portaitStyle;
 
 
 //邀请模式下，传递讨论组信息

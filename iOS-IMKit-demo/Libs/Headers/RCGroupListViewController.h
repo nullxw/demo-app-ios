@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RCIMClientHeader.h"
+#import "RCBasicViewController.h"
 
 
 typedef enum{
@@ -15,12 +16,13 @@ typedef enum{
     TableIsForbiddenScrollEx
 }IsAllowScrollEx;
 
-@interface RCGroupListViewController : UIViewController
+@interface RCGroupListViewController : RCBasicViewController
 
 @property(nonatomic, strong) NSMutableArray* allGroupItemData;//----全部群组消息
 @property (strong, nonatomic) UITableView *conversationListView;//----群组列表视图
 @property (nonatomic, assign) IsAllowScrollEx isAllowScroll;//----是否可滑动判断
 @property (nonatomic, assign) NSInteger editingCellNum;//----当前滑动cell对应数组中的位置。
+@property (nonatomic) UIPortraitViewStyle portraitStyle;
 
 - (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 

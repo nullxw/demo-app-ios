@@ -11,6 +11,8 @@
 		5160E0DD19B494F700983874 /* DemoChatsettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0D919B494F700983874 /* DemoChatsettingViewController.m */; };
 		5160E0DE19B494F700983874 /* DemoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0DB19B494F700983874 /* DemoChatViewController.m */; };
 		B20391E4195A716500A2019F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20391E3195A716500A2019F /* SystemConfiguration.framework */; };
+		B20F9FE419CC1BFD00F7628F /* DemoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20F9FE119CC1BFD00F7628F /* DemoPreviewViewController.m */; };
+		B20F9FE519CC1BFD00F7628F /* DemoRenameController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20F9FE319CC1BFD00F7628F /* DemoRenameController.m */; };
 		B225036819330B1D00D5E003 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B225036719330B1D00D5E003 /* QuartzCore.framework */; };
 		B225037619330BDB00D5E003 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B225037519330BDB00D5E003 /* libc++.dylib */; };
 		B22BC65819BCC5060031D5BB /* DemoGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22BC65719BCC5060031D5BB /* DemoGroupListViewController.m */; };
@@ -73,6 +75,13 @@
 		5160E0DA19B494F700983874 /* DemoChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoChatViewController.h; sourceTree = "<group>"; };
 		5160E0DB19B494F700983874 /* DemoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoChatViewController.m; sourceTree = "<group>"; };
 		B20391E3195A716500A2019F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B20F9FE019CC1BFD00F7628F /* DemoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPreviewViewController.h; sourceTree = "<group>"; };
+		B20F9FE119CC1BFD00F7628F /* DemoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPreviewViewController.m; sourceTree = "<group>"; };
+		B20F9FE219CC1BFD00F7628F /* DemoRenameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoRenameController.h; sourceTree = "<group>"; };
+		B20F9FE319CC1BFD00F7628F /* DemoRenameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoRenameController.m; sourceTree = "<group>"; };
+		B20F9FE619CC1C3300F7628F /* RCPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPreviewViewController.h; sourceTree = "<group>"; };
+		B20F9FE719CC1C3300F7628F /* RCRenameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRenameViewController.h; sourceTree = "<group>"; };
+		B20F9FE819CC1C3300F7628F /* RCThemeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCThemeDefine.h; sourceTree = "<group>"; };
 		B225036719330B1D00D5E003 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B225037519330BDB00D5E003 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		B22BC64119BCC3D90031D5BB /* RCBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBasicViewController.h; sourceTree = "<group>"; };
@@ -322,6 +331,10 @@
 		B267E0081932E37400B5FFC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B20F9FE019CC1BFD00F7628F /* DemoPreviewViewController.h */,
+				B20F9FE119CC1BFD00F7628F /* DemoPreviewViewController.m */,
+				B20F9FE219CC1BFD00F7628F /* DemoRenameController.h */,
+				B20F9FE319CC1BFD00F7628F /* DemoRenameController.m */,
 				B22BC65619BCC5060031D5BB /* DemoGroupListViewController.h */,
 				B22BC65719BCC5060031D5BB /* DemoGroupListViewController.m */,
 				5160E0D619B494F700983874 /* DemoChatListViewController.h */,
@@ -370,6 +383,9 @@
 		B2FF1111195F010E0058A1F1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				B20F9FE619CC1C3300F7628F /* RCPreviewViewController.h */,
+				B20F9FE719CC1C3300F7628F /* RCRenameViewController.h */,
+				B20F9FE819CC1C3300F7628F /* RCThemeDefine.h */,
 				B22BC64119BCC3D90031D5BB /* RCBasicViewController.h */,
 				B22BC64219BCC3D90031D5BB /* RCChatListViewController.h */,
 				B22BC64319BCC3D90031D5BB /* RCChatSettingViewController.h */,
@@ -520,12 +536,14 @@
 				B22BC65819BCC5060031D5BB /* DemoGroupListViewController.m in Sources */,
 				B2FF115A196152380058A1F1 /* MMProgressHUDOverlayView.m in Sources */,
 				B2D3DCC31940402F008E8AB4 /* RegistViewController.m in Sources */,
+				B20F9FE419CC1BFD00F7628F /* DemoPreviewViewController.m in Sources */,
 				B2FF115E196152380058A1F1 /* MMVectorImage.m in Sources */,
 				B2FF115D196152380058A1F1 /* MMRadialProgressView.m in Sources */,
 				5160E0DD19B494F700983874 /* DemoChatsettingViewController.m in Sources */,
 				B2FF1159196152380058A1F1 /* MMProgressHUD.m in Sources */,
 				B2FF1158196152380058A1F1 /* MMHud.m in Sources */,
 				B267E0701932E37400B5FFC3 /* AppDelegate.m in Sources */,
+				B20F9FE519CC1BFD00F7628F /* DemoRenameController.m in Sources */,
 				B267E07A1932E37400B5FFC3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

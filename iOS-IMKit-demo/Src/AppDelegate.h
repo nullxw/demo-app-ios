@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "RCHttpRequest.h"
+#import "RCIM.h"
 
 
 @interface AppDelegate : UIResponder <
-UIApplicationDelegate
->
+UIApplicationDelegate,
+RCIMReceiveMessageDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

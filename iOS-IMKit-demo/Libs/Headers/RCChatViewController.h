@@ -50,6 +50,7 @@ typedef enum
 
 @property (strong, nonatomic) RCConversationTableHeaderView *tableHeaderView;
 
+@property (nonatomic) UIPortraitViewStyle portraitStyle;
 
 @property (nonatomic,assign) RCConversationType conversationType;
 @property (nonatomic,strong) NSString* currentTarget;
@@ -67,6 +68,12 @@ typedef enum
  *  是否开启voip
  */
 @property (nonatomic,assign) BOOL enableViop;
+/**
+ *  是否开启右上角未读，默认开启 YES
+ */
+@property (nonatomic,assign) BOOL enableUnreadTip;
+
+
 -(void)reSendMessage:(NSNotification*)notification;
 
 //发送文本消息
@@ -82,6 +89,10 @@ typedef enum
  *  导航右面按钮点击事件
  */
 -(void)rightBarButtonItemPressed:(id)sender;
-
-
+/**
+ *  调用查看大图
+ *
+ *  @param rcMessage 消息体
+ */
+-(void)showPreviewPictureController:(RCMessage*)rcMessage;
 @end

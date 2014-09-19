@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "DemoUIConstantDefine.h"
+#import "DemoCommonConfig.h"
 
 #define RONGCLOUD_IM_APPKEY    @"z3v5yqkbv8v30" //这个AppKey值RongCloud实例。
 
@@ -24,7 +25,7 @@
 
     UINavigationController *rootNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
 
-    rootNavi.navigationBar.translucent = NO;
+    //rootNavi.navigationBar.translucent = NO;
     [rootNavi.navigationBar setBackgroundImage:[self createImageWithColor:RGBCOLOR(43, 132, 210)] forBarMetrics:UIBarMetricsDefault];
     self.window.rootViewController = rootNavi;
 
@@ -38,7 +39,18 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
 #endif//TARGET_IPHONE_SIMULATOR
     
+    [[RCIM sharedRCIM]setReceiveMessageDelegate:self];
+    
     return YES;
+}
+
+-(void)didReceivedMessage:(RCMessage *)message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
+    });
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -51,7 +63,9 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    //[[RCConnection defaultConnection] closeIMServer];
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[RCIM sharedRCIM] getTotalUnreadCount];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

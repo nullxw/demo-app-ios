@@ -8,9 +8,10 @@
 
 #import "RCBasicViewController.h"
 #import "RCIMClientHeader.h"
+#import "RCRenameViewController.h"
 //@class RCBasicViewController;
 
-@interface RCChatSettingViewController : RCBasicViewController{
+@interface RCChatSettingViewController : RCBasicViewController<RenameViewControllerDelegate>{
     
     NSInteger __count;
 }
@@ -29,7 +30,7 @@
 
 //功能列表
 @property (nonatomic,strong) NSMutableArray *cellArray;
-
+@property (nonatomic) UIPortraitViewStyle portraitStyle;
 
 //成员信息--》废弃
 @property (nonatomic,strong) NSMutableArray *memberInfos;
@@ -53,6 +54,13 @@
  *  导航左面按钮点击事件
  */
 -(void)leftBarButtonItemPressed:(id)sender;
-
+/**
+ *  重命名讨论组的名字
+ *
+ *  @param conversationType
+ *  @param targetId
+ *  @param oldName          
+ */
+-(void)renameDiscussionName:(RCConversationType)conversationType targetId:(NSString*)targetId oldName:(NSString*)oldName;
 
 @end

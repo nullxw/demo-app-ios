@@ -289,6 +289,27 @@
 -(void)setConnectionStatusDelegate:(id<RCIMConnectionStatusDelegate>)delegate;
 
 /**
+ *  获取会话消息提醒状态。
+ *
+ *  @param conversationType 会话类型。
+ *  @param targetId         目标 Id。根据不同的 conversationType，可能是聊天 Id、讨论组 Id、群组 Id。
+ *  @param completion       调用完成的处理。
+ *  @param error            调用返回的错误信息。
+ */
+-(void)getConversationNotificationStatus:(RCConversationType)conversationType targetId:(NSString*)targetId completion:(void (^)(RCConversationNotificationStatus nStatus))completion error:(void (^)(RCErrorCode status))error;
+
+/**
+ *  设置会话消息提醒状态。
+ *
+ *  @param conversationType 会话类型。
+ *  @param targetId         目标 Id。根据不同的 conversationType，可能是聊天 Id、讨论组 Id、群组 Id。
+ *  @param isBlocked        是否屏蔽。
+ *  @param completion       调用完成的处理。
+ *  @param error            调用返回的错误信息。
+ */
+-(void)setConversationNotificationStatus:(RCConversationType)conversationType targetId:(NSString*)targetId isBlocked:(BOOL)isBlocked completion:(void (^)(RCConversationNotificationStatus nStatus))completion error:(void (^)(RCErrorCode status))error;
+
+/**
  *  设置用户头像点击事件。
  *
  *  @param clickEvent 点击头像的处理。

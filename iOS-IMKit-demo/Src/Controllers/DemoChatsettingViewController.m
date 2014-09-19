@@ -7,6 +7,7 @@
 //
 
 #import "DemoChatsettingViewController.h"
+#import "DemoRenameController.h"
 
 @implementation DemoChatsettingViewController
 -(void)viewDidLoad
@@ -24,5 +25,23 @@
 -(void)leftBarButtonItemPressed:(id)sender
 {
     [super leftBarButtonItemPressed:sender];
+}
+
+-(void)renameDiscussionName:(RCConversationType)conversationType targetId:(NSString*)targetId oldName:(NSString*)oldName{
+    
+    RCRenameViewController *temp = [[RCRenameViewController alloc]init];
+    temp.delegate = self;
+    temp.targetId = targetId;
+    temp.oldName = oldName;
+    temp.conversationType =conversationType;
+    
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
+    
+    //导航和原有的配色保持一直
+    UIImage *image= [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+    
+    [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [self presentViewController:nav animated:YES completion:NULL];
 }
 @end

@@ -16,18 +16,12 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     //自定义导航标题颜色
     [self setNavigationTitle:@"会话" textColor:[UIColor whiteColor]];
-    
     //自定义导航左右按钮
-    
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(leftBarButtonItemPressed:)];
     [leftButton setTintColor:[UIColor whiteColor]];
     self.navigationItem.leftBarButtonItem = leftButton;
-    
-    
-    
     //自定义导航左右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithTitle:@"选择" style:UIBarButtonItemStyleBordered target:self action:@selector(rightBarButtonItemPressed:)];
     [rightButton setTintColor:[UIColor whiteColor]];
@@ -48,17 +42,15 @@
  */
 -(void)rightBarButtonItemPressed:(id)sender
 {
+    //跳转好友列表界面，可是是融云提供的UI组件，也可以是自己实现的UI
     RCSelectPersonViewController *temp = [[RCSelectPersonViewController alloc]init];
     //控制多选
     temp.isMultiSelect = YES;
+    temp.portaitStyle = UIPortraitViewRound;
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
-    
     //导航和的配色保持一直
     UIImage *image= [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-    
     [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    //[nav.navigationBar setBackgroundImage:self.navigationController.navigationBar. forBarMetrics:UIBarMetricsDefault];
-    
     temp.delegate = self;
     [self presentModalViewController:nav animated:YES];
 }
@@ -97,6 +89,7 @@
     DemoChatViewController* chat = [self getChatController:userInfo.userId conversationType:ConversationType_PRIVATE];
     if (nil == chat) {
         chat =[[DemoChatViewController alloc]init];
+        chat.portraitStyle = UIPortraitViewRound;
         [self addChatController:chat];
     }
     
@@ -115,8 +108,8 @@
     
     NSMutableString *discussionName = [NSMutableString string] ;
     NSMutableArray *memberIdArray =[NSMutableArray array];
-    
-    for (int i=0; i<userInfos.count; i++) {
+    NSInteger count = userInfos.count ;
+    for (int i=0; i<count; i++) {
         RCUserInfo *userinfo = [userInfos objectAtIndex:i];
         //NSString *name = userinfo.name;
         if (i == userInfos.count - 1) {
@@ -127,17 +120,15 @@
         [memberIdArray addObject:userinfo.userId];
         
     }
-    
-
-    //[[RCIMClient sharedRCIMClient] createDiscussion:discussionName userIdList:memberIdArray delegate:self object:nil];
-    
+    //创建讨论组
     [[RCIMClient sharedRCIMClient]createDiscussion:discussionName userIdList:memberIdArray completion:^(RCDiscussion *discussInfo) {
-        
+        NSLog(@"create discussion ssucceed!");
         dispatch_async(dispatch_get_main_queue(), ^{
             
             DemoChatViewController* chat = [self getChatController:discussInfo.discussionId conversationType:ConversationType_PRIVATE];
             if (nil == chat) {
                 chat =[[DemoChatViewController alloc]init];
+                chat.portraitStyle = UIPortraitViewRound;
                 [self addChatController:chat];
             }
             
@@ -146,12 +137,13 @@
             chat.conversationType = ConversationType_DISCUSSION;
             [self.navigationController pushViewController:chat animated:YES];
         });
-        
-        
-        
     } error:^(RCErrorCode status) {
-        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"创建讨论组失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"DISCUSSION_INVITE_FAILED %d",status);
+            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"创建讨论组失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
+        });
     }];
 }
 
@@ -167,16 +159,17 @@
     {
         DemoGroupListViewController* groupVC = [[DemoGroupListViewController alloc] init];
         self.currentGroupListView = groupVC;
+        groupVC.portraitStyle = UIPortraitViewRound;
         [self.navigationController pushViewController:groupVC animated:YES];
         return;
     }
-    
+    //该方法目的延长会话聊天UI的生命周期
     DemoChatViewController* chat = [self getChatController:conversation.targetId conversationType:conversation.conversationType];
     if (nil == chat) {
         chat =[[DemoChatViewController alloc]init];
+        chat.portraitStyle = UIPortraitViewRound;
         [self addChatController:chat];
     }
-    
     chat.currentTarget = conversation.targetId;
     chat.conversationType = conversation.conversationType;
     //chat.currentTargetName = curCell.userNameLabel.text;

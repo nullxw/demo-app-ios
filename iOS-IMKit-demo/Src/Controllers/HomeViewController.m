@@ -17,7 +17,6 @@
 
 @interface HomeViewController ()<RCIMConnectionStatusDelegate,RCIMGroupInfoFetcherDelegate>
 
-
 @end
 
 @implementation HomeViewController
@@ -104,9 +103,10 @@
         [viewController presentViewController:nav animated:YES completion:NULL];
 
     }];
-    
     [RCIM setGroupInfoFetcherWithDelegate:self];
-
+    
+    
+    
     self.navigationItem.hidesBackButton = YES;
     
     self.navigationController.navigationBar.hidden =NO;
@@ -299,6 +299,7 @@
             DemoChatListViewController *temp = [[DemoChatListViewController alloc]init];
             
             [self.navigationController pushViewController:temp animated:YES];
+            temp.portraitStyle = UIPortraitViewRound;
             
             //[[RCIM sharedRCIM] launchConversationList:self];
         }
@@ -314,6 +315,7 @@
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
             temp.enableSetting = NO;
+            temp.portraitStyle = UIPortraitViewRound;
             
             [self.navigationController pushViewController:temp animated:YES];
         }

@@ -8,6 +8,7 @@
 
 #import "DemoChatViewController.h"
 #import "DemoChatsettingViewController.h"
+#import "DemoPreviewViewController.h"
 
 @implementation DemoChatViewController
 
@@ -45,6 +46,23 @@
     DemoChatsettingViewController *temp = [[DemoChatsettingViewController alloc]init];
     temp.targetId = self.currentTarget;
     temp.conversationType = self.conversationType;
+    temp.portraitStyle = UIPortraitViewRound;
     [self.navigationController pushViewController:temp animated:YES];
 }
+
+-(void)showPreviewPictureController:(RCMessage*)rcMessage{
+    
+    DemoPreviewViewController *temp=[[DemoPreviewViewController alloc]init];
+    temp.rcMessage = rcMessage;
+    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:temp];
+    
+    //导航和原有的配色保持一直
+    UIImage *image= [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+    
+    [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [self presentModalViewController:nav animated:YES];
+}
+
+
 @end

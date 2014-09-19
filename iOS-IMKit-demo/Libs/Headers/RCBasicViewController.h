@@ -8,6 +8,7 @@
 //所有工程UIViewController的基类，使用代码初始化view
 
 #import <UIKit/UIKit.h>
+#import "RCThemeDefine.h"
 @interface RCBasicViewController : UIViewController
 - (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 @end

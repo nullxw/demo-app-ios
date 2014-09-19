@@ -28,6 +28,7 @@ typedef enum{
 @property(nonatomic, assign) IsAllowScroll isAllowScroll;
 @property(nonatomic, assign) NSInteger editingCellNum;
 @property (nonatomic, strong) RCGroupListViewController* currentGroupListView;
+@property (nonatomic) UIPortraitViewStyle portraitStyle;
 
 - (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 /**
