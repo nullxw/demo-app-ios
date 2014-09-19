@@ -180,6 +180,10 @@
     //self.navigationItem.title = @"DEMO";
    // self.navigationItem.leftBarButtonItem = nil;
 }
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:nil];
+}
 
 -(void)responseConnectionStatus:(RCConnectionStatus)status{
     if (ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT == status) {
