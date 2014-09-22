@@ -67,6 +67,11 @@
 -(void)disconnect:(BOOL)isReceivePush;
 
 /**
+ *  断开连接。
+ */
+-(void)disconnect;
+
+/**
  *  设置DeviceToken
  *
  *  @param deviceToken 从苹果服务器获取的设备唯一标识
