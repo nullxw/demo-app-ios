@@ -95,4 +95,9 @@ typedef enum
  *  @param rcMessage 消息体
  */
 -(void)showPreviewPictureController:(RCMessage*)rcMessage;
+//语音消息开始录音
+-(void)onBeginRecordEvent;
+//语音消息录音结束
+-(void)onEndRecordEvent;
+
 @end

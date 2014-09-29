@@ -63,6 +63,11 @@
     
     [self presentModalViewController:nav animated:YES];
 }
-
+-(void)onBeginRecordEvent{
+    NSLog(@"录音开始");
+}
+-(void)onEndRecordEvent{
+    NSLog(@"录音结束");
+}
 
 @end

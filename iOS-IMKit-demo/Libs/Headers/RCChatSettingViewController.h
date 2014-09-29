@@ -9,9 +9,10 @@
 #import "RCBasicViewController.h"
 #import "RCIMClientHeader.h"
 #import "RCRenameViewController.h"
+#import "RCSelectPersonViewController.h"
 //@class RCBasicViewController;
 
-@interface RCChatSettingViewController : RCBasicViewController<RenameViewControllerDelegate>{
+@interface RCChatSettingViewController : RCBasicViewController<RenameViewControllerDelegate,RCSelectPersonViewControllerDelegate>{
     
     NSInteger __count;
 }
@@ -62,5 +63,38 @@
  *  @param oldName          
  */
 -(void)renameDiscussionName:(RCConversationType)conversationType targetId:(NSString*)targetId oldName:(NSString*)oldName;
+
+/**
+ *  重载：点击添加按钮时间
+ *
+ *  @param conversationType
+ */
+-(void)onAddButtonClicked:(RCConversationType)conversationType;
+
+/**
+ *  更新讨论组信息
+ *
+ *  @param discussionInfo
+ */
+-(void)needUpdateDiscussionInfo:(RCDiscussion*)discussionInfo;
+
+/**
+ *  根据用户id获取用户信息
+ *
+ *  @param userId
+ *
+ *  @return
+ */
+-(RCUserInfo*)getUserInfoWithUserId:(NSString*)userId;
+
+
+/**
+ *  获取当前用户ID
+ *
+ *  @return 获取当前用户ID
+ */
+-(NSString*)getCurrentUserId;
+
+
 
 @end

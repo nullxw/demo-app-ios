@@ -553,6 +553,20 @@
 #pragma mark - RCIMFriendsFetcherDelegate method
 -(NSArray *)getFriends
 {
+    NSMutableArray *array = [[NSMutableArray alloc]initWithArray:self.allFriendsArray];
+    for (int i = array.count -1; i>=0; i--) {
+        RCUserInfo *userInfo = [array objectAtIndex:i];
+        NSString *userId = userInfo.userId;
+        if (userId.integerValue >549 ) {
+            [array removeObjectAtIndex:i];
+        }
+        
+        
+    }
+    
+    
+    
+    //return array;
     return self.allFriendsArray;
 }
 

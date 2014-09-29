@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "DemoUIConstantDefine.h"
 #import "DemoCommonConfig.h"
+#import  <libNBSAppAgent/NBSAppAgent.h>
 
 #define RONGCLOUD_IM_APPKEY    @"z3v5yqkbv8v30" //这个AppKey值RongCloud实例。
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //注册听云
+    
+    [NBSAppAgent  startWithAppID:@"a546c342ba704acf91b27e9603b6860d"];
+    
+    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // 创建登录页面
     LoginViewController* loginVC = [[LoginViewController alloc] init];
@@ -33,22 +41,45 @@
     [self.window makeKeyAndVisible];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
-#if TARGET_IPHONE_SIMULATOR
-    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
-#else
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
-#endif//TARGET_IPHONE_SIMULATOR
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
+                                                                                             |UIRemoteNotificationTypeSound
+                                                                                             |UIRemoteNotificationTypeAlert) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    } else {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
     
     [[RCIM sharedRCIM]setReceiveMessageDelegate:self];
     
     return YES;
 }
 
--(void)didReceivedMessage:(RCMessage *)message
+//#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
-    });
+    //register to receive notifications
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    //handle the actions
+    if ([identifier isEqualToString:@"declineAction"]){
+    }
+    else if ([identifier isEqualToString:@"answerAction"]){
+    }
+}
+//#endif
+
+-(void)didReceivedMessage:(RCMessage *)message left:(int)nLeft
+{
+    if (0 == nLeft) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
+        });
+    }
     
     
 }
@@ -85,7 +116,7 @@
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"error:%@",error);
-    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
+    //[RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -96,13 +127,7 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSLog(@"deviceToken:%@",deviceToken);
-    NSString *dToken = [[[[deviceToken description]
-                          stringByReplacingOccurrencesOfString:@"<" withString:@""]
-                         stringByReplacingOccurrencesOfString:@">" withString:@""]
-                        stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [[NSUserDefaults standardUserDefaults] setObject:dToken forKey:@"DeviceToken"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:(dToken==nil)?@"":dToken];
+    [[RCIM sharedRCIM]setDeviceToken:deviceToken];
 }
 
 -(UIImage *)createImageWithColor:(UIColor *)color

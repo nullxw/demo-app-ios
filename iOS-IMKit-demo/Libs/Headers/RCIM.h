@@ -75,7 +75,7 @@
  *
  *  @param message 接收到的消息。
  */
--(void)didReceivedMessage:(RCMessage*)message;
+-(void)didReceivedMessage:(RCMessage*)message left:(int)nLeft;
 @end
 
 /**
@@ -133,6 +133,11 @@
  *  注销当前登录。
  */
 -(void)disconnect:(BOOL)isReceivePush;
+
+/**
+ *  注销当前登录。
+ */
+-(void)disconnect;
 
 /**
  *  创建会话列表界面，供应用程序使用。

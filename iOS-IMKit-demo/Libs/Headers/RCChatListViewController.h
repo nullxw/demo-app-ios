@@ -20,7 +20,7 @@ typedef enum{
 @interface RCChatListViewController : RCBasicViewController<RCSelectPersonViewControllerDelegate>
 {
     NSTimeInterval startTime, endTime;
-    BOOL isNeedPlaySound;
+    //BOOL isNeedPlaySound;
 }
 @property(nonatomic, strong) NSMutableArray* allConversationItemData;
 //@property(nonatomic, strong) NSMutableArray* allConversationItemCell;

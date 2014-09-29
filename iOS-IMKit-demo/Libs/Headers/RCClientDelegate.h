@@ -190,7 +190,7 @@
  *  @param message 收到的消息实体。
  *  @param object  调用对象。
  */
--(void)responseOnReceived:(RCMessage*)message object:(id)object;
+-(void)responseOnReceived:(RCMessage*)message left:(int)nLeft object:(id)object;
 @end
 
 /**
