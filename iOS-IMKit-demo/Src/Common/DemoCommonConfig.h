@@ -11,7 +11,7 @@
 
 
 
-#define FAKE_SERVER @"http://nav.cn.rong.io:8080/"  // 登录服务器地址，请开发者配置
+#define FAKE_SERVER @"http://119.254.110.79:8080/"  // 登录服务器地址，请开发者配置
 
 #define CHECK_PASSWORD_ENABLE 0
 
