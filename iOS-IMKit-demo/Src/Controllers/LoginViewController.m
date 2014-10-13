@@ -557,7 +557,7 @@
     for (int i = array.count -1; i>=0; i--) {
         RCUserInfo *userInfo = [array objectAtIndex:i];
         NSString *userId = userInfo.userId;
-        if (userId.integerValue >549 ) {
+        if (userId.integerValue >969 ) {
             [array removeObjectAtIndex:i];
         }
         
@@ -566,8 +566,8 @@
     
     
     
-    //return array;
-    return self.allFriendsArray;
+    return array;
+    //return self.allFriendsArray;
 }
 
 #pragma mark - RCIMUserInfoFetcherDelegagte method

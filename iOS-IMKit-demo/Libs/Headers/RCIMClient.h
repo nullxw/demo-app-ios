@@ -24,7 +24,7 @@
  *
  *  @return 通讯能力库的核心类单例。
  */
-+(RCIMClient*)sharedRCIMClient;
++(instancetype)sharedRCIMClient;
 
 //+(void)setOptions:(RCOptions)options;
 
