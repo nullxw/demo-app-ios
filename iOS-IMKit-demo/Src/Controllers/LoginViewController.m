@@ -554,20 +554,18 @@
 -(NSArray *)getFriends
 {
     NSMutableArray *array = [[NSMutableArray alloc]initWithArray:self.allFriendsArray];
+    
     for (int i = array.count -1; i>=0; i--) {
         RCUserInfo *userInfo = [array objectAtIndex:i];
-        NSString *userId = userInfo.userId;
-        if (userId.integerValue >969 ) {
-            [array removeObjectAtIndex:i];
-        }
+       // NSString *userId = userInfo.userId;
         
+        NSLog(@"%@---%@",userInfo.userId,userInfo.name);
         
     }
+
     
-    
-    
-    return array;
-    //return self.allFriendsArray;
+    //return array;
+    return self.allFriendsArray;
 }
 
 #pragma mark - RCIMUserInfoFetcherDelegagte method
