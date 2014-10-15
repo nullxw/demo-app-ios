@@ -142,7 +142,22 @@
     [emailBG addSubview:emailTF];
     
     
-    UIImageView* passwordBG = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(emailBG.frame), CGRectGetMaxY(emailBG.frame)+11.f, CGRectGetWidth(emailBG.frame), CGRectGetHeight(emailBG.frame))];
+    UIImageView* usernameBG = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(emailBG.frame), CGRectGetMaxY(emailBG.frame)+11.f, CGRectGetWidth(emailBG.frame), CGRectGetHeight(emailBG.frame))];
+    usernameBG.backgroundColor = [UIColor whiteColor];
+    usernameBG.userInteractionEnabled = YES;
+    usernameBG.layer.cornerRadius = 6.0;
+    usernameBG.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    usernameBG.layer.borderWidth = 1.2;
+    [self.view addSubview:usernameBG];
+    
+    UITextField *userNameTF = [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 19.f)];
+    userNameTF.tag = Tag_AccountTextField;
+    userNameTF.returnKeyType = UIReturnKeyDone;
+    userNameTF.delegate = self;
+    userNameTF.placeholder = @"输入昵称（4－12个字母）";
+    [usernameBG addSubview:userNameTF];
+    
+    UIImageView* passwordBG = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(usernameBG.frame), CGRectGetMaxY(usernameBG.frame)+11.f, CGRectGetWidth(usernameBG.frame), CGRectGetHeight(usernameBG.frame))];
     passwordBG.backgroundColor = [UIColor whiteColor];
     passwordBG.userInteractionEnabled = YES;
     passwordBG.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -158,25 +173,13 @@
     passwordTF.placeholder = @"输入密码（6-16个字符，区分大小写）";
     [passwordBG addSubview:passwordTF];
     
-    UIImageView* usernameBG = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(passwordBG.frame), CGRectGetMaxY(passwordBG.frame)+11.f, CGRectGetWidth(passwordBG.frame), CGRectGetHeight(passwordBG.frame))];
-    usernameBG.backgroundColor = [UIColor whiteColor];
-    usernameBG.userInteractionEnabled = YES;
-    usernameBG.layer.cornerRadius = 6.0;
-    usernameBG.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    usernameBG.layer.borderWidth = 1.2;
-    [self.view addSubview:usernameBG];
     
-    UITextField *userNameTF = [[UITextField alloc] initWithFrame:CGRectMake(13.f, 11.f, 268.f, 19.f)];
-    userNameTF.tag = Tag_AccountTextField;
-    userNameTF.returnKeyType = UIReturnKeyDone;
-    userNameTF.delegate = self;
-    userNameTF.placeholder = @"输入昵称（4－12个字母）";
-    [usernameBG addSubview:userNameTF];
+    
     
     
     
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    registerBtn.frame = CGRectMake(13.f, CGRectGetMaxY(usernameBG.frame)+45.f, 294.f, 44.f);
+    registerBtn.frame = CGRectMake(13.f, CGRectGetMaxY(passwordBG.frame)+45.f, 294.f, 44.f);
     [registerBtn addTarget:self action:@selector(registerBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [registerBtn setBackgroundImage:[UIImage imageNamed:@"regist_view_reg_btn_bg.png"] forState:UIControlStateNormal];
     [registerBtn setTitle:@"同意并注册" forState:UIControlStateNormal];
