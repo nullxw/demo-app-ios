@@ -65,8 +65,6 @@ typedef enum {
  */
 -(void)rightBarButtonItemPressed:(id)sender;
 
-- (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
-
 @end
 
 @protocol RCSelectPersonViewControllerDelegate <NSObject>

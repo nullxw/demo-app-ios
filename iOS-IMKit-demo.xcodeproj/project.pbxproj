@@ -10,6 +10,7 @@
 		5160E0DC19B494F700983874 /* DemoChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0D719B494F700983874 /* DemoChatListViewController.m */; };
 		5160E0DD19B494F700983874 /* DemoChatsettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0D919B494F700983874 /* DemoChatsettingViewController.m */; };
 		5160E0DE19B494F700983874 /* DemoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0DB19B494F700983874 /* DemoChatViewController.m */; };
+		518E69D619F563530026634F /* DemoRichContentMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518E69D519F563530026634F /* DemoRichContentMessageViewController.m */; };
 		51C2B3D019D97916003FD466 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51C2B3CF19D97916003FD466 /* main.mm */; };
 		51C2B3D219D97974003FD466 /* libNBSAppAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C2B3D119D97974003FD466 /* libNBSAppAgent.framework */; };
 		51C2B3D419D97993003FD466 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C2B3D319D97993003FD466 /* CoreTelephony.framework */; };
@@ -78,6 +79,9 @@
 		5160E0D919B494F700983874 /* DemoChatsettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoChatsettingViewController.m; sourceTree = "<group>"; };
 		5160E0DA19B494F700983874 /* DemoChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoChatViewController.h; sourceTree = "<group>"; };
 		5160E0DB19B494F700983874 /* DemoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoChatViewController.m; sourceTree = "<group>"; };
+		518E69D319F55F3C0026634F /* RCRichContentMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRichContentMessage.h; sourceTree = "<group>"; };
+		518E69D419F563530026634F /* DemoRichContentMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoRichContentMessageViewController.h; sourceTree = "<group>"; };
+		518E69D519F563530026634F /* DemoRichContentMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoRichContentMessageViewController.m; sourceTree = "<group>"; };
 		51C2B3CF19D97916003FD466 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		51C2B3D119D97974003FD466 /* libNBSAppAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libNBSAppAgent.framework; path = "iOS-IMKit-demo/nbs-newlens-ios/libNBSAppAgent.framework"; sourceTree = "<group>"; };
 		51C2B3D319D97993003FD466 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -345,6 +349,8 @@
 		B267E0081932E37400B5FFC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				518E69D419F563530026634F /* DemoRichContentMessageViewController.h */,
+				518E69D519F563530026634F /* DemoRichContentMessageViewController.m */,
 				B20F9FE019CC1BFD00F7628F /* DemoPreviewViewController.h */,
 				B20F9FE119CC1BFD00F7628F /* DemoPreviewViewController.m */,
 				B20F9FE219CC1BFD00F7628F /* DemoRenameController.h */,
@@ -397,6 +403,7 @@
 		B2FF1111195F010E0058A1F1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				518E69D319F55F3C0026634F /* RCRichContentMessage.h */,
 				B20F9FE619CC1C3300F7628F /* RCPreviewViewController.h */,
 				B20F9FE719CC1C3300F7628F /* RCRenameViewController.h */,
 				B20F9FE819CC1C3300F7628F /* RCThemeDefine.h */,
@@ -557,6 +564,7 @@
 				5160E0DD19B494F700983874 /* DemoChatsettingViewController.m in Sources */,
 				B2FF1159196152380058A1F1 /* MMProgressHUD.m in Sources */,
 				B2FF1158196152380058A1F1 /* MMHud.m in Sources */,
+				518E69D619F563530026634F /* DemoRichContentMessageViewController.m in Sources */,
 				B267E0701932E37400B5FFC3 /* AppDelegate.m in Sources */,
 				B20F9FE519CC1BFD00F7628F /* DemoRenameController.m in Sources */,
 			);

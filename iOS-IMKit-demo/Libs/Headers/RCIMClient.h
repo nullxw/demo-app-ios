@@ -39,10 +39,10 @@
 /**
  *  注册消息类型，如果对消息类型进行扩展，可以忽略此方法。
  *
- *  @param objectName   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
- *  @param flag         RCMessagePersistent 对应的枚举值，可以进行按位与操作后传入，表示消息的处理方式。
+ *  @param messageClass   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
  */
-+(void)registerMessageType:(NSString*)objectName flag:(RCMessagePersistent)flag;
+
++(void)registerMessageType:(Class)messageClass;
 
 /**
  *  连接服务器。
@@ -58,6 +58,8 @@
  *  @param delegate 连接回调。
  */
 +(void)reconnect:(id<RCConnectDelegate>)delegate;
+
+-(void)reconnect:(void(^)(int status))reconnectBlock;
 
 /**
  *  断开连接。

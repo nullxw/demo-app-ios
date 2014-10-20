@@ -30,7 +30,6 @@ typedef enum{
 @property (nonatomic, strong) RCGroupListViewController* currentGroupListView;
 @property (nonatomic) UIPortraitViewStyle portraitStyle;
 
-- (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 /**
  *  启动一对一聊天
  *

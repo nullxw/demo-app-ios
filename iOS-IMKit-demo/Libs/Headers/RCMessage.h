@@ -21,12 +21,16 @@
 @property(nonatomic, assign) RCSentStatus sentStatus;
 @property(nonatomic, assign) long long receivedTime;
 @property(nonatomic, assign) long long sentTime;
-@property(nonatomic, strong) NSString* objectName;
+@property(nonatomic, strong) NSString* messageTypeIdentifier;
 @property(nonatomic, strong) RCMessageContent* content;
 @property(nonatomic, strong) NSString* extra;
 
--(RCMessage*)initWithType:(RCConversationType)conversationTp targetId:(NSString*)targetId msgDirection:(RCMessageDirection)msgDirection msgId:(long)msgId objName:(NSString*)objName content:(RCMessageContent*)content;
+-(instancetype)initWithType:(RCConversationType)conversationTp
+                   targetId:(NSString *)targetId
+                  direction:(RCMessageDirection)msgDirection
+                  messageId:(long)msgId
+                    content:(RCMessageContent*)content;
 
-//----Create instance from json-dictionary ----//
--(RCMessage*)createMessageWithJSONValue:(NSDictionary*)jsonDict;
++(instancetype)messageWithJSON:(NSDictionary*)jsonData;
+
 @end

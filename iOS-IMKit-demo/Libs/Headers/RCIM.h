@@ -136,13 +136,9 @@
 
 /**
  注册用户自定义消息类型
- @param objName      消息类的类名
- @param flag         持久化标识
- 
+ @param messageClass    消息类
  */
-+(void)registerMessageType:(NSString*)objName flag:(RCMessagePersistent)flag;
-
-
++(void)registerMessageType:(Class)messageClass;
 /**
  注销当前登录。
  */

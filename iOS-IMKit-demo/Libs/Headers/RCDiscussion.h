@@ -17,5 +17,11 @@
 @property(nonatomic, assign) int inviteStatus; //0 -open ; 1 - close;
 @property(nonatomic, assign) int pushMessageNotificationStatus; // 0 --open ; 1 - close;
 
--(RCDiscussion*)initWithDiscussionId:(NSString*)discussionId discussionName:(NSString*)discussionName creatorId:(NSString*)creatorId conversationType:(int)conversationType memberIdList:(NSArray*)memberIdList inviteStatus:(int)inviteStatus msgNotificationStatus:(int)pushMessageNotificationStatus;
+-(RCDiscussion*)initWithDiscussionId:(NSString*)discussionId
+                      discussionName:(NSString*)discussionName
+                           creatorId:(NSString*)creatorId
+                    conversationType:(int)conversationType
+                        memberIdList:(NSArray*)memberIdList
+                        inviteStatus:(int)inviteStatus
+               msgNotificationStatus:(int)pushMessageNotificationStatus;
 @end

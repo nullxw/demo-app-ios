@@ -10,7 +10,6 @@
 #import "RCMessageContent.h"
 #import "RCStatusDefine.h"
 
-
 @interface RCConversation : NSObject
 @property(nonatomic, assign) RCConversationType conversationType;
 @property(nonatomic, strong) NSString* targetId;
@@ -22,11 +21,11 @@
 @property(nonatomic, assign) long long receivedTime;
 @property(nonatomic, assign) long long sentTime;
 @property(nonatomic, strong) NSString* draft;
-@property(nonatomic, strong) NSString* objectName;
+@property(nonatomic, strong) NSString* messageTypeIdentifier;
 @property(nonatomic, strong) NSString* senderUserId;
 @property(nonatomic, strong) NSString* senderUserName;
 @property(nonatomic, strong) NSString* lastestMessageId;
 @property(nonatomic, strong) RCMessageContent* lastestMessage;
 
--(RCConversation*)createConversationWithJSONDict:(NSDictionary*)jsonDict;
++(instancetype)conversationWithProperties:(NSDictionary*)jsonDict;
 @end

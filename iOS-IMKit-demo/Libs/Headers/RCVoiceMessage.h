@@ -8,14 +8,9 @@
 
 #import "RCMessageContent.h"
 
-@interface RCVoiceMessage : RCMessageContent
+@interface RCVoiceMessage : RCMessageContent //<RCMessagePersistentCompatible, RCMessageCoding>
 
 @property(nonatomic, strong) NSData* wavAudioData;
 @property(nonatomic, assign) long duration;
-
--(RCVoiceMessage*)initWithAudioData:(NSData*)wavData duration:(long)duration;
-
-+(NSString*)getClassObjectName;
-+(RCMessagePersistent)getClassObjectFlag;
-+(void)setObjectFlag:(int)objFlag;
++(instancetype)messageWithAudio:(NSData *)audioData duration:(long)duration;
 @end

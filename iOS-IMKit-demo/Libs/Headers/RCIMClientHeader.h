@@ -20,6 +20,7 @@
 #import "RCUserInfo.h"
 #import "RCDiscussion.h"
 #import "RCVoiceMessage.h"
+#import "RCRichContentMessage.h"
 
 
 #endif

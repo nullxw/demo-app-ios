@@ -24,8 +24,6 @@ typedef enum{
 @property (nonatomic, assign) NSInteger editingCellNum;//----当前滑动cell对应数组中的位置。
 @property (nonatomic) UIPortraitViewStyle portraitStyle;
 
-- (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
-
 /**
  *  刷新群组列表
  */

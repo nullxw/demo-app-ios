@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RCThemeDefine.h"
+
 @interface RCBasicViewController : UIViewController
 - (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
+- (void)configureNavigationBar;
 @end

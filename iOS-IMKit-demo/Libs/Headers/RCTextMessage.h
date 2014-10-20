@@ -8,12 +8,9 @@
 
 #import "RCMessageContent.h"
 
-@interface RCTextMessage : RCMessageContent
+@interface RCTextMessage : RCMessageContent //<RCMessageCoding, RCMessagePersistentCompatible>
 @property(nonatomic, strong) NSString* content;
 
--(RCTextMessage*)initWithContent:(NSString *)content;
++(instancetype)messageWithContent:(NSString *)content;
 
-+(NSString*)getClassObjectName;
-+(RCMessagePersistent)getClassObjectFlag;
-+(void)setObjectFlag:(int)objFlag;
 @end

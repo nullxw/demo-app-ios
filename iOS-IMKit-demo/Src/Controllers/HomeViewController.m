@@ -14,6 +14,7 @@
 #import "RCHandShakeMessage.h"
 #import "RCGroup.h"
 #import "DemoCommonConfig.h"
+#import "DemoRichContentMessageViewController.h"
 
 @interface HomeViewController ()<RCIMConnectionStatusDelegate,RCIMGroupInfoFetcherDelegate>
 
@@ -113,7 +114,7 @@
     
     self.dataList = [NSMutableArray array];
     
-    for (int i=0; i<7; i++) {
+    for (int i=0; i<8; i++) {
         
         UITableViewCell* cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         
@@ -147,6 +148,11 @@
         }
         
         if (6 == i) {
+            cell.textLabel.text = @"启动图文消息";
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
+        if (7 == i) {
             cell.textLabel.text = @"注销";
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
@@ -287,8 +293,20 @@
             [self.navigationController pushViewController:temp animated:YES];
         }
         
-        //注销
         if (6 == indexPath.row) {
+            DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
+            
+            temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
+            temp.conversationType = ConversationType_PRIVATE;
+            temp.currentTargetName = @"单聊";
+            temp.enableSettings = NO;
+            temp.portraitStyle = UIPortraitViewRound;
+            
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
+        //注销
+        if (7 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -391,8 +409,20 @@
             [self.navigationController pushViewController:temp animated:YES];
         }
         
-        //注销
         if (6 == indexPath.row) {
+            DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
+            
+            temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
+            temp.conversationType = ConversationType_PRIVATE;
+            temp.currentTargetName = @"单聊";
+            temp.enableSettings = NO;
+            temp.portraitStyle = UIPortraitViewRound;
+            
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
+        //注销
+        if (7 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }

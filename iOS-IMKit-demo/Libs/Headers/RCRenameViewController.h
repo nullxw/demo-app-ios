@@ -33,9 +33,6 @@
  */
 -(void)rightBarButtonItemPressed:(id)sender;
 
--(void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
-
-
 @end
 
 

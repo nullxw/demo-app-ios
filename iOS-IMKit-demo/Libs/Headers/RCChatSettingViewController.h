@@ -49,8 +49,6 @@
 @property (nonatomic,strong) UISwitch *inviteControl;
 
 
-- (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
-
 /**
  *  导航左面按钮点击事件
  */

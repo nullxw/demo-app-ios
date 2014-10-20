@@ -8,12 +8,11 @@
 
 #import "RCMessageContent.h"
 
-@interface RCHandShakeMessage : RCMessageContent
+#define RCHandShakeMessageTypeIdentifier @"RC:HsMsg"
+
+@interface RCHandShakeMessage : RCMessageContent<RCMessageCoding,RCMessagePersistentCompatible>
 @property(nonatomic, assign) int type;
 
 -(RCHandShakeMessage*)initWithType:(int)aType;
 
-+(NSString*)getClassObjectName;
-+(int)getClassObjectFlag;
-+(void)setObjectFlag:(int)objFlag;
 @end

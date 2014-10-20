@@ -5,14 +5,11 @@
 //  Created by Heq.Shinoda on 14-6-15.
 //  Copyright (c) 2014年 RongCloud. All rights reserved.
 //
-
-#ifndef iOS_IMLib_ConstanstOfConnectStatus_h
-#define iOS_IMLib_ConstanstOfConnectStatus_h
-
+#import <Foundation/Foundation.h>
 /**
  * 连接服务器的回调错误码。
  */
-typedef enum  {
+typedef NS_ENUM(NSInteger, RCConnectErrorCode)  {
     /**
      * 未知错误。
      */
@@ -57,14 +54,20 @@ typedef enum  {
     ConnectionStatus_INVALID_ARGUMENT = -1000
     
     
-}RCConnectErrorCode;
+};
 
-typedef enum
+typedef NS_ENUM(NSInteger, RCConnectionStatus)
 {
     /**
      * 未知错误。
      */
     ConnectionStatus_UNKNOWN = -1, //"Unknown error."
+    
+    
+    /**
+     * 连接成功。
+     */
+    ConnectionStatus_Connected = 0,
     
     /**
      * 网络不可用。
@@ -111,11 +114,11 @@ typedef enum
      */
     ConnectionStatus_VALIDATE_INVALID = 9,
     
-}RCConnectionStatus;
+};
 
 
 //-----会话类型----//
-typedef enum
+typedef NS_ENUM(NSUInteger, RCConversationType)
 {
     /**
      * 私聊
@@ -137,12 +140,12 @@ typedef enum
      *  客服消息
      */
     ConversationType_CUSTOMERSERVICE
-}RCConversationType;
+};
 
 /**
  * 消息方向枚举。
  */
-typedef enum {
+typedef NS_ENUM(NSUInteger, RCMessageDirection) {
     /**
      * 发送
      */
@@ -152,11 +155,11 @@ typedef enum {
      * 接收
      */
     MessageDirection_RECEIVE//true
-}RCMessageDirection;
+};
 /**
  * 媒体文件类型枚举。
  */
-typedef enum
+typedef NS_ENUM(NSUInteger, RCMediaType)
 {
     /**
      * 图片。
@@ -177,22 +180,21 @@ typedef enum
      * 通用文件。
      */
     MediaType_FILE = 100
-}RCMediaType;
+};
 
 /**
  *  消息记录状态
  */
-typedef enum
-{
+typedef NS_OPTIONS(NSUInteger, RCMessagePersistent) {
     MessagePersistent_NONE = 0,
-    MessagePersistent_ISPERSISTED = 0x01,
-    MessagePersistent_ISCOUNTED = 0x02
-}RCMessagePersistent;
+    MessagePersistent_ISPERSISTED = 1 << 0,
+    MessagePersistent_ISCOUNTED = 1 << 1
+};
 
 /**
  * 发送出的消息的状态。
  */
-typedef enum
+typedef NS_ENUM(NSUInteger, RCSentStatus)
 {
     /**
      * 发送中。
@@ -223,10 +225,10 @@ typedef enum
      * 对方已销毁。
      */
     SentStatus_DESTROYED = 60
-}RCSentStatus;
+};
 
 //----消息阅读状态----//
-typedef enum
+typedef NS_ENUM(NSUInteger, RCReceivedStatus)
 {
     /**
      * 未读。
@@ -243,31 +245,27 @@ typedef enum
     
     ReceivedStatus_DOWNLOADED = 4,
     
-}RCReceivedStatus;
+};
 
 //----
-typedef enum
+typedef NS_ENUM(NSInteger, RCErrorCode)
 {
     ErrorCode_UNKNOWN = -1,
     ErrorCode_TIMEOUT = 5004
-}RCErrorCode;
+};
 
-typedef enum
+typedef NS_ENUM(NSUInteger, RCConversationNotificationStatus)
 {
     //免打扰
     DO_NOT_DISTURB = 0,
     //新消息阻止枚举
     NOTIFY = 1,
-}RCConversationNotificationStatus;
+};
 
 #define KNotificationCenterRCMessageReceiver @"NotificationCenterRCMessageReceiver"
 
-#define MESSAGE_TXT_OBJ_NAME    @"RC:TxtMsg"
-#define MESSAGE_IMG_OBJ_NAME    @"RC:ImgMsg"
-#define MESSAGE_VOICE_OBJ_NAME    @"RC:VcMsg"
-#define MESSAGE_DIZNTF_OBJ_NAME    @"RC:DizNtf"
-//#define MESSAGE_NTF_OBJ_NAME    @"RC:NtfMsg"
-//#define MESSAGE_STATUS_OBJ_NAME    @"RC:StMsg"
-
-
-#endif//iOS_IMLib_ConstanstOfConnectStatus_h
+#define RCTextMessageTypeIdentifier @"RC:TxtMsg"
+#define RCImageMessageTypeIdentifier @"RC:ImgMsg"
+#define RCVoiceMessageTypeIdentifier @"RC:VcMsg"
+#define RCDiscussionNotificationTypeIdentifier @"RC:DizNtf"
+#define RCImageTextMessageTypeIdentifier @"RC:ImgTextMsg"

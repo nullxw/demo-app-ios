@@ -34,7 +34,6 @@
  */
 -(void)rightBarButtonItemPressed:(id)sender;
 
--(void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 /**
  *  如果有需要，可以自定义下载完成的图片操作。
  *

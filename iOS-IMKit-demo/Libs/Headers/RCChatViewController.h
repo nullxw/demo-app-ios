@@ -31,17 +31,26 @@ typedef enum
 @class RCChatSessionInputBarView;
 @class RCConversationTableHeaderView;
 
+typedef NS_ENUM(NSUInteger, RCMessageUserInteractionEvent) {
+    RCMessageTapEvent = 0x0001 << 0,
+    RCMessageLongPressEvent = 0x0001 << 1,
+    RCMessageDoubleTapEvent = 0x0001 << 2,
+    RCMessagePanEvent = 0x0001 << 3,
+    RCMessagePinchEvent = 0x0001 << 4
+};
 
-@interface RCChatViewController : RCBasicViewController
+typedef void (^didTapMessageHandler)(RCMessage *metadata);
+
+@interface RCChatViewController : RCBasicViewController <RCSendMessageDelegate>
 {
     KBottomBarStatus currentBottomBarStatus;
     BOOL isSendImage;
-    //MessageDataModel* imageDataMessage;
-    //RCAudioRecord *_myRecorder;
 }
-@property(nonatomic, strong)UIImagePickerController *curPicker;
+
+@property(nonatomic, copy)didTapMessageHandler messageTapHandler;
+@property(nonatomic, strong) UIImagePickerController *curPicker;
 @property(nonatomic, strong) RCConversionDataSource* conversionDataSource;
-@property(nonatomic, strong)NSString* msgContent;
+@property(nonatomic, strong) NSString* msgContent;
 @property(nonatomic, strong) UITableView* chatListTableView;
 @property (strong, nonatomic) RCChatSessionInputBarView *msgInputBar;
 
@@ -50,7 +59,7 @@ typedef enum
 
 @property (strong, nonatomic) RCConversationTableHeaderView *tableHeaderView;
 
-@property (nonatomic) UIPortraitViewStyle portraitStyle;
+@property (nonatomic, assign) UIPortraitViewStyle portraitStyle;
 
 @property (nonatomic,assign) RCConversationType conversationType;
 @property (nonatomic,strong) NSString* currentTarget;
@@ -74,13 +83,13 @@ typedef enum
 @property (nonatomic,assign) BOOL enableUnreadBadge;
 
 
--(void)reSendMessage:(NSNotification*)notification;
+-(void)resendMessage:(NSNotification*)notification;
 
 //发送文本消息
 -(void)sendTextMessage;
+-(void)sendRichContentMessage:(RCRichContentMessage *)message;
 -(void)drag4ResetDefaultBottomBarStatus;
 
-- (void)setNavigationTitle:(NSString *)title textColor:(UIColor*)textColor;
 /**
  *  导航左面按钮点击事件
  */
@@ -99,5 +108,7 @@ typedef enum
 -(void)onBeginRecordEvent;
 //语音消息录音结束
 -(void)onEndRecordEvent;
+
+-(void)appendActionButtonWithImage:(UIImage *)image title:(NSString *)title target:(id)target selector:(SEL)selector;
 
 @end

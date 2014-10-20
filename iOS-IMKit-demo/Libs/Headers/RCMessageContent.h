@@ -9,16 +9,36 @@
 #import <Foundation/Foundation.h>
 #import "RCStatusDefine.h"
 
-@interface RCMessageContent : NSObject
-{
-@protected RCConversationType conversationType;
-@private NSString* targetId;
-}
-@property(nonatomic, strong) NSString* jsonData;
--(id)initWithData:(const char*)data;
+@protocol RCMessageCoding <NSObject>
+@required
+- (NSData *)encode;
+- (void)decodeWithData:(NSData *)data;
++ (NSString *)messageTypeIdentifier;
+@end
 
--(NSString*)getObjectName;
--(int)getObjectFlag;
-//----规则编码----//
--(const char*)encode;
+/*!
+    \protocol RCMessagePersistentCompatible
+     
+    \note The base class RCMessageContent has already conformed to this protocol.
+ */
+@protocol RCMessagePersistentCompatible <NSObject>
+@required
+/*!
+    \brief
+    The base class RCMessageContent has implemented this method, The default return value is
+    \constant (MessagePersistent_ISPERSISTED | MessagePersistent_ISCOUNTED)
+    aka. the value is equal to 0x11
+ */
++(RCMessagePersistent)persistentFlag;
+@end
+
+@interface RCMessageContent : NSObject <RCMessageCoding, RCMessagePersistentCompatible>
+{
+ @protected
+    RCConversationType conversationType;
+ @private
+    NSString *_targetId;
+}
+@property(nonatomic, strong)NSString *rawJSONData;
+
 @end
