@@ -269,3 +269,4 @@ typedef NS_ENUM(NSUInteger, RCConversationNotificationStatus)
 #define RCVoiceMessageTypeIdentifier @"RC:VcMsg"
 #define RCDiscussionNotificationTypeIdentifier @"RC:DizNtf"
 #define RCImageTextMessageTypeIdentifier @"RC:ImgTextMsg"
+#define RCNotificationMessageTypeIdentifier @"RC:NtfMsg"

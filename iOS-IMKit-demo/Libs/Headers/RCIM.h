@@ -14,6 +14,13 @@
 
 @class RCChatListViewController;
 @class RCChatViewController;
+@class RCIM;
+
+/*!
+    \class RCInstantMessagingCenter 
+    You can use more objective-c styled Class name to use all functionalities of RCIM.
+ */
+@compatibility_alias RCInstantMessagingCenter RCIM;
 
 /**
  @protocol RCIMUserInfoFetcherDelegagte
@@ -255,7 +262,10 @@
  
  @return 发送的消息实体。
  */
--(RCMessage*)sendMessage:(RCConversationType)conversationType targetId:(NSString*)targetId content:(RCMessageContent*)content delegate:(id<RCSendMessageDelegate>)delegate;
+-(RCMessage*)sendMessage:(RCConversationType)conversationType
+                targetId:(NSString*)targetId
+                 content:(RCMessageContent*)content
+                delegate:(id<RCSendMessageDelegate>)delegate;
 
 
 /**
@@ -265,14 +275,14 @@
  
  @return 会话列表，返回 RCConversation 数组。
  */
--(NSArray*)getConversationList;
+@property (NS_NONATOMIC_IOSONLY, getter=getConversationList, readonly, copy) NSArray *conversationList;
 
 /**
  获取所有未读消息数。
  
  @return 未读消息数。
  */
--(int)getTotalUnreadCount;
+@property (NS_NONATOMIC_IOSONLY, getter=getTotalUnreadCount, readonly) int totalUnreadCount;
 
 /**
  获取来自某用户（某会话）的未读消息数。

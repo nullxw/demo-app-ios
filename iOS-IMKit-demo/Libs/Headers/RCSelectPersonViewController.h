@@ -11,13 +11,13 @@
 #import "RCIMClientHeader.h"
 
 
-typedef enum {
+typedef NS_ENUM(NSInteger, UseMode) {
 
     NormalMode=0,
     CreateMode,
     InviteMode
 
-}UseMode;
+};
 
 
 

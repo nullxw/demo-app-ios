@@ -13,11 +13,13 @@
 
 @class RCImageMsgProgressView;
 
-@interface RCPreviewViewController : RCBasicViewController<RCDownloadMediaDelegate>
+@interface RCPreviewViewController : RCBasicViewController<RCDownloadMediaDelegate,UIScrollViewDelegate>
 {
     int progressStep;
+    UIScrollView *scrollView;
+    UIImageView *imageView;
 }
-//previewImage包含原图view，根据需要实现缩放
+
 @property (nonatomic,strong) UIImageView* previewImage;
 @property (nonatomic,strong) NSDictionary *userInfo;
 @property (nonatomic,strong) RCMessage *rcMessage;

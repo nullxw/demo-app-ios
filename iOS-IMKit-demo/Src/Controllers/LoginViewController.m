@@ -98,7 +98,8 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
      }
     //创建初始化页面
-    [self layoutInitView];
+    //[self layoutInitView];
+    [self configView];
     loginToken = nil;
 }
 
@@ -108,6 +109,195 @@
     [super viewWillAppear:animated];
 }
 
+- (void)configView
+{
+    [self.view setBackgroundColor:HEXCOLOR(0x59B1DA)];
+    UIImage *rongLogoImage = [[UIImage imageNamed:@"login_view_logo"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImageView *rongLogo = [[UIImageView alloc] initWithImage:rongLogoImage];
+    [self.view addSubview:rongLogo];
+    
+    UIImage *inputBackgroundImage = [[UIImage imageNamed:@"input_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.f, 5.f, 5.f, 5.f)];
+    UIImageView *inputBackground = [[UIImageView alloc] init];
+    [inputBackground setImage:inputBackgroundImage];
+    inputBackground.userInteractionEnabled = YES;
+    [self.view addSubview:inputBackground];
+    
+    UIImage *seperatorImage = [[UIImage imageNamed:@"split_line"] resizableImageWithCapInsets:UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f)];
+    UIImageView *seperator = [[UIImageView alloc] initWithImage:seperatorImage];
+    [inputBackground addSubview:seperator];
+    
+    UIImage *usernameIconImage = [[UIImage imageNamed:@"user_icon"] resizableImageWithCapInsets:UIEdgeInsetsMake(3.f, 3.f, 3.f, 3.f)];
+    UIImageView *usernameIcon = [[UIImageView alloc] initWithImage:usernameIconImage];
+    [inputBackground addSubview:usernameIcon];
+    
+    UIImage *passwordIconImage = [[UIImage imageNamed:@"password_icon"] resizableImageWithCapInsets:UIEdgeInsetsMake(3.f, 3.f, 3.f, 3.f)];
+    UIImageView *passwordIcon = [[UIImageView alloc] initWithImage:passwordIconImage];
+    [inputBackground addSubview:passwordIcon];
+    
+    
+    
+    
+    UITextField *usernameTextField = [[UITextField alloc] init];
+    usernameTextField.tag = Tag_EmailTextField;
+    usernameTextField.textColor = [UIColor whiteColor];
+    usernameTextField.returnKeyType = UIReturnKeyDone;
+    usernameTextField.keyboardType = UIKeyboardTypeEmailAddress;
+    usernameTextField.delegate = self;
+    if ([usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = HEXCOLOR(0xffffff);
+        usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"用户名", nil)
+                                                                                  attributes:@{NSForegroundColorAttributeName: color}];
+    } else {
+        usernameTextField.placeholder = NSLocalizedString(@"用户名", nil);
+    }
+    usernameTextField.text = [self getDefaultUser];
+    [inputBackground addSubview:usernameTextField];
+    
+    
+    UITextField *passwordTextField = [[UITextField alloc] init];
+    passwordTextField.tag = Tag_TempPasswordTextField;
+    passwordTextField.textColor = [UIColor whiteColor];
+    passwordTextField.returnKeyType = UIReturnKeyDone;
+    passwordTextField.secureTextEntry = YES;
+    passwordTextField.delegate = self;
+    if ([passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = HEXCOLOR(0xffffff);
+        passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"密码", nil)
+                                                                                  attributes:@{NSForegroundColorAttributeName: color}];
+    } else {
+        passwordTextField.placeholder = NSLocalizedString(@"密码", nil);
+    }
+    passwordTextField.text = [self getDefaultUserPwd];
+    [inputBackground addSubview:passwordTextField];
+    
+    
+    UIEdgeInsets buttonEdgeInsets = UIEdgeInsetsMake(7.f, 7.f, 7.f, 7.f);
+    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [loginButton addTarget:self action:@selector(loginBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [loginButton setBackgroundImage:[[UIImage imageNamed:@"login_view_login_btn_bg"] resizableImageWithCapInsets:buttonEdgeInsets] forState:UIControlStateNormal];
+    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    loginButton.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [loginButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [self.view addSubview:loginButton];
+    
+    
+    UIButton *signupButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [signupButton addTarget:self action:@selector(registerBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [signupButton setBackgroundImage:[[UIImage imageNamed:@"login_view_regist_btn_bg"] resizableImageWithCapInsets:buttonEdgeInsets] forState:UIControlStateNormal];
+    [signupButton setTitle:@"注册" forState:UIControlStateNormal];
+    [signupButton setTitleColor:HEXCOLOR(0x585858) forState:UIControlStateNormal];
+    signupButton.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [signupButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [self.view addSubview:signupButton];
+    
+    
+    UILabel *buildVersionLabel = [[UILabel alloc] init];
+    [buildVersionLabel setFont:[UIFont systemFontOfSize:10]];
+    [buildVersionLabel setTextAlignment:NSTextAlignmentCenter];
+    [buildVersionLabel setBackgroundColor:[UIColor clearColor]];
+    [buildVersionLabel setTextColor:[UIColor whiteColor]];
+    NSString * buildVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+    //    NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *buildVersionTextFormat = NSLocalizedString(@"version: %@", nil);
+    [buildVersionLabel setText:[NSString stringWithFormat:buildVersionTextFormat, buildVersion]];
+    [self.view addSubview:buildVersionLabel];
+    
+    UILabel *shortVersionLabel = [[UILabel alloc] init];
+    [shortVersionLabel setFont:[UIFont systemFontOfSize:10]];
+    [shortVersionLabel setTextAlignment:NSTextAlignmentCenter];
+    [shortVersionLabel setBackgroundColor:[UIColor clearColor]];
+    [shortVersionLabel setTextColor:[UIColor whiteColor]];
+    
+    NSString * shortVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *buildNumberTextFormat = NSLocalizedString(@"build number: %@", nil);
+    [shortVersionLabel setText:[NSString stringWithFormat:buildNumberTextFormat,shortVersion]];
+    
+    [self.view addSubview:shortVersionLabel];
+    
+    //!\warning before using autolayout, disable autoresizingmask constraints
+    NSDictionary *views = NSDictionaryOfVariableBindings(rongLogo, inputBackground, loginButton, signupButton, buildVersionLabel, shortVersionLabel);
+    NSDictionary *formViews = NSDictionaryOfVariableBindings(seperator, usernameIcon, passwordIcon, usernameTextField, passwordTextField);
+    
+    self.view.translatesAutoresizingMaskIntoConstraints = YES;
+    rongLogo.translatesAutoresizingMaskIntoConstraints = NO;
+    inputBackground.translatesAutoresizingMaskIntoConstraints = NO;
+    loginButton.translatesAutoresizingMaskIntoConstraints = NO;
+    signupButton.translatesAutoresizingMaskIntoConstraints = NO;
+    buildVersionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    shortVersionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    seperator.translatesAutoresizingMaskIntoConstraints = NO;
+    usernameIcon.translatesAutoresizingMaskIntoConstraints = NO;
+    passwordIcon.translatesAutoresizingMaskIntoConstraints = NO;
+    usernameTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    passwordTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    
+    NSArray *inputHorizontalConstraints1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[seperator]-0-|"
+                                                                                   options:NSLayoutFormatAlignAllCenterY
+                                                                                   metrics:nil
+                                                                                     views:formViews];
+    
+    NSArray *inputHorizontalConstraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[usernameIcon(26)]-[usernameTextField]-|"
+                                                                                  options:0
+                                                                                  metrics:nil
+                                                                                    views:formViews];
+    NSArray *inputHorizontalConstraint3 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[passwordIcon(26)]-[passwordTextField]-|"
+                                                                                  options:0
+                                                                                  metrics:nil
+                                                                                    views:formViews];
+    
+    
+    NSArray *inputVerticalConstraints2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-11-[usernameIcon]-7-[seperator]-7-[passwordIcon]-11-|"
+                                                                                 options:0
+                                                                                 metrics:nil
+                                                                                   views:formViews];
+    NSArray *inputVerticalConstraints3 =  [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-11-[usernameTextField]-7-[seperator]-7-[passwordTextField]-11-|"
+                                                                                  options:0
+                                                                                  metrics:nil
+                                                                                    views:formViews];
+    
+    NSArray *inputConstraints = [[[[inputHorizontalConstraints1 arrayByAddingObjectsFromArray: inputHorizontalConstraint2]
+                                   arrayByAddingObjectsFromArray: inputHorizontalConstraint3]
+                                  arrayByAddingObjectsFromArray: inputVerticalConstraints2]
+                                 arrayByAddingObjectsFromArray: inputVerticalConstraints3];
+    
+    [inputBackground addConstraints:inputConstraints];
+    
+    
+    
+    NSArray *constraintsVertical1 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[rongLogo]-30-[inputBackground(89)]-30-[loginButton]-9-[signupButton]-20-[buildVersionLabel]-[shortVersionLabel]"
+                                                                            options:NSLayoutFormatAlignAllCenterX
+                                                                            metrics:nil
+                                                                              views:views];
+    
+    NSArray *constraintsHorizontal1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-28-[inputBackground]-28-|"
+                                                                              options:NSLayoutFormatAlignAllCenterX
+                                                                              metrics:nil
+                                                                                views:views];
+    NSArray *constraintsHorizontal2 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-28-[loginButton]-28-|"
+                                                                              options:NSLayoutFormatAlignAllCenterX
+                                                                              metrics:nil
+                                                                                views:views];
+    NSArray *constraintsHorizontal3 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-28-[signupButton]-28-|"
+                                                                              options:NSLayoutFormatAlignAllCenterX
+                                                                              metrics:nil
+                                                                                views:views];
+    NSLayoutConstraint *signupButtonConstraints = [NSLayoutConstraint constraintWithItem:signupButton
+                                                                               attribute:NSLayoutAttributeWidth
+                                                                               relatedBy:NSLayoutRelationEqual
+                                                                                  toItem:loginButton
+                                                                               attribute:NSLayoutAttributeWidth
+                                                                              multiplier:1.f
+                                                                                constant:0];
+    NSArray *constraintsCollection = [[[[[NSArray arrayWithArray:constraintsVertical1]
+                                         arrayByAddingObjectsFromArray:constraintsHorizontal1]
+                                        arrayByAddingObjectsFromArray:constraintsHorizontal2]
+                                       arrayByAddingObjectsFromArray:constraintsHorizontal3]
+                                      arrayByAddingObject:signupButtonConstraints];
+    
+    [self.view addConstraints:constraintsCollection];
+}
 - (void)layoutInitView
 {
     UIImageView* logoRongCloud = [[UIImageView alloc] initWithFrame:CGRectMake(103, 50, 114, 112)];

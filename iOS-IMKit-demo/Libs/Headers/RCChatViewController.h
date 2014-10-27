@@ -10,14 +10,14 @@
 #import "RCBasicViewController.h"
 #import "RCIMClientHeader.h"
 
-typedef enum
+typedef NS_ENUM(NSInteger, KBottomBarStatus)
 {
     KBottomBarStatusDefault = 0,
     KBottomBarStatusKeyboard,
     KBottomBarStatusMultiAction,
     KBottomBarStatusEmoji,
     KBottomBarStatusAudio
-}KBottomBarStatus;
+};
 
 @class MessageDataModel;
 
@@ -67,7 +67,7 @@ typedef void (^didTapMessageHandler)(RCMessage *metadata);
 
 @property (nonatomic,assign,readonly) BOOL SendingCount;
 @property (nonatomic,strong) VoiceCaptureControl *voiceCaptureControl;
-@property (nonatomic,strong) RCPopupMenu *popupMenu;
+//@property (nonatomic,strong) RCPopupMenu *popupMenu;
 
 /**
  *  是否屏蔽右导航按钮，默认YES
@@ -108,7 +108,5 @@ typedef void (^didTapMessageHandler)(RCMessage *metadata);
 -(void)onBeginRecordEvent;
 //语音消息录音结束
 -(void)onEndRecordEvent;
-
--(void)appendActionButtonWithImage:(UIImage *)image title:(NSString *)title target:(id)target selector:(SEL)selector;
 
 @end

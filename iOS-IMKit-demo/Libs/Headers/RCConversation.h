@@ -21,7 +21,7 @@
 @property(nonatomic, assign) long long receivedTime;
 @property(nonatomic, assign) long long sentTime;
 @property(nonatomic, strong) NSString* draft;
-@property(nonatomic, strong) NSString* messageTypeIdentifier;
+@property(nonatomic, strong) NSString* objectName;
 @property(nonatomic, strong) NSString* senderUserId;
 @property(nonatomic, strong) NSString* senderUserName;
 @property(nonatomic, strong) NSString* lastestMessageId;

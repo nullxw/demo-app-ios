@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "RCStatusDefine.h"
 
+/*!
+    \protocol RCMessageCoding
+ */
 @protocol RCMessageCoding <NSObject>
 @required
 - (NSData *)encode;
 - (void)decodeWithData:(NSData *)data;
-+ (NSString *)messageTypeIdentifier;
++ (NSString *)getObjectName;
 @end
 
 /*!
@@ -34,11 +37,9 @@
 
 @interface RCMessageContent : NSObject <RCMessageCoding, RCMessagePersistentCompatible>
 {
- @protected
-    RCConversationType conversationType;
  @private
     NSString *_targetId;
 }
-@property(nonatomic, strong)NSString *rawJSONData;
+@property(nonatomic, strong, setter=setRawJSONData:)NSData *rawJSONData;
 
 @end

@@ -13,5 +13,5 @@
 @property(nonatomic, strong) NSString* name;
 @property(nonatomic, strong) NSString* portraitUri;
 
--(RCUserInfo*)initWithUserId:(NSString*)uId name:(NSString*)name portrait:(NSString*)portrait;
+-(RCUserInfo*)initWithUserId:(NSString*)uId name:(NSString*)name portrait:(NSString*)portrait NS_DESIGNATED_INITIALIZER;
 @end

@@ -23,5 +23,5 @@
                     conversationType:(int)conversationType
                         memberIdList:(NSArray*)memberIdList
                         inviteStatus:(int)inviteStatus
-               msgNotificationStatus:(int)pushMessageNotificationStatus;
+               msgNotificationStatus:(int)pushMessageNotificationStatus NS_DESIGNATED_INITIALIZER;
 @end

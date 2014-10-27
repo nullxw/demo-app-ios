@@ -10,6 +10,7 @@
 		5160E0DC19B494F700983874 /* DemoChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0D719B494F700983874 /* DemoChatListViewController.m */; };
 		5160E0DD19B494F700983874 /* DemoChatsettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0D919B494F700983874 /* DemoChatsettingViewController.m */; };
 		5160E0DE19B494F700983874 /* DemoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160E0DB19B494F700983874 /* DemoChatViewController.m */; };
+		5166880F19FE981A00DBEB6C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5166880E19FE981A00DBEB6C /* Launch Screen.xib */; };
 		518E69D619F563530026634F /* DemoRichContentMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518E69D519F563530026634F /* DemoRichContentMessageViewController.m */; };
 		51C2B3D019D97916003FD466 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51C2B3CF19D97916003FD466 /* main.mm */; };
 		51C2B3D219D97974003FD466 /* libNBSAppAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C2B3D119D97974003FD466 /* libNBSAppAgent.framework */; };
@@ -79,6 +80,9 @@
 		5160E0D919B494F700983874 /* DemoChatsettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoChatsettingViewController.m; sourceTree = "<group>"; };
 		5160E0DA19B494F700983874 /* DemoChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoChatViewController.h; sourceTree = "<group>"; };
 		5160E0DB19B494F700983874 /* DemoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoChatViewController.m; sourceTree = "<group>"; };
+		5166880C19FE935F00DBEB6C /* RCDiscussionNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDiscussionNotification.h; sourceTree = "<group>"; };
+		5166880D19FE935F00DBEB6C /* RCNotificationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNotificationMessage.h; sourceTree = "<group>"; };
+		5166880E19FE981A00DBEB6C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		518E69D319F55F3C0026634F /* RCRichContentMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRichContentMessage.h; sourceTree = "<group>"; };
 		518E69D419F563530026634F /* DemoRichContentMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoRichContentMessageViewController.h; sourceTree = "<group>"; };
 		518E69D519F563530026634F /* DemoRichContentMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoRichContentMessageViewController.m; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				B267DF921932E23900B5FFC3 /* iOS-IMKit-demo-Info.plist */,
+				5166880E19FE981A00DBEB6C /* Launch Screen.xib */,
 				B267DF981932E23900B5FFC3 /* iOS-IMKit-demo-Prefix.pch */,
 				B267DF9C1932E23900B5FFC3 /* Default.png */,
 				B267DF9E1932E23900B5FFC3 /* Default@2x.png */,
@@ -403,6 +408,8 @@
 		B2FF1111195F010E0058A1F1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				5166880C19FE935F00DBEB6C /* RCDiscussionNotification.h */,
+				5166880D19FE935F00DBEB6C /* RCNotificationMessage.h */,
 				518E69D319F55F3C0026634F /* RCRichContentMessage.h */,
 				B20F9FE619CC1C3300F7628F /* RCPreviewViewController.h */,
 				B20F9FE719CC1C3300F7628F /* RCRenameViewController.h */,
@@ -520,6 +527,7 @@
 				B267DFA11932E23900B5FFC3 /* Default-568h@2x.png in Resources */,
 				B267E0431932E37400B5FFC3 /* InfoPlist.strings in Resources */,
 				B267E0441932E37400B5FFC3 /* Localizable.strings in Resources */,
+				5166880F19FE981A00DBEB6C /* Launch Screen.xib in Resources */,
 				B2B7A0FD19752FC400FA140B /* password_icon.png in Resources */,
 				B2B7A0F919752FC400FA140B /* login_view_bg.jpg in Resources */,
 				B24014101935C071004A8EF1 /* icon@2x.png in Resources */,
@@ -655,7 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Heq. Shinoda (FE84G45QR6)";
@@ -682,7 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Feinno Communication Tech Co. Ltd.";

@@ -91,7 +91,7 @@
  *
  *  @return 获取当前用户ID
  */
--(NSString*)getCurrentUserId;
+@property (NS_NONATOMIC_IOSONLY, getter=getCurrentUserId, readonly, copy) NSString *currentUserId;
 
 
 

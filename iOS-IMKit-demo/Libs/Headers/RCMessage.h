@@ -21,7 +21,7 @@
 @property(nonatomic, assign) RCSentStatus sentStatus;
 @property(nonatomic, assign) long long receivedTime;
 @property(nonatomic, assign) long long sentTime;
-@property(nonatomic, strong) NSString* messageTypeIdentifier;
+@property(nonatomic, strong) NSString* objectName;
 @property(nonatomic, strong) RCMessageContent* content;
 @property(nonatomic, strong) NSString* extra;
 
@@ -29,7 +29,7 @@
                    targetId:(NSString *)targetId
                   direction:(RCMessageDirection)msgDirection
                   messageId:(long)msgId
-                    content:(RCMessageContent*)content;
+                    content:(RCMessageContent*)content NS_DESIGNATED_INITIALIZER;
 
 +(instancetype)messageWithJSON:(NSDictionary*)jsonData;
 

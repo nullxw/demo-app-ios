@@ -21,6 +21,7 @@
 #import "RCDiscussion.h"
 #import "RCVoiceMessage.h"
 #import "RCRichContentMessage.h"
+#import "RCDiscussionNotification.h"
 
 
 #endif

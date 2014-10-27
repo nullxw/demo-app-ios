@@ -13,5 +13,5 @@
 @property(nonatomic, strong) NSString* groupName;
 @property(nonatomic, strong) NSString* portraitUri;
 
--(RCGroup*)initWithGroupId:(NSString*)groupID groupName:(NSString*)groupName portraitUri:(NSString*)portraitUri;
+-(RCGroup*)initWithGroupId:(NSString*)groupID groupName:(NSString*)groupName portraitUri:(NSString*)portraitUri NS_DESIGNATED_INITIALIZER;
 @end

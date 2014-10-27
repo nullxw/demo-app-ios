@@ -13,10 +13,10 @@
 #import "RCSelectPersonViewController.h"
 #import "RCGroupListViewController.h"
 
-typedef enum{
+typedef NS_ENUM(NSInteger, IsAllowScroll){
     TableIsScroll = 0,
     TableIsForbiddenScroll
-}IsAllowScroll;
+};
 @interface RCChatListViewController : RCBasicViewController<RCSelectPersonViewControllerDelegate>
 {
     NSTimeInterval startTime, endTime;

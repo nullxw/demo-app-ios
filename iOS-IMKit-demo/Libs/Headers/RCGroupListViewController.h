@@ -11,10 +11,10 @@
 #import "RCBasicViewController.h"
 
 
-typedef enum{
+typedef NS_ENUM(NSInteger, IsAllowScrollEx){
     TableIsScrollEx = 0,
     TableIsForbiddenScrollEx
-}IsAllowScrollEx;
+};
 
 @interface RCGroupListViewController : RCBasicViewController
 

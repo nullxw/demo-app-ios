@@ -87,7 +87,7 @@
  *
  *  @return 会话列表。
  */
--(NSArray*)getConversationList;
+@property (NS_NONATOMIC_IOSONLY, getter=getConversationList, readonly, copy) NSArray *conversationList;
 
 /**
  *  获取会话信息。
@@ -127,7 +127,7 @@
  *
  *  @return 未读消息数。
  */
--(int)getTotalUnreadCount;
+@property (NS_NONATOMIC_IOSONLY, getter=getTotalUnreadCount, readonly) int totalUnreadCount;
 
 /**
  *  获取来自某用户（某会话）的未读消息数。
@@ -485,7 +485,7 @@
  *
  *  @return 当前连接用户的信息。
  */
--(RCUserInfo*)getCurrentUserInfo;
+@property (NS_NONATOMIC_IOSONLY, getter=getCurrentUserInfo, readonly, strong) RCUserInfo *currentUserInfo;
 
 /**
  *  设置接收消息的监听器。
