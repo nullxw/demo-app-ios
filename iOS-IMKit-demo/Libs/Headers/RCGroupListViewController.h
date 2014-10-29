@@ -18,11 +18,11 @@ typedef NS_ENUM(NSInteger, IsAllowScrollEx){
 
 @interface RCGroupListViewController : RCBasicViewController
 
-@property(nonatomic, strong) NSMutableArray* allGroupItemData;//----全部群组消息
+@property(nonatomic, strong) NSMutableArray* groupStore;//----全部群组消息
 @property (strong, nonatomic) UITableView *conversationListView;//----群组列表视图
 @property (nonatomic, assign) IsAllowScrollEx isAllowScroll;//----是否可滑动判断
 @property (nonatomic, assign) NSInteger editingCellNum;//----当前滑动cell对应数组中的位置。
-@property (nonatomic) UIPortraitViewStyle portraitStyle;
+@property (nonatomic) RCUserAvatarStyle portraitStyle;
 
 /**
  *  刷新群组列表

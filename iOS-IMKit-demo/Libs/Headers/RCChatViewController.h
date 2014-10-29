@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger, KBottomBarStatus)
 @class RCMultiActionView;
 @class RCPopupMenu;
 @class RCPopupMenuItem;
-@class VoiceCaptureControl;
+@class RCVoiceCaptureControl;
 @class RCChatSessionInputBarView;
 @class RCConversationTableHeaderView;
 
@@ -59,14 +59,14 @@ typedef void (^didTapMessageHandler)(RCMessage *metadata);
 
 @property (strong, nonatomic) RCConversationTableHeaderView *tableHeaderView;
 
-@property (nonatomic, assign) UIPortraitViewStyle portraitStyle;
+@property (nonatomic, assign) RCUserAvatarStyle portraitStyle;
 
 @property (nonatomic,assign) RCConversationType conversationType;
 @property (nonatomic,strong) NSString* currentTarget;
 @property (nonatomic,strong) NSString* currentTargetName;
 
 @property (nonatomic,assign,readonly) BOOL SendingCount;
-@property (nonatomic,strong) VoiceCaptureControl *voiceCaptureControl;
+@property (nonatomic,strong) RCVoiceCaptureControl *voiceCaptureControl;
 //@property (nonatomic,strong) RCPopupMenu *popupMenu;
 
 /**

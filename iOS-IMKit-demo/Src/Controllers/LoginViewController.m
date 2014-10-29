@@ -199,7 +199,7 @@
     [buildVersionLabel setTextColor:[UIColor whiteColor]];
     NSString * buildVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
     //    NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    NSString *buildVersionTextFormat = NSLocalizedString(@"version: %@", nil);
+    NSString *buildVersionTextFormat = NSLocalizedString(@"build: %@", nil);
     [buildVersionLabel setText:[NSString stringWithFormat:buildVersionTextFormat, buildVersion]];
     [self.view addSubview:buildVersionLabel];
     
@@ -210,7 +210,7 @@
     [shortVersionLabel setTextColor:[UIColor whiteColor]];
     
     NSString * shortVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    NSString *buildNumberTextFormat = NSLocalizedString(@"build number: %@", nil);
+    NSString *buildNumberTextFormat = NSLocalizedString(@"version: %@", nil);
     [shortVersionLabel setText:[NSString stringWithFormat:buildNumberTextFormat,shortVersion]];
     
     [self.view addSubview:shortVersionLabel];
@@ -380,7 +380,7 @@
     NSLog(@"bulid ==>%@",buildVer);
     NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSLog(@"version ==>%@",version);
-    [bulidVersionLabel setText:[NSString stringWithFormat:@"Ver. %@",buildVer]];
+    [bulidVersionLabel setText:[NSString stringWithFormat:@"bulid %@",buildVer]];
     
     [self.view addSubview:bulidVersionLabel];
     
@@ -393,7 +393,7 @@
     [shortVersionLabel setTextColor:[UIColor whiteColor]];
 
     NSString * shortVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    [shortVersionLabel setText:[NSString stringWithFormat:@"Build %@",shortVersion]];
+    [shortVersionLabel setText:[NSString stringWithFormat:@"version %@",shortVersion]];
     
     [self.view addSubview:shortVersionLabel];
     

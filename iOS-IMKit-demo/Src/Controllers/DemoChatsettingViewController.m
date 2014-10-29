@@ -52,7 +52,7 @@
         //控制多选
         temp.isMultiSelect = YES;
         temp.useMode = CreateMode;
-        temp.portaitStyle = UIPortraitViewRound;
+        temp.portaitStyle = RCUserAvatarCycle;
         temp.preSelectedUserIds = [NSArray arrayWithObject:self.targetId];
         UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
         
@@ -72,7 +72,7 @@
         temp.isMultiSelect = YES;
         //选择联系人邀请模式
         temp.useMode = InviteMode;
-        temp.portaitStyle = UIPortraitViewRound;
+        temp.portaitStyle = RCUserAvatarCycle;
         NSMutableArray* preArray = [[NSMutableArray alloc]initWithArray:self.discussionInfo.memberIdList];
         //已选人员排除自身
         for (NSInteger i =preArray.count-1; i>=0; i--) {

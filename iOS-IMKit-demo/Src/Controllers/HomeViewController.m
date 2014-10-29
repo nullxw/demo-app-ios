@@ -300,7 +300,7 @@
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
             temp.enableSettings = NO;
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             
             [self.navigationController pushViewController:temp animated:YES];
         }
@@ -321,7 +321,7 @@
             DemoChatListViewController *temp = [[DemoChatListViewController alloc]init];
             
             [self.navigationController pushViewController:temp animated:YES];
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             
             //[[RCIM sharedRCIM] launchConversationList:self];
         }
@@ -337,7 +337,7 @@
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
             temp.enableSettings = NO;
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             
             [self.navigationController pushViewController:temp animated:YES];
         }
@@ -376,7 +376,7 @@
             temp.currentTargetName = group.groupName;
             temp.enableUnreadBadge = NO;
             temp.enableVOIP = NO;
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
             
         }
@@ -391,7 +391,7 @@
             temp.currentTargetName = group.groupName;
             temp.enableUnreadBadge = NO;
             temp.enableVOIP = NO;
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
         }
         
@@ -405,7 +405,7 @@
             temp.currentTargetName = group.groupName;
             temp.enableUnreadBadge = NO;
             temp.enableVOIP = NO;
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
         }
         
@@ -416,7 +416,7 @@
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
             temp.enableSettings = NO;
-            temp.portraitStyle = UIPortraitViewRound;
+            temp.portraitStyle = RCUserAvatarCycle;
             
             [self.navigationController pushViewController:temp animated:YES];
         }

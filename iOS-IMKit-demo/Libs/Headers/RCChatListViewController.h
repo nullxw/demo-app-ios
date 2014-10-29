@@ -20,15 +20,14 @@ typedef NS_ENUM(NSInteger, IsAllowScroll){
 @interface RCChatListViewController : RCBasicViewController<RCSelectPersonViewControllerDelegate>
 {
     NSTimeInterval startTime, endTime;
-    //BOOL isNeedPlaySound;
 }
-@property(nonatomic, strong) NSMutableArray* allConversationItemData;
+@property(nonatomic, strong) NSMutableArray* conversationStore;
 //@property(nonatomic, strong) NSMutableArray* allConversationItemCell;
 @property (strong, nonatomic) UITableView *conversationListView;
 @property(nonatomic, assign) IsAllowScroll isAllowScroll;
 @property(nonatomic, assign) NSInteger editingCellNum;
 @property (nonatomic, strong) RCGroupListViewController* currentGroupListView;
-@property (nonatomic) UIPortraitViewStyle portraitStyle;
+@property (nonatomic) RCUserAvatarStyle portraitStyle;
 
 /**
  *  启动一对一聊天

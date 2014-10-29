@@ -46,7 +46,7 @@
     RCSelectPersonViewController *temp = [[RCSelectPersonViewController alloc]init];
     //控制多选
     temp.isMultiSelect = YES;
-    temp.portaitStyle = UIPortraitViewRound;
+    temp.portaitStyle = RCUserAvatarCycle;
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
     //导航和的配色保持一直
     UIImage *image= [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
@@ -89,7 +89,7 @@
     DemoChatViewController* chat = [self getChatController:userInfo.userId conversationType:ConversationType_PRIVATE];
     if (nil == chat) {
         chat =[[DemoChatViewController alloc]init];
-        chat.portraitStyle = UIPortraitViewRound;
+        chat.portraitStyle = RCUserAvatarCycle;
         [self addChatController:chat];
     }
     
@@ -128,7 +128,7 @@
             DemoChatViewController* chat = [self getChatController:discussInfo.discussionId conversationType:ConversationType_PRIVATE];
             if (nil == chat) {
                 chat =[[DemoChatViewController alloc]init];
-                chat.portraitStyle = UIPortraitViewRound;
+                chat.portraitStyle = RCUserAvatarCycle;
                 [self addChatController:chat];
             }
             
@@ -159,7 +159,7 @@
     {
         DemoGroupListViewController* groupVC = [[DemoGroupListViewController alloc] init];
         self.currentGroupListView = groupVC;
-        groupVC.portraitStyle = UIPortraitViewRound;
+        groupVC.portraitStyle = RCUserAvatarCycle;
         [self.navigationController pushViewController:groupVC animated:YES];
         return;
     }
@@ -167,7 +167,7 @@
     DemoChatViewController* chat = [self getChatController:conversation.targetId conversationType:conversation.conversationType];
     if (nil == chat) {
         chat =[[DemoChatViewController alloc]init];
-        chat.portraitStyle = UIPortraitViewRound;
+        chat.portraitStyle = RCUserAvatarCycle;
         [self addChatController:chat];
     }
     chat.currentTarget = conversation.targetId;

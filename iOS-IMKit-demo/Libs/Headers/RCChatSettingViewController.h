@@ -31,7 +31,7 @@
 
 //功能列表
 @property (nonatomic,strong) NSMutableArray *cellArray;
-@property (nonatomic) UIPortraitViewStyle portraitStyle;
+@property (nonatomic) RCUserAvatarStyle portraitStyle;
 
 //成员信息--》废弃
 @property (nonatomic,strong) NSMutableArray *memberInfos;

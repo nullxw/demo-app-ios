@@ -51,7 +51,7 @@
     DemoChatsettingViewController *temp = [[DemoChatsettingViewController alloc]init];
     temp.targetId = self.currentTarget;
     temp.conversationType = self.conversationType;
-    temp.portraitStyle = UIPortraitViewRound;
+    temp.portraitStyle = RCUserAvatarCycle;
     [self.navigationController pushViewController:temp animated:YES];
 }
 

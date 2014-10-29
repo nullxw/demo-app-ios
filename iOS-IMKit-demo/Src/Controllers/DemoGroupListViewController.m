@@ -54,7 +54,7 @@
     DemoChatViewController* chat = [self getChatController:conversation.targetId conversationType:conversation.conversationType];
     if (nil == chat) {
         chat =[[DemoChatViewController alloc]init];
-        chat.portraitStyle = UIPortraitViewRound;
+        chat.portraitStyle = RCUserAvatarCycle;
         [self addChatController:chat];
     }
     

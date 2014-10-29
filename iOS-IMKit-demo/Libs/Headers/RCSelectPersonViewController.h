@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, UseMode) {
 
 @property (nonatomic,strong) RCUserInfo *currentUserinfo;
 
-@property (nonatomic) UIPortraitViewStyle portaitStyle;
+@property (nonatomic) RCUserAvatarStyle portaitStyle;
 
 
 //邀请模式下，传递讨论组信息
