@@ -96,9 +96,8 @@
         //[nav.navigationBar setBackgroundImage:self.navigationController.navigationBar. forBarMetrics:UIBarMetricsDefault];
         
         temp.delegate = self;
-        [self presentModalViewController:nav animated:YES];
+        [self presentViewController:nav animated:YES completion:nil];
     }
-    
 }
 
 #pragma mark - selectPersonDelegate
