@@ -1,18 +1,16 @@
 //
-//  LoginViewController.h
+//  SigninViewController.h
 //  iOS-IMKit-demo
 //
 //  Created by Heq.Shinoda on 14-6-5.
-//  Copyright (c) 2014年 RongCloud. All rights reserved.
+//  Copyright (c) 2014年 Heq.Shinoda. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "RCHttpRequest.h"
 #import "RCIM.h"
-#import "HomeViewController.h"
 
-
-@interface LoginViewController : UIViewController<HttpConnectionDelegate,UITextFieldDelegate>
+@interface SigninViewController : UIViewController<HttpConnectionDelegate,UITextFieldDelegate>
 {
     NSString* loginToken;
 }

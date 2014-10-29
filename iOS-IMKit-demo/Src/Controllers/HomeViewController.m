@@ -22,7 +22,7 @@
 
 @implementation HomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -32,6 +32,7 @@
         RCGroup *group001 = [[RCGroup alloc]init];
         group001.groupId = @"group001";
         group001.groupName =@"群组一";
+        group001.portraitUri = @"https://i0.wp.com/developer.files.wordpress.com/2013/01/60b40db1e3946a29262eda6c78f33123.jpg?w=100";
         [_groupList addObject:group001];
         
         RCGroup *group002 = [[RCGroup alloc]init];
@@ -47,7 +48,7 @@
         [[RCIMClient sharedRCIMClient]syncGroups:_groupList completion:^{
             
         } error:^(RCErrorCode status) {
-            NSLog(@"同步群数据status%d",status);
+            DebugLog(@"同步群数据status%d",(int)status);
         }];
         
         
@@ -78,16 +79,16 @@
         self.edgesForExtendedLayout =UIRectEdgeNone;
     }
     
-     NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"默认",@"自定义",nil];
+    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+     NSArray *segmentedArray = @[@"默认",@"自定义"];
     self.segment = [[UISegmentedControl alloc]initWithItems:segmentedArray];
-    self.segment.segmentedControlStyle = UISegmentedControlStyleBar;
     self.segment.selectedSegmentIndex = 0;
     self.segment.tintColor = [UIColor whiteColor];
     self.navigationItem.titleView  = self.segment;
     
     
     [[RCIM sharedRCIM] setUserPortraitClickEvent:^(UIViewController *viewController, RCUserInfo *userInfo) {
-        NSLog(@"%@,%@",viewController,userInfo);
+        DebugLog(@"%@,%@",viewController,userInfo);
         
         UserInfoViewController *temp = [[UserInfoViewController alloc]init];
         temp.nameLabel.text = userInfo.name;
@@ -106,12 +107,8 @@
     }];
     [RCIM setGroupInfoFetcherWithDelegate:self];
     
-    
-    
     self.navigationItem.hidesBackButton = YES;
-    
     self.navigationController.navigationBar.hidden =NO;
-    
     self.dataList = [NSMutableArray array];
     
     for (int i=0; i<8; i++) {
@@ -156,6 +153,8 @@
             cell.textLabel.text = @"注销";
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
+        
+
         [self.dataList addObject:cell];
         
     }
@@ -173,6 +172,8 @@
     
     
 }
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
@@ -181,11 +182,8 @@
     
     
     [[RCIM sharedRCIM]setConnectionStatusDelegate:self];
-
-    
-    //self.navigationItem.title = @"DEMO";
-   // self.navigationItem.leftBarButtonItem = nil;
 }
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     [[RCIM sharedRCIM] setConnectionStatusDelegate:nil];
@@ -199,8 +197,6 @@
             alert.tag = 2000;
             [alert show];
         });
-        
-        
     }
 }
 - (void)didReceiveMemoryWarning
@@ -218,7 +214,7 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.dataList objectAtIndex:indexPath.row];
+    UITableViewCell *cell = (self.dataList)[indexPath.row];
     
     return  cell;
 }
@@ -226,10 +222,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    //+(void)initWithAppKey:(NSString*)appKey deviceToken:(NSString*)deviceToken;
-    //+(void)connectWithToken:(NSString*)token delegate:(id<RCConnectDelegate>)delegate;
-    
     //启动会话列表
     
     if (0 == self.segment.selectedSegmentIndex) {
@@ -237,12 +229,8 @@
         if (0==indexPath.row) {
             UIViewController *temp = [[RCIM sharedRCIM]createConversationList:NULL];
             [self.navigationController pushViewController:temp animated:YES];
-            
-            //[[RCIM sharedRCIM] launchConversationList:self];
         }
-        
-        
-        
+
         //启动单聊
         if (1 == indexPath.row) {
             
@@ -261,7 +249,7 @@
         
         if (3 == indexPath.row) {
             
-            RCGroup *group = [_groupList objectAtIndex:0];
+            RCGroup *group = _groupList[0];
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
             temp.currentTarget = group.groupId;
@@ -273,7 +261,7 @@
         
         if (4 == indexPath.row) {
             
-            RCGroup *group = [_groupList objectAtIndex:1];
+            RCGroup *group = _groupList[1];
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
             temp.currentTarget = group.groupId;
@@ -284,24 +272,12 @@
         
         if (5 == indexPath.row) {
             
-            RCGroup *group = [_groupList objectAtIndex:2];
+            RCGroup *group = _groupList[2];
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
             temp.currentTarget = group.groupId;
             temp.conversationType = ConversationType_GROUP;
             temp.currentTargetName = group.groupName;
-            [self.navigationController pushViewController:temp animated:YES];
-        }
-        
-        if (6 == indexPath.row) {
-            DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
-            
-            temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
-            temp.conversationType = ConversationType_PRIVATE;
-            temp.currentTargetName = @"单聊";
-            temp.enableSettings = NO;
-            temp.portraitStyle = RCUserAvatarCycle;
-            
             [self.navigationController pushViewController:temp animated:YES];
         }
         
@@ -368,7 +344,7 @@
         
         if (3 == indexPath.row) {
             
-            RCGroup *group = [_groupList objectAtIndex:0];
+            RCGroup *group = _groupList[0];
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
             temp.currentTarget = group.groupId;
@@ -383,7 +359,7 @@
         
         if (4 == indexPath.row) {
             
-            RCGroup *group = [_groupList objectAtIndex:1];
+            RCGroup *group = _groupList[1];
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
             temp.currentTarget = group.groupId;
@@ -397,7 +373,7 @@
         
         if (5 == indexPath.row) {
             
-            RCGroup *group = [_groupList objectAtIndex:2];
+            RCGroup *group = _groupList[2];
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
             temp.currentTarget = group.groupId;
@@ -408,7 +384,6 @@
             temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
         }
-        
         if (6 == indexPath.row) {
             DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
             
@@ -429,16 +404,19 @@
         
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+-(void)didReceivedMessage:(RCMessage *)message left:(int)nLeft
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (0 == nLeft) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
+        });
+    }
+    
+    [[RCIM sharedRCIM] invokeVoIPCall:self message:message];
 }
-*/
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -446,19 +424,18 @@
         
         if (0 == buttonIndex) {
             
-            NSLog(@"NO");
+            DebugLog(@"NO");
         }
         
         if (1 == buttonIndex) {
             
-            NSLog(@"YES");
+            DebugLog(@"YES");
             
             [RCIMClient reconnect:nil];
         }
     }
     
 }
-
 
 #pragma mark - RCIMGroupInfoFetcherDelegate method
 -(RCGroup*)getGroupInfoWithGroupId:(NSString*)groupId
@@ -476,5 +453,4 @@
     }
     return group;
 }
-
 @end

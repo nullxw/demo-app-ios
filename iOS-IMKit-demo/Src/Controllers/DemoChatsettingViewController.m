@@ -44,6 +44,8 @@
     
     [self presentViewController:nav animated:YES completion:NULL];
 }
+
+
 -(void)onAddButtonClicked:(RCConversationType)conversationType{
     
     //单聊添加人员创建讨论组
@@ -53,7 +55,7 @@
         temp.isMultiSelect = YES;
         temp.useMode = CreateMode;
         temp.portaitStyle = RCUserAvatarCycle;
-        temp.preSelectedUserIds = [NSArray arrayWithObject:self.targetId];
+        temp.preSelectedUserIds = @[self.targetId];
         UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
         
         //导航和的配色保持一直
@@ -63,7 +65,7 @@
         //[nav.navigationBar setBackgroundImage:self.navigationController.navigationBar. forBarMetrics:UIBarMetricsDefault];
         
         temp.delegate = self;
-        [self presentModalViewController:nav animated:YES];
+        [self presentViewController:nav animated:YES completion:nil];
     }
     //多人聊天添加更多人
     if ( ConversationType_DISCUSSION==conversationType) {
@@ -76,7 +78,7 @@
         NSMutableArray* preArray = [[NSMutableArray alloc]initWithArray:self.discussionInfo.memberIdList];
         //已选人员排除自身
         for (NSInteger i =preArray.count-1; i>=0; i--) {
-            NSString* userId = [preArray objectAtIndex:i];
+            NSString* userId = preArray[i];
             if ([userId isEqualToString:[self getCurrentUserId]]) {
                 [preArray removeObjectAtIndex:i];
             }
@@ -112,7 +114,7 @@
         
         
         //之前已经选择的Id
-        NSString* userId=[viewController.preSelectedUserIds objectAtIndex:0];
+        NSString* userId=(viewController.preSelectedUserIds)[0];
         [memberIdArray addObject:userId];
         RCUserInfo *userInfo=[self getUserInfoWithUserId:userId];
         if (userInfo) {
@@ -123,7 +125,7 @@
         
         //后获取选中的人员
         for (int i=0; i<viewController.selectedPersonList.count; i++) {
-            RCUserInfo *userinfo = [viewController.selectedPersonList objectAtIndex:i];
+            RCUserInfo *userinfo = (viewController.selectedPersonList)[i];
             //NSString *name = userinfo.name;
             if (i == selectedCount - 1) {
                 [discussionName appendString:userinfo.name];
@@ -136,8 +138,6 @@
         }
         
         //创建讨论组
-        //        [[RCIMClient sharedRCIMClient] createDiscussion:discussionName userIdList:memberIdArray delegate:self object:nil];
-        __weak typeof(&*self)  weakSelf = self;
         [[RCIMClient sharedRCIMClient] createDiscussion:discussionName userIdList:memberIdArray completion:^(RCDiscussion* discussionInfo) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -149,10 +149,10 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (status == 0) {
-                    NSLog(@"DISCUSSION_CREATE_SUCCEDD");
+                    DebugLog(@"DISCUSSION_CREATE_SUCCEDD");
                     
                 }else{
-                    NSLog(@"DISCUSSION_INVITE_FAILED %d",status);
+                    DebugLog(@"DISCUSSION_INVITE_FAILED %d",(int)status);
                     UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"创建讨论组失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
                     [alert show];
                 }
@@ -163,18 +163,13 @@
     }
     
     if (viewController.useMode == InviteMode) {
-        
-        //        NSInteger selectedCount = viewController.selectedPersonList.count;
-        
         NSMutableArray *memberIdArray =[NSMutableArray array];
         for (int i=0; i<viewController.selectedPersonList.count; i++) {
-            RCUserInfo *userinfo = [viewController.selectedPersonList objectAtIndex:i];
+            RCUserInfo *userinfo = (viewController.selectedPersonList)[i];
             
             [memberIdArray addObject:userinfo.userId];
         }
         //添加新的成员
-        //        [[RCIMClient sharedRCIMClient] inviteMemberToDiscussion:self.discussionInfo.discussionId userIdList:memberIdArray delegate:self object:[NSNumber numberWithInt:INVITE_MEMBER_TAG]];
-        __weak typeof(&*self) __weakself = self;
         [[RCIMClient sharedRCIMClient] addMemberToDiscussion:self.discussionInfo.discussionId userIdList:memberIdArray completion:^(RCDiscussion *discussion) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -184,7 +179,7 @@
                     [self needUpdateDiscussionInfo:discussion];
                 }
                 else{
-                    NSLog(@"%@",@"获取讨论组信息失败");
+                    DebugLog(@"%@",@"获取讨论组信息失败");
                 }
             });
             
@@ -196,5 +191,4 @@
     
     
 }
-
 @end

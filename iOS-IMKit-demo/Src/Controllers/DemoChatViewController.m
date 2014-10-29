@@ -10,6 +10,7 @@
 #import "DemoChatsettingViewController.h"
 #import "DemoPreviewViewController.h"
 
+
 @implementation DemoChatViewController
 
 
@@ -34,8 +35,6 @@
         [rightButton setTintColor:[UIColor whiteColor]];
         self.navigationItem.rightBarButtonItem = rightButton;
     }
-    
-    
 }
 
 -(void)leftBarButtonItemPressed:(id)sender
@@ -61,13 +60,14 @@
     
     [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
-    [self presentModalViewController:nav animated:YES];
+    [self presentViewController:nav animated:YES completion:nil];
 }
+
 -(void)onBeginRecordEvent{
-    NSLog(@"录音开始");
+    DebugLog(@"录音开始");
 }
 -(void)onEndRecordEvent{
-    NSLog(@"录音结束");
+    DebugLog(@"录音结束");
 }
 
 @end

@@ -10,5 +10,4 @@
 #import "RCGroupListViewController.h"
 
 @interface DemoGroupListViewController : RCGroupListViewController
-
 @end

@@ -52,14 +52,15 @@
     UIImage *image= [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
     [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     temp.delegate = self;
-    [self presentModalViewController:nav animated:YES];
+//    [self presentModalViewController:nav animated:YES];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 -(void)didSelectedPersons:(NSArray*)selectedArray viewController:(RCSelectPersonViewController *)viewController
 {
     if(selectedArray == nil || selectedArray.count == 0)
     {
-        NSLog(@"Select person array is nil");
+        DebugLog(@"Select person array is nil");
         return;
     }
     int count = (int)selectedArray.count;
@@ -67,7 +68,7 @@
     
     //只选择一个人得时候,创建单人聊天
     if (1 == count) {
-        RCUserInfo* userInfo = [selectedArray objectAtIndex:0];
+        RCUserInfo* userInfo = selectedArray[0];
         [self startPrivateChat:userInfo];
     }
     //选择多个人得时候
@@ -110,7 +111,7 @@
     NSMutableArray *memberIdArray =[NSMutableArray array];
     NSInteger count = userInfos.count ;
     for (int i=0; i<count; i++) {
-        RCUserInfo *userinfo = [userInfos objectAtIndex:i];
+        RCUserInfo *userinfo = userInfos[i];
         //NSString *name = userinfo.name;
         if (i == userInfos.count - 1) {
             [discussionName appendString:userinfo.name];
@@ -122,7 +123,7 @@
     }
     //创建讨论组
     [[RCIMClient sharedRCIMClient]createDiscussion:discussionName userIdList:memberIdArray completion:^(RCDiscussion *discussInfo) {
-        NSLog(@"create discussion ssucceed!");
+        DebugLog(@"create discussion ssucceed!");
         dispatch_async(dispatch_get_main_queue(), ^{
             
             DemoChatViewController* chat = [self getChatController:discussInfo.discussionId conversationType:ConversationType_PRIVATE];
@@ -140,7 +141,7 @@
     } error:^(RCErrorCode status) {
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NSLog(@"DISCUSSION_INVITE_FAILED %d",status);
+            DebugLog(@"DISCUSSION_INVITE_FAILED %d",status);
             UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"创建讨论组失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
             [alert show];
         });
@@ -150,7 +151,7 @@
 /**
  *  重载选择表格事件
  *
- *  @param conversation <#conversation description#>
+ *  @param conversation
  */
 -(void)onSelectedTableRow:(RCConversation*)conversation{
     

@@ -12,9 +12,7 @@
 #import "RCIM.h"
 
 
-@interface AppDelegate : UIResponder <
-UIApplicationDelegate,
-RCIMReceiveMessageDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,RCIMReceiveMessageDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

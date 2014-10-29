@@ -32,16 +32,10 @@
 		B231769F1990B04900A10B65 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23176981990B04900A10B65 /* CoreMedia.framework */; };
 		B23DC79C1942D9B2009D9E1B /* UserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DC7991942D9B2009D9E1B /* UserDataModel.m */; };
 		B24013BA1935941B004A8EF1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24013B91935941B004A8EF1 /* AVFoundation.framework */; };
-		B240140E1935C071004A8EF1 /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = B24014071935C071004A8EF1 /* icon-120.png */; };
-		B240140F1935C071004A8EF1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B24014081935C071004A8EF1 /* icon.png */; };
-		B24014101935C071004A8EF1 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B24014091935C071004A8EF1 /* icon@2x.png */; };
 		B24014151935C44A004A8EF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24014141935C44A004A8EF1 /* Images.xcassets */; };
 		B267DF8B1932E23900B5FFC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B267DF8A1932E23900B5FFC3 /* UIKit.framework */; };
 		B267DF8D1932E23900B5FFC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B267DF8C1932E23900B5FFC3 /* Foundation.framework */; };
 		B267DF8F1932E23900B5FFC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B267DF8E1932E23900B5FFC3 /* CoreGraphics.framework */; };
-		B267DF9D1932E23900B5FFC3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B267DF9C1932E23900B5FFC3 /* Default.png */; };
-		B267DF9F1932E23900B5FFC3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B267DF9E1932E23900B5FFC3 /* Default@2x.png */; };
-		B267DFA11932E23900B5FFC3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B267DFA01932E23900B5FFC3 /* Default-568h@2x.png */; };
 		B267E0431932E37400B5FFC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B267DFC21932E37400B5FFC3 /* InfoPlist.strings */; };
 		B267E0441932E37400B5FFC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B267DFC41932E37400B5FFC3 /* Localizable.strings */; };
 		B267E05A1932E37400B5FFC3 /* RongCloud-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B267DFE01932E37400B5FFC3 /* RongCloud-Info.plist */; };
@@ -50,19 +44,8 @@
 		B28C78601981FE62004B6B83 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C785F1981FE62004B6B83 /* HomeViewController.m */; };
 		B28C78621981FFA2004B6B83 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B28C78611981FFA2004B6B83 /* RongCloud.bundle */; };
 		B29AC0E319347E1800D38619 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B29AC0E219347E1800D38619 /* libsqlite3.dylib */; };
-		B2B7A0F819752FC400FA140B /* input_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0EF19752FC400FA140B /* input_bg.png */; };
-		B2B7A0F919752FC400FA140B /* login_view_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F019752FC400FA140B /* login_view_bg.jpg */; };
-		B2B7A0FA19752FC400FA140B /* login_view_login_btn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F119752FC400FA140B /* login_view_login_btn_bg.png */; };
-		B2B7A0FB19752FC400FA140B /* login_view_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F219752FC400FA140B /* login_view_logo.png */; };
-		B2B7A0FC19752FC400FA140B /* login_view_regist_btn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F319752FC400FA140B /* login_view_regist_btn_bg.png */; };
-		B2B7A0FD19752FC400FA140B /* password_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F419752FC400FA140B /* password_icon.png */; };
-		B2B7A0FE19752FC400FA140B /* regist_view_reg_btn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F519752FC400FA140B /* regist_view_reg_btn_bg.png */; };
-		B2B7A0FF19752FC400FA140B /* split_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F619752FC400FA140B /* split_line.png */; };
-		B2B7A10019752FC400FA140B /* user_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B7A0F719752FC400FA140B /* user_icon.png */; };
 		B2C5128B1937128D00828B31 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C5128A1937128D00828B31 /* AudioToolbox.framework */; };
 		B2D05E0B1953E84C0084351E /* iOS_IMKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D05E0A1953E84C0084351E /* iOS_IMKit.a */; };
-		B2D3DCC01940204D008E8AB4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D3DCBF1940204D008E8AB4 /* LoginViewController.m */; };
-		B2D3DCC31940402F008E8AB4 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D3DCC21940402F008E8AB4 /* RegistViewController.m */; };
 		B2FF1158196152380058A1F1 /* MMHud.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF1149196152380058A1F1 /* MMHud.m */; };
 		B2FF1159196152380058A1F1 /* MMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF114B196152380058A1F1 /* MMProgressHUD.m */; };
 		B2FF115A196152380058A1F1 /* MMProgressHUDOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF114D196152380058A1F1 /* MMProgressHUDOverlayView.m */; };
@@ -71,6 +54,8 @@
 		B2FF115D196152380058A1F1 /* MMRadialProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF1153196152380058A1F1 /* MMRadialProgressView.m */; };
 		B2FF115E196152380058A1F1 /* MMVectorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF1155196152380058A1F1 /* MMVectorImage.m */; };
 		B2FF115F196152380058A1F1 /* RCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF1157196152380058A1F1 /* RCHttpRequest.m */; };
+		E48961191A012C5F00614422 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48961161A012C5F00614422 /* SigninViewController.m */; };
+		E489611A1A012C5F00614422 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48961181A012C5F00614422 /* SignupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,9 +121,6 @@
 		B23DC7991942D9B2009D9E1B /* UserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataModel.m; sourceTree = "<group>"; };
 		B24013B91935941B004A8EF1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B24013BB193594E2004A8EF1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		B24014071935C071004A8EF1 /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-120.png"; sourceTree = "<group>"; };
-		B24014081935C071004A8EF1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		B24014091935C071004A8EF1 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		B24014141935C44A004A8EF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B267DF871932E23900B5FFC3 /* iOS-IMKit-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-IMKit-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B267DF8A1932E23900B5FFC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -146,9 +128,6 @@
 		B267DF8E1932E23900B5FFC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B267DF921932E23900B5FFC3 /* iOS-IMKit-demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-IMKit-demo-Info.plist"; sourceTree = "<group>"; };
 		B267DF981932E23900B5FFC3 /* iOS-IMKit-demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-IMKit-demo-Prefix.pch"; sourceTree = "<group>"; };
-		B267DF9C1932E23900B5FFC3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		B267DF9E1932E23900B5FFC3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		B267DFA01932E23900B5FFC3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B267DFC31932E37400B5FFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B267DFC51932E37400B5FFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B267DFE01932E37400B5FFC3 /* RongCloud-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RongCloud-Info.plist"; sourceTree = "<group>"; };
@@ -162,21 +141,8 @@
 		B28C785F1981FE62004B6B83 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B28C78611981FFA2004B6B83 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
 		B29AC0E219347E1800D38619 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		B2B7A0EF19752FC400FA140B /* input_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_bg.png; sourceTree = "<group>"; };
-		B2B7A0F019752FC400FA140B /* login_view_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_view_bg.jpg; sourceTree = "<group>"; };
-		B2B7A0F119752FC400FA140B /* login_view_login_btn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_view_login_btn_bg.png; sourceTree = "<group>"; };
-		B2B7A0F219752FC400FA140B /* login_view_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_view_logo.png; sourceTree = "<group>"; };
-		B2B7A0F319752FC400FA140B /* login_view_regist_btn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_view_regist_btn_bg.png; sourceTree = "<group>"; };
-		B2B7A0F419752FC400FA140B /* password_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon.png; sourceTree = "<group>"; };
-		B2B7A0F519752FC400FA140B /* regist_view_reg_btn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = regist_view_reg_btn_bg.png; sourceTree = "<group>"; };
-		B2B7A0F619752FC400FA140B /* split_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = split_line.png; sourceTree = "<group>"; };
-		B2B7A0F719752FC400FA140B /* user_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_icon.png; sourceTree = "<group>"; };
 		B2C5128A1937128D00828B31 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B2D05E0A1953E84C0084351E /* iOS_IMKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = iOS_IMKit.a; sourceTree = "<group>"; };
-		B2D3DCBE1940204D008E8AB4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		B2D3DCBF1940204D008E8AB4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		B2D3DCC11940402F008E8AB4 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
-		B2D3DCC21940402F008E8AB4 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		B2FF1148196152380058A1F1 /* MMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHud.h; sourceTree = "<group>"; };
 		B2FF1149196152380058A1F1 /* MMHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHud.m; sourceTree = "<group>"; };
 		B2FF114A196152380058A1F1 /* MMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMProgressHUD.h; sourceTree = "<group>"; };
@@ -193,6 +159,10 @@
 		B2FF1155196152380058A1F1 /* MMVectorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVectorImage.m; sourceTree = "<group>"; };
 		B2FF1156196152380058A1F1 /* RCHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHttpRequest.h; sourceTree = "<group>"; };
 		B2FF1157196152380058A1F1 /* RCHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHttpRequest.m; sourceTree = "<group>"; };
+		E48961151A012C5F00614422 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
+		E48961161A012C5F00614422 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
+		E48961171A012C5F00614422 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		E48961181A012C5F00614422 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,16 +215,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B24014061935C071004A8EF1 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				B24014071935C071004A8EF1 /* icon-120.png */,
-				B24014081935C071004A8EF1 /* icon.png */,
-				B24014091935C071004A8EF1 /* icon@2x.png */,
-			);
-			path = icons;
-			sourceTree = "<group>";
-		};
 		B267DF7E1932E23900B5FFC3 = {
 			isa = PBXGroup;
 			children = (
@@ -302,9 +262,9 @@
 		B267DF901932E23900B5FFC3 /* iOS-IMKit-demo */ = {
 			isa = PBXGroup;
 			children = (
-				B2D05DFE1953E84C0084351E /* Libs */,
-				B267DFC11932E37400B5FFC3 /* Res */,
-				B267DFF11932E37400B5FFC3 /* Src */,
+				B2D05DFE1953E84C0084351E /* RongIMKit */,
+				B267DFC11932E37400B5FFC3 /* Resources */,
+				B267DFF11932E37400B5FFC3 /* Classes */,
 				B267DF911932E23900B5FFC3 /* Supporting Files */,
 			);
 			path = "iOS-IMKit-demo";
@@ -316,46 +276,43 @@
 				B267DF921932E23900B5FFC3 /* iOS-IMKit-demo-Info.plist */,
 				5166880E19FE981A00DBEB6C /* Launch Screen.xib */,
 				B267DF981932E23900B5FFC3 /* iOS-IMKit-demo-Prefix.pch */,
-				B267DF9C1932E23900B5FFC3 /* Default.png */,
-				B267DF9E1932E23900B5FFC3 /* Default@2x.png */,
-				B267DFA01932E23900B5FFC3 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B267DFC11932E37400B5FFC3 /* Res */ = {
+		B267DFC11932E37400B5FFC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B28C78611981FFA2004B6B83 /* RongCloud.bundle */,
-				B2B7A0EE19752FC400FA140B /* Login */,
 				B24014141935C44A004A8EF1 /* Images.xcassets */,
-				B24014061935C071004A8EF1 /* icons */,
 				B267DFC21932E37400B5FFC3 /* InfoPlist.strings */,
 				B267DFC41932E37400B5FFC3 /* Localizable.strings */,
 				B267DFE01932E37400B5FFC3 /* RongCloud-Info.plist */,
 			);
+			name = Resources;
 			path = Res;
 			sourceTree = "<group>";
 		};
-		B267DFF11932E37400B5FFC3 /* Src */ = {
+		B267DFF11932E37400B5FFC3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				B2FF1146196152380058A1F1 /* Utilities */,
 				B23DC7931942D9B2009D9E1B /* Models */,
 				B23DC78D1942D8CB009D9E1B /* Common */,
-				B267E0051932E37400B5FFC3 /* AppDelegate.h */,
-				B267E0061932E37400B5FFC3 /* AppDelegate.m */,
-				51C2B3CF19D97916003FD466 /* main.mm */,
 				B267E0081932E37400B5FFC3 /* Controllers */,
+				E48961141A012BD100614422 /* Application */,
 			);
+			name = Classes;
 			path = Src;
 			sourceTree = "<group>";
 		};
 		B267E0081932E37400B5FFC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				518E69D419F563530026634F /* DemoRichContentMessageViewController.h */,
-				518E69D519F563530026634F /* DemoRichContentMessageViewController.m */,
+				E48961151A012C5F00614422 /* SigninViewController.h */,
+				E48961161A012C5F00614422 /* SigninViewController.m */,
+				E48961171A012C5F00614422 /* SignupViewController.h */,
+				E48961181A012C5F00614422 /* SignupViewController.m */,
 				B20F9FE019CC1BFD00F7628F /* DemoPreviewViewController.h */,
 				B20F9FE119CC1BFD00F7628F /* DemoPreviewViewController.m */,
 				B20F9FE219CC1BFD00F7628F /* DemoRenameController.h */,
@@ -368,40 +325,23 @@
 				5160E0D919B494F700983874 /* DemoChatsettingViewController.m */,
 				5160E0DA19B494F700983874 /* DemoChatViewController.h */,
 				5160E0DB19B494F700983874 /* DemoChatViewController.m */,
+				518E69D419F563530026634F /* DemoRichContentMessageViewController.h */,
+				518E69D519F563530026634F /* DemoRichContentMessageViewController.m */,
 				B26D3F7019AB7DA200CEF8B4 /* UserInfoViewController.h */,
 				B26D3F7119AB7DA200CEF8B4 /* UserInfoViewController.m */,
 				B28C785E1981FE62004B6B83 /* HomeViewController.h */,
 				B28C785F1981FE62004B6B83 /* HomeViewController.m */,
-				B2D3DCBE1940204D008E8AB4 /* LoginViewController.h */,
-				B2D3DCBF1940204D008E8AB4 /* LoginViewController.m */,
-				B2D3DCC11940402F008E8AB4 /* RegistViewController.h */,
-				B2D3DCC21940402F008E8AB4 /* RegistViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		B2B7A0EE19752FC400FA140B /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				B2B7A0EF19752FC400FA140B /* input_bg.png */,
-				B2B7A0F019752FC400FA140B /* login_view_bg.jpg */,
-				B2B7A0F119752FC400FA140B /* login_view_login_btn_bg.png */,
-				B2B7A0F219752FC400FA140B /* login_view_logo.png */,
-				B2B7A0F319752FC400FA140B /* login_view_regist_btn_bg.png */,
-				B2B7A0F419752FC400FA140B /* password_icon.png */,
-				B2B7A0F519752FC400FA140B /* regist_view_reg_btn_bg.png */,
-				B2B7A0F619752FC400FA140B /* split_line.png */,
-				B2B7A0F719752FC400FA140B /* user_icon.png */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		B2D05DFE1953E84C0084351E /* Libs */ = {
+		B2D05DFE1953E84C0084351E /* RongIMKit */ = {
 			isa = PBXGroup;
 			children = (
 				B2FF1111195F010E0058A1F1 /* Headers */,
 				B2D05E0A1953E84C0084351E /* iOS_IMKit.a */,
 			);
+			name = RongIMKit;
 			path = Libs;
 			sourceTree = "<group>";
 		};
@@ -470,6 +410,16 @@
 			path = MMProgressHUD;
 			sourceTree = "<group>";
 		};
+		E48961141A012BD100614422 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B267E0051932E37400B5FFC3 /* AppDelegate.h */,
+				B267E0061932E37400B5FFC3 /* AppDelegate.m */,
+				51C2B3CF19D97916003FD466 /* main.mm */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,27 +472,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B267DF9D1932E23900B5FFC3 /* Default.png in Resources */,
-				B267DF9F1932E23900B5FFC3 /* Default@2x.png in Resources */,
-				B267DFA11932E23900B5FFC3 /* Default-568h@2x.png in Resources */,
 				B267E0431932E37400B5FFC3 /* InfoPlist.strings in Resources */,
 				B267E0441932E37400B5FFC3 /* Localizable.strings in Resources */,
 				5166880F19FE981A00DBEB6C /* Launch Screen.xib in Resources */,
-				B2B7A0FD19752FC400FA140B /* password_icon.png in Resources */,
-				B2B7A0F919752FC400FA140B /* login_view_bg.jpg in Resources */,
-				B24014101935C071004A8EF1 /* icon@2x.png in Resources */,
 				B267E05A1932E37400B5FFC3 /* RongCloud-Info.plist in Resources */,
-				B2B7A0FE19752FC400FA140B /* regist_view_reg_btn_bg.png in Resources */,
-				B2B7A0FA19752FC400FA140B /* login_view_login_btn_bg.png in Resources */,
-				B2B7A0F819752FC400FA140B /* input_bg.png in Resources */,
-				B2B7A0FC19752FC400FA140B /* login_view_regist_btn_bg.png in Resources */,
 				B28C78621981FFA2004B6B83 /* RongCloud.bundle in Resources */,
-				B240140E1935C071004A8EF1 /* icon-120.png in Resources */,
 				B24014151935C44A004A8EF1 /* Images.xcassets in Resources */,
-				B240140F1935C071004A8EF1 /* icon.png in Resources */,
-				B2B7A0FF19752FC400FA140B /* split_line.png in Resources */,
-				B2B7A0FB19752FC400FA140B /* login_view_logo.png in Resources */,
-				B2B7A10019752FC400FA140B /* user_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +492,7 @@
 				5160E0DE19B494F700983874 /* DemoChatViewController.m in Sources */,
 				B2FF115C196152380058A1F1 /* MMProgressHUDWindow.m in Sources */,
 				B2FF115B196152380058A1F1 /* MMProgressHUDViewController.m in Sources */,
-				B2D3DCC01940204D008E8AB4 /* LoginViewController.m in Sources */,
+				E489611A1A012C5F00614422 /* SignupViewController.m in Sources */,
 				B23DC79C1942D9B2009D9E1B /* UserDataModel.m in Sources */,
 				51C2B3D019D97916003FD466 /* main.mm in Sources */,
 				B26D3F7219AB7DA200CEF8B4 /* UserInfoViewController.m in Sources */,
@@ -565,10 +500,10 @@
 				5160E0DC19B494F700983874 /* DemoChatListViewController.m in Sources */,
 				B22BC65819BCC5060031D5BB /* DemoGroupListViewController.m in Sources */,
 				B2FF115A196152380058A1F1 /* MMProgressHUDOverlayView.m in Sources */,
-				B2D3DCC31940402F008E8AB4 /* RegistViewController.m in Sources */,
 				B20F9FE419CC1BFD00F7628F /* DemoPreviewViewController.m in Sources */,
 				B2FF115E196152380058A1F1 /* MMVectorImage.m in Sources */,
 				B2FF115D196152380058A1F1 /* MMRadialProgressView.m in Sources */,
+				E48961191A012C5F00614422 /* SigninViewController.m in Sources */,
 				5160E0DD19B494F700983874 /* DemoChatsettingViewController.m in Sources */,
 				B2FF1159196152380058A1F1 /* MMProgressHUD.m in Sources */,
 				B2FF1158196152380058A1F1 /* MMHud.m in Sources */,

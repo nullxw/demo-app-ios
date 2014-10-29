@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RCIM.h"
 
-@interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,RCIMReceiveMessageDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dataList;

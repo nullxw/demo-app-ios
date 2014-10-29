@@ -14,7 +14,7 @@
 
 @implementation UserInfoViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -37,7 +37,7 @@
     
     UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 35)];
     [leftButton setTitle:@"取消" forState:UIControlStateNormal];
-    [leftButton setFont:[UIFont systemFontOfSize:16]];
+    [leftButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [leftButton setBackgroundColor:[UIColor clearColor]];
     

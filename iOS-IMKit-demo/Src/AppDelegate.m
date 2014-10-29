@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
+#import "SigninViewController.h"
 #import "DemoUIConstantDefine.h"
 #import "DemoCommonConfig.h"
 #import  <libNBSAppAgent/NBSAppAgent.h>
@@ -27,7 +27,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // 创建登录页面
-    LoginViewController* loginVC = [[LoginViewController alloc] init];
+    SigninViewController* loginVC = [[SigninViewController alloc] init];
 
     [loginVC.view setFrame:self.window.frame];
 

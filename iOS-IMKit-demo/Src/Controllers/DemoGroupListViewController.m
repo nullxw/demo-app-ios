@@ -15,7 +15,7 @@
 
 @implementation DemoGroupListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -44,11 +44,6 @@
     [super leftBarButtonItemPressed:sender];
 }
 
-/**
- *  重载选择表格事件
- *
- *  @param conversation <#conversation description#>
- */
 -(void)onSelectedTableRow:(RCConversation*)conversation{
     
     DemoChatViewController* chat = [self getChatController:conversation.targetId conversationType:conversation.conversationType];
@@ -70,16 +65,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

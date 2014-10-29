@@ -75,7 +75,7 @@
     message.digest = @"在新的优胜美地Yosemite中, 苹果使用了全新的安全机制, 叫做 Kext Signing 核心签名.这个签名认证机制将检查系统内所有的驱动程序的安全性";
     message.imageURL = @"http://images.macx.cn/forum/201410/18/051336drp3zwrrh35w5p4e.jpg";
     message.extra = @"extra data";
-    [self sendRichContentMessage:message];
+
     [[RCIM sharedRCIM] sendMessage:self.conversationType
                           targetId:self.currentTarget
                            content:message
