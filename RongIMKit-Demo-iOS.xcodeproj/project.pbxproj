@@ -122,12 +122,12 @@
 		B24013B91935941B004A8EF1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B24013BB193594E2004A8EF1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B24014141935C44A004A8EF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B267DF871932E23900B5FFC3 /* iOS-IMKit-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-IMKit-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B267DF871932E23900B5FFC3 /* RongIMKit-Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RongIMKit-Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B267DF8A1932E23900B5FFC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B267DF8C1932E23900B5FFC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B267DF8E1932E23900B5FFC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B267DF921932E23900B5FFC3 /* iOS-IMKit-demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-IMKit-demo-Info.plist"; sourceTree = "<group>"; };
-		B267DF981932E23900B5FFC3 /* iOS-IMKit-demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-IMKit-demo-Prefix.pch"; sourceTree = "<group>"; };
+		B267DF921932E23900B5FFC3 /* RongIMKit-Demo-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RongIMKit-Demo-iOS-Info.plist"; sourceTree = "<group>"; };
+		B267DF981932E23900B5FFC3 /* RongIMKit-Demo-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RongIMKit-Demo-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		B267DFC31932E37400B5FFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B267DFC51932E37400B5FFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B267DFE01932E37400B5FFC3 /* RongCloud-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RongCloud-Info.plist"; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		B267DF881932E23900B5FFC3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B267DF871932E23900B5FFC3 /* iOS-IMKit-demo.app */,
+				B267DF871932E23900B5FFC3 /* RongIMKit-Demo-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,9 +273,9 @@
 		B267DF911932E23900B5FFC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B267DF921932E23900B5FFC3 /* iOS-IMKit-demo-Info.plist */,
+				B267DF921932E23900B5FFC3 /* RongIMKit-Demo-iOS-Info.plist */,
 				5166880E19FE981A00DBEB6C /* Launch Screen.xib */,
-				B267DF981932E23900B5FFC3 /* iOS-IMKit-demo-Prefix.pch */,
+				B267DF981932E23900B5FFC3 /* RongIMKit-Demo-iOS-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -338,14 +338,14 @@
 		B2D05DFE1953E84C0084351E /* RongIMKit */ = {
 			isa = PBXGroup;
 			children = (
-				B2FF1111195F010E0058A1F1 /* Headers */,
+				B2FF1111195F010E0058A1F1 /* include */,
 				B2D05E0A1953E84C0084351E /* iOS_IMKit.a */,
 			);
 			name = RongIMKit;
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		B2FF1111195F010E0058A1F1 /* Headers */ = {
+		B2FF1111195F010E0058A1F1 /* include */ = {
 			isa = PBXGroup;
 			children = (
 				5166880C19FE935F00DBEB6C /* RCDiscussionNotification.h */,
@@ -376,6 +376,7 @@
 				B22BC65419BCC3D90031D5BB /* RCUserInfo.h */,
 				B22BC65519BCC3D90031D5BB /* RCVoiceMessage.h */,
 			);
+			name = include;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -423,9 +424,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B267DF861932E23900B5FFC3 /* iOS-IMKit-demo */ = {
+		B267DF861932E23900B5FFC3 /* RongIMKit-Demo-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B267DFAA1932E23900B5FFC3 /* Build configuration list for PBXNativeTarget "iOS-IMKit-demo" */;
+			buildConfigurationList = B267DFAA1932E23900B5FFC3 /* Build configuration list for PBXNativeTarget "RongIMKit-Demo-iOS" */;
 			buildPhases = (
 				B267DF831932E23900B5FFC3 /* Sources */,
 				B267DF841932E23900B5FFC3 /* Frameworks */,
@@ -435,9 +436,9 @@
 			);
 			dependencies = (
 			);
-			name = "iOS-IMKit-demo";
+			name = "RongIMKit-Demo-iOS";
 			productName = "iOS-IMKit-demo";
-			productReference = B267DF871932E23900B5FFC3 /* iOS-IMKit-demo.app */;
+			productReference = B267DF871932E23900B5FFC3 /* RongIMKit-Demo-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -449,7 +450,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Heq.Shinoda;
 			};
-			buildConfigurationList = B267DF821932E23900B5FFC3 /* Build configuration list for PBXProject "iOS-IMKit-demo" */;
+			buildConfigurationList = B267DF821932E23900B5FFC3 /* Build configuration list for PBXProject "RongIMKit-Demo-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -462,7 +463,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B267DF861932E23900B5FFC3 /* iOS-IMKit-demo */,
+				B267DF861932E23900B5FFC3 /* RongIMKit-Demo-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -604,17 +605,17 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Heq. Shinoda (FE84G45QR6)";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/nbs-newlens-ios";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOS-IMKit-demo/iOS-IMKit-demo-Prefix.pch";
+				GCC_PREFIX_HEADER = "iOS-IMKit-demo/RongIMKit-Demo-iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode5.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "iOS-IMKit-demo/iOS-IMKit-demo-Info.plist";
+				INFOPLIST_FILE = "iOS-IMKit-demo/RongIMKit-Demo-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/Libs";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "RongIMKit-Demo-iOS";
 				PROVISIONING_PROFILE = "bedc328a-0c0d-4182-92bc-0e9e5e744849";
 				VALID_ARCHS = "armv7 i386";
 				WRAPPER_EXTENSION = app;
@@ -631,16 +632,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Feinno Communication Tech Co. Ltd.";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/nbs-newlens-ios";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOS-IMKit-demo/iOS-IMKit-demo-Prefix.pch";
+				GCC_PREFIX_HEADER = "iOS-IMKit-demo/RongIMKit-Demo-iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode5.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "iOS-IMKit-demo/iOS-IMKit-demo-Info.plist";
+				INFOPLIST_FILE = "iOS-IMKit-demo/RongIMKit-Demo-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/Libs";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "RongIMKit-Demo-iOS";
 				PROVISIONING_PROFILE = "CFE5D2E7-E15A-4D4A-9B31-05C78CEF4FDE";
 				VALID_ARCHS = "armv7 i386";
 				WRAPPER_EXTENSION = app;
@@ -650,7 +651,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B267DF821932E23900B5FFC3 /* Build configuration list for PBXProject "iOS-IMKit-demo" */ = {
+		B267DF821932E23900B5FFC3 /* Build configuration list for PBXProject "RongIMKit-Demo-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B267DFA81932E23900B5FFC3 /* Debug */,
@@ -659,7 +660,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B267DFAA1932E23900B5FFC3 /* Build configuration list for PBXNativeTarget "iOS-IMKit-demo" */ = {
+		B267DFAA1932E23900B5FFC3 /* Build configuration list for PBXNativeTarget "RongIMKit-Demo-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B267DFAB1932E23900B5FFC3 /* Debug */,
