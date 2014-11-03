@@ -1,6 +1,6 @@
 //
 //  RCImageMessage.h
-//  iOS-IMLib
+//  RongIM
 //
 //  Created by Heq.Shinoda on 14-6-13.
 //  Copyright (c) 2014年 RongCloud. All rights reserved.
@@ -8,13 +8,27 @@
 
 #import "RCMessageContent.h"
 #import <UIKit/UIKit.h>
-
-@interface RCImageMessage : RCMessageContent //<RCMessageCoding>
+/**
+    图片消息类定义
+ */
+@interface RCImageMessage : RCMessageContent
+/** 缩略图 */
 @property(nonatomic, strong) UIImage* thumbnailImage;
+/** 实际图片URL */
 @property(nonatomic, strong) NSString* imageUrl;
+/** 原始图 */
 @property(nonatomic, strong) UIImage* originalImage;
-
+/**
+    \brief
+        根据给定的图片创建消息实例
+    \param image      原始图片
+ */
 +(instancetype)messageWithImage:(UIImage *)image;
+/**
+    \brief 
+        根据跟定的图片URL创建消息实例
+    \param  imageURI    图片URL
+ */
 +(instancetype)messageWithImageURI:(NSString *)imageURI;
 
 @end

@@ -1,6 +1,6 @@
 //
 //  RCStatusDefine.h
-//  iOS-IMLib
+//  RongIM
 //
 //  Created by Heq.Shinoda on 14-6-15.
 //  Copyright (c) 2014年 RongCloud. All rights reserved.
@@ -55,7 +55,9 @@ typedef NS_ENUM(NSInteger, RCConnectErrorCode)  {
     
     
 };
-
+/**
+    网络连接状态码
+ */
 typedef NS_ENUM(NSInteger, RCConnectionStatus)
 {
     /**
@@ -116,8 +118,9 @@ typedef NS_ENUM(NSInteger, RCConnectionStatus)
     
 };
 
-
-//-----会话类型----//
+/*!
+    \enum RCConversationType 会话类型
+ */
 typedef NS_ENUM(NSUInteger, RCConversationType)
 {
     /**
@@ -186,13 +189,16 @@ typedef NS_ENUM(NSUInteger, RCMediaType)
  *  消息记录状态
  */
 typedef NS_OPTIONS(NSUInteger, RCMessagePersistent) {
+    /** 不记录消息 */
     MessagePersistent_NONE = 0,
+    /** 记录消息 */
     MessagePersistent_ISPERSISTED = 1 << 0,
+    /** 需要计数 */
     MessagePersistent_ISCOUNTED = 1 << 1
 };
 
 /**
- * 发送出的消息的状态。
+ * \enum RCSentStatus 发送出的消息的状态。
  */
 typedef NS_ENUM(NSUInteger, RCSentStatus)
 {
@@ -228,6 +234,9 @@ typedef NS_ENUM(NSUInteger, RCSentStatus)
 };
 
 //----消息阅读状态----//
+/*!
+    @enum RCReceivedStatus
+ */
 typedef NS_ENUM(NSUInteger, RCReceivedStatus)
 {
     /**
@@ -243,30 +252,40 @@ typedef NS_ENUM(NSUInteger, RCReceivedStatus)
      */
     ReceivedStatus_LISTENED = 2,
     
+    /**
+        已下载
+     */
     ReceivedStatus_DOWNLOADED = 4,
     
 };
 
 //----
+/**
+    \enum   RCErrorCode
+ */
 typedef NS_ENUM(NSInteger, RCErrorCode)
 {
+    /** 未知错误 */
     ErrorCode_UNKNOWN = -1,
+    /** 超时错误 */
     ErrorCode_TIMEOUT = 5004
 };
 
+/**
+    \enum RCConversationNotificationStatus
+ */
 typedef NS_ENUM(NSUInteger, RCConversationNotificationStatus)
 {
-    //免打扰
+    /** 免打扰 */
     DO_NOT_DISTURB = 0,
-    //新消息阻止枚举
+    /** 新消息阻止枚举 */
     NOTIFY = 1,
 };
 
-#define KNotificationCenterRCMessageReceiver @"NotificationCenterRCMessageReceiver"
-
-#define RCTextMessageTypeIdentifier @"RC:TxtMsg"
-#define RCImageMessageTypeIdentifier @"RC:ImgMsg"
-#define RCVoiceMessageTypeIdentifier @"RC:VcMsg"
-#define RCDiscussionNotificationTypeIdentifier @"RC:DizNtf"
-#define RCImageTextMessageTypeIdentifier @"RC:ImgTextMsg"
-#define RCNotificationMessageTypeIdentifier @"RC:NtfMsg"
+#define kRCDidReceiveMessageNotification        @"RCDidReceiveMessageNotification"
+#define RCTextMessageTypeIdentifier             @"RC:TxtMsg"
+#define RCImageMessageTypeIdentifier            @"RC:ImgMsg"
+#define RCVoiceMessageTypeIdentifier            @"RC:VcMsg"
+#define RCDiscussionNotificationTypeIdentifier  @"RC:DizNtf"
+#define RCRichContentMessageTypeIdentifier      @"RC:ImgTextMsg"
+#define RCNotificationMessageTypeIdentifier     @"RC:NtfMsg"

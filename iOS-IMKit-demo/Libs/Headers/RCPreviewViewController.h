@@ -16,7 +16,7 @@
 @interface RCPreviewViewController : RCBasicViewController<RCDownloadMediaDelegate,UIScrollViewDelegate>
 {
     int progressStep;
-    UIScrollView *scrollView;
+    UIScrollView *__scrollView;
     UIImageView *imageView;
 }
 

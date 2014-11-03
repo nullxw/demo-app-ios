@@ -16,12 +16,6 @@
 @class RCChatViewController;
 @class RCIM;
 
-/*!
-    \class RCInstantMessagingCenter 
-    You can use more objective-c styled Class name to use all functionalities of RCIM.
- */
-@compatibility_alias RCInstantMessagingCenter RCIM;
-
 /**
  @protocol RCIMUserInfoFetcherDelegagte
  用户信息的获取器。
@@ -84,8 +78,9 @@
  接收消息到消息后执行。
  
  @param message 接收到的消息。
+ @param left    剩余消息数
  */
--(void)didReceivedMessage:(RCMessage*)message left:(int)nLeft;
+-(void)didReceivedMessage:(RCMessage*)message left:(int)left;
 @end
 
 /**
@@ -147,7 +142,8 @@
  */
 +(void)registerMessageType:(Class)messageClass;
 /**
- 注销当前登录。
+注销当前登录。
+@param isReceivePush 注销后是否接受推送
  */
 -(void)disconnect:(BOOL)isReceivePush;
 
@@ -157,11 +153,12 @@
 -(void)disconnect;
 
 /**
- 接收到VoIP电话，激活界面。
- @param viewController
- @param message
+接收到VoIP电话，激活界面。
+@param viewController  此视图控制器将用于启动VoIPViewController
+@param message         通知消息元数据
  */
--(void)invokeVoIPCall:(UIViewController*)viewController message:(RCMessage*)message;
+-(void)invokeVoIPCall:(UIViewController*)viewController
+              message:(RCMessage*)message;
 
 /**
  创建会话列表界面，供应用程序使用。

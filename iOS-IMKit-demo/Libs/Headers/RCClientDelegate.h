@@ -1,6 +1,6 @@
 //
 //  RCClientDelegate.h
-//  iOS-IMLib
+//  RongIM
 //
 //  Created by Heq.Shinoda on 14-6-12.
 //  Copyright (c) 2014年 RongCloud. All rights reserved.

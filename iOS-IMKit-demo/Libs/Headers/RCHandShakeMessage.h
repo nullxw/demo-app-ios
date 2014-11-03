@@ -13,6 +13,6 @@
 @interface RCHandShakeMessage : RCMessageContent<RCMessageCoding,RCMessagePersistentCompatible>
 @property(nonatomic, assign) int type;
 
--(RCHandShakeMessage*)initWithType:(int)aType NS_DESIGNATED_INITIALIZER;
+-(RCHandShakeMessage*)initWithType:(int)aType;
 
 @end

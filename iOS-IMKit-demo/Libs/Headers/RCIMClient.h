@@ -1,6 +1,6 @@
 //
 //  RCIMClient.h
-//  iOS-IMLib
+//  RongIM
 //
 //  Created by Heq.Shinoda on 14-6-13.
 //  Copyright (c) 2014年 RongCloud. All rights reserved.
@@ -59,6 +59,11 @@
  */
 +(void)reconnect:(id<RCConnectDelegate>)delegate;
 
+/**
+ *  重新连接服务器。
+ *
+ *  @param reconnectBlock 重连回调block
+ */
 -(void)reconnect:(void(^)(int status))reconnectBlock;
 
 /**

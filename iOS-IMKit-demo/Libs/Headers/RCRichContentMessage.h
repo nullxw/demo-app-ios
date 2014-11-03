@@ -1,6 +1,6 @@
 //
 //  RCRichContentMessage.h
-//  iOS-IMLib
+//  RongIM
 //
 //  Created by Gang Li on 10/17/14.
 //  Copyright (c) 2014 Heq.Shinoda. All rights reserved.
@@ -9,14 +9,27 @@
 #import "RCMessageContent.h"
 #import <UIKit/UIKit.h>
 
+/**
+    图文消息
+ */
 @interface RCRichContentMessage : RCMessageContent
-
+/** 标题 */
 @property(nonatomic, strong)NSString *title;
-@property(nonatomic, strong)NSString *digest; //content
-@property(nonatomic, strong)NSString *imageURL;  //url
-@property(nonatomic, strong)NSString *extra; //extra
+/** 摘要 */
+@property(nonatomic, strong)NSString *digest;
+/** 图片URL */
+@property(nonatomic, strong)NSString *imageURL;
+/** 扩展信息 */
+@property(nonatomic, strong)NSString *extra;
 
-
+/**
+    \brief
+        根据给定消息创建新消息
+    \param  title       标题
+    \param  digest      摘要
+    \param  imageURL    图片URL
+    \param  extra       扩展信息
+ */
 +(instancetype)messageWithTitle:(NSString *) title
                          digest:(NSString *)digest
                        imageURL:(NSString *)imageURL
