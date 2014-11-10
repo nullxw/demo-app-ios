@@ -137,17 +137,21 @@
         
         if (6 == i) {
             cell.textLabel.text = @"启动图文消息";
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
         if (7 == i) {
             
             cell.textLabel.text = @"启动聊天室一";
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
         if (8 == i) {
-            cell.textLabel.text = @"注销";
+            NSString *buttonTitle = @"注销";
+            if (self.currentUserId) {
+                buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"[%@]", self.currentUserId]];
+            }
+            cell.textLabel.text = buttonTitle;
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
         

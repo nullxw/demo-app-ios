@@ -22,7 +22,6 @@
 		B225036819330B1D00D5E003 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B225036719330B1D00D5E003 /* QuartzCore.framework */; };
 		B225037619330BDB00D5E003 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B225037519330BDB00D5E003 /* libc++.dylib */; };
 		B22BC65819BCC5060031D5BB /* DemoGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22BC65719BCC5060031D5BB /* DemoGroupListViewController.m */; };
-		B231769B1990B04900A10B65 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23176941990B04900A10B65 /* CoreImage.framework */; };
 		B231769C1990B04900A10B65 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23176951990B04900A10B65 /* CoreVideo.framework */; };
 		B231769D1990B04900A10B65 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23176961990B04900A10B65 /* CFNetwork.framework */; };
 		B23DC79C1942D9B2009D9E1B /* UserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B23DC7991942D9B2009D9E1B /* UserDataModel.m */; };
@@ -75,8 +74,6 @@
 		B225037519330BDB00D5E003 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		B22BC65619BCC5060031D5BB /* DemoGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoGroupListViewController.h; sourceTree = "<group>"; };
 		B22BC65719BCC5060031D5BB /* DemoGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoGroupListViewController.m; sourceTree = "<group>"; };
-		B23176921990B04900A10B65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		B23176941990B04900A10B65 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B23176951990B04900A10B65 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		B23176961990B04900A10B65 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B23176971990B04900A10B65 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -105,7 +102,6 @@
 		B26D3F7119AB7DA200CEF8B4 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		B28C785E1981FE62004B6B83 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B28C785F1981FE62004B6B83 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		B29AC0E219347E1800D38619 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		B2C5128A1937128D00828B31 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B2FF1148196152380058A1F1 /* MMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHud.h; sourceTree = "<group>"; };
 		B2FF1149196152380058A1F1 /* MMHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHud.m; sourceTree = "<group>"; };
@@ -149,7 +145,6 @@
 				B231769D1990B04900A10B65 /* CFNetwork.framework in Frameworks */,
 				51C2B3D219D97974003FD466 /* libNBSAppAgent.framework in Frameworks */,
 				B267DF8B1932E23900B5FFC3 /* UIKit.framework in Frameworks */,
-				B231769B1990B04900A10B65 /* CoreImage.framework in Frameworks */,
 				B267DF8D1932E23900B5FFC3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,8 +194,6 @@
 				51C2B3D519D9799D003FD466 /* Security.framework */,
 				51C2B3D319D97993003FD466 /* CoreTelephony.framework */,
 				51C2B3D119D97974003FD466 /* libNBSAppAgent.framework */,
-				B23176921990B04900A10B65 /* OpenGLES.framework */,
-				B23176941990B04900A10B65 /* CoreImage.framework */,
 				B23176951990B04900A10B65 /* CoreVideo.framework */,
 				B23176961990B04900A10B65 /* CFNetwork.framework */,
 				B23176971990B04900A10B65 /* CoreAudio.framework */,
@@ -209,7 +202,6 @@
 				B2C5128A1937128D00828B31 /* AudioToolbox.framework */,
 				B24013BB193594E2004A8EF1 /* libz.dylib */,
 				B24013B91935941B004A8EF1 /* AVFoundation.framework */,
-				B29AC0E219347E1800D38619 /* libsqlite3.dylib */,
 				B225037519330BDB00D5E003 /* libc++.dylib */,
 				B225036719330B1D00D5E003 /* QuartzCore.framework */,
 				B267DF8A1932E23900B5FFC3 /* UIKit.framework */,
@@ -533,7 +525,7 @@
 				INFOPLIST_FILE = "iOS-IMKit-demo/RongIMKit-Demo-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/Libs/**";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "RongIMKit-Demo-iOS";
 				PROVISIONING_PROFILE = "";
@@ -561,7 +553,7 @@
 				INFOPLIST_FILE = "iOS-IMKit-demo/RongIMKit-Demo-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-IMKit-demo/Libs/**";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "RongIMKit-Demo-iOS";
 				PROVISIONING_PROFILE = "";

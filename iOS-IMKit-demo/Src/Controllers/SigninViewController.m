@@ -516,6 +516,7 @@
             [RCIM connectWithToken:loginToken completion:^(NSString *userId) {
                 [MMProgressHUD dismissWithSuccess:@"登录成功!"];
                 HomeViewController *temp = [[HomeViewController alloc]init];
+                temp.currentUserId = userId;
                 [weakSelf.navigationController pushViewController:temp animated:YES];
             } error:^(RCConnectErrorCode status) {
                 if(status == 0)

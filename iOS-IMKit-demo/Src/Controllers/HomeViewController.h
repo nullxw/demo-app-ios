@@ -17,4 +17,6 @@
 
 @property (nonatomic,strong)NSMutableArray *groupList;
 
+@property (nonatomic,strong)NSString *currentUserId;
+
 @end
