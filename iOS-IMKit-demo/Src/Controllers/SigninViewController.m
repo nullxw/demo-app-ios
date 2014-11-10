@@ -515,22 +515,14 @@
             //使用DEMO注意：更换appkey，一定要更换对应的连接token，如果token未做变化，默认会从融云测试环境获取，照成appkey和token不一致
             [RCIM connectWithToken:loginToken completion:^(NSString *userId) {
                 [MMProgressHUD dismissWithSuccess:@"登录成功!"];
-                
-                
                 HomeViewController *temp = [[HomeViewController alloc]init];
-                
                 [weakSelf.navigationController pushViewController:temp animated:YES];
             } error:^(RCConnectErrorCode status) {
                 if(status == 0)
                 {
                     [MMProgressHUD dismissWithSuccess:@"登录成功!"];
-                    
-                    
                     HomeViewController *temp = [[HomeViewController alloc]init];
-                    
                     [weakSelf.navigationController pushViewController:temp animated:YES];
-                    
-                    
                 }
                 else
                 {

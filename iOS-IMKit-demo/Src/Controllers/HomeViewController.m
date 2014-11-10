@@ -50,9 +50,6 @@
         } error:^(RCErrorCode status) {
             DebugLog(@"同步群数据status%d",(int)status);
         }];
-        
-        
-        
     }
     return self;
 }
@@ -60,17 +57,11 @@
 -(void)loadView
 {
     [super loadView];
-    
     UIView *aView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame];
-    
     [aView setBackgroundColor:[UIColor whiteColor]];
-    
     self.view =aView;
-    
-    //[aView release];
-    
-    
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -80,7 +71,7 @@
     }
     
     [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
-     NSArray *segmentedArray = @[@"默认",@"自定义"];
+    NSArray *segmentedArray = @[@"默认",@"自定义"];
     self.segment = [[UISegmentedControl alloc]initWithItems:segmentedArray];
     self.segment.selectedSegmentIndex = 0;
     self.segment.tintColor = [UIColor whiteColor];
@@ -92,7 +83,7 @@
         
         UserInfoViewController *temp = [[UserInfoViewController alloc]init];
         temp.nameLabel.text = userInfo.name;
-  
+        
         UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:temp];
         
         //导航和的配色保持一直
@@ -101,9 +92,9 @@
         [nav.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
         //[nav.navigationBar setBackgroundImage:self.navigationController.navigationBar. forBarMetrics:UIBarMetricsDefault];
         
-
+        
         [viewController presentViewController:nav animated:YES completion:NULL];
-
+        
     }];
     [RCIM setGroupInfoFetcherWithDelegate:self];
     
@@ -111,7 +102,7 @@
     self.navigationController.navigationBar.hidden =NO;
     self.dataList = [NSMutableArray array];
     
-    for (int i=0; i<8; i++) {
+    for (int i=0; i<9; i++) {
         
         UITableViewCell* cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         
@@ -150,11 +141,17 @@
         }
         
         if (7 == i) {
+            
+            cell.textLabel.text = @"启动聊天室一";
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
+        if (8 == i) {
             cell.textLabel.text = @"注销";
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
         
-
+        
         [self.dataList addObject:cell];
         
     }
@@ -166,13 +163,8 @@
     self.tableView.autoresizingMask=UIViewAutoresizingFlexibleHeight;
     self.tableView.rowHeight = 65;
     
-    
     [self.view addSubview:self.tableView];
-    
-    
-    
 }
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -281,52 +273,50 @@
             [self.navigationController pushViewController:temp animated:YES];
         }
         
-        //注销
         if (7 == indexPath.row) {
+            [[RCIM sharedRCIM]joinChatRoom:@"chatroom002" messageCount:10 completion:^{
+                NSLog(@"%@",@"加入聊天室成功");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    RCChatViewController *temp = [[RCChatViewController alloc]init];
+                    temp.currentTarget = @"chatroom002";
+                    temp.conversationType = ConversationType_CHATROOM;
+                    temp.enableSettings = NO;
+                    temp.currentTargetName = @"聊天室一";
+                    [self.navigationController pushViewController:temp animated:YES];
+                    
+                });
+            } error:^(RCErrorCode status) {
+                ;NSLog(@"%@",@"加入聊天室失败");
+            }];
+        }
+        
+        //注销
+        if (8 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }
-
     }
     
     //自定义模式
     if (1 == self.segment.selectedSegmentIndex) {
-        
         if (0==indexPath.row) {
-            
             DemoChatListViewController *temp = [[DemoChatListViewController alloc]init];
-            
             [self.navigationController pushViewController:temp animated:YES];
             temp.portraitStyle = RCUserAvatarCycle;
-            
-            //[[RCIM sharedRCIM] launchConversationList:self];
         }
-        
-        
-        
         //启动单聊
         if (1 == indexPath.row) {
-            
             DemoChatViewController *temp = [[DemoChatViewController alloc]init];
-            
             temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
             temp.enableSettings = NO;
             temp.portraitStyle = RCUserAvatarCycle;
-            
             [self.navigationController pushViewController:temp animated:YES];
         }
         //启动客户
         if (2 == indexPath.row) {
             NSString *customerServiceUserId = @"kefu114";
-            //线上
-            //[[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:@"kefu114" title:@"客服" completion:NULL];
-            
-            //测试
-            //[[RCIM sharedRCIM]launchCustomerServiceChat:self customerServiceUserId:customerServiceUserId title:@"客服" completion:NULL];
-            
-            
             DemoChatViewController *temp = [[DemoChatViewController alloc]init];
             
             temp.currentTarget = @"kefu114";
@@ -335,11 +325,11 @@
             temp.enableSettings = NO;
             temp.enableVOIP = NO;
             RCHandShakeMessage* textMsg = [[RCHandShakeMessage alloc] initWithType:1];
-            [[RCIM sharedRCIM] sendMessage:ConversationType_PRIVATE targetId:customerServiceUserId content:textMsg delegate:nil];
-            
+            [[RCIM sharedRCIM] sendMessage:ConversationType_PRIVATE
+                                  targetId:customerServiceUserId
+                                   content:textMsg
+                                  delegate:nil];
             [self.navigationController pushViewController:temp animated:YES];
-            
-            
         }
         
         if (3 == indexPath.row) {
@@ -397,7 +387,7 @@
         }
         
         //注销
-        if (7 == indexPath.row) {
+        if (8 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }
