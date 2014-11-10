@@ -274,20 +274,13 @@
         }
         
         if (7 == indexPath.row) {
-            [[RCIM sharedRCIM]joinChatRoom:@"chatroom002" messageCount:10 completion:^{
-                NSLog(@"%@",@"加入聊天室成功");
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    RCChatViewController *temp = [[RCChatViewController alloc]init];
-                    temp.currentTarget = @"chatroom002";
-                    temp.conversationType = ConversationType_CHATROOM;
-                    temp.enableSettings = NO;
-                    temp.currentTargetName = @"聊天室一";
-                    [self.navigationController pushViewController:temp animated:YES];
-                    
-                });
-            } error:^(RCErrorCode status) {
-                ;NSLog(@"%@",@"加入聊天室失败");
-            }];
+            
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = @"chatroom002";
+            temp.conversationType = ConversationType_CHATROOM;
+            temp.enableSettings = NO;
+            temp.currentTargetName = @"聊天室一";
+            [self.navigationController pushViewController:temp animated:YES];
         }
         
         //注销
@@ -323,7 +316,7 @@
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"客服";
             temp.enableSettings = NO;
-            temp.enableVOIP = NO;
+            temp.enableVoIP = NO;
             RCHandShakeMessage* textMsg = [[RCHandShakeMessage alloc] initWithType:1];
             [[RCIM sharedRCIM] sendMessage:ConversationType_PRIVATE
                                   targetId:customerServiceUserId
@@ -341,7 +334,7 @@
             temp.conversationType = ConversationType_GROUP;
             temp.currentTargetName = group.groupName;
             temp.enableUnreadBadge = NO;
-            temp.enableVOIP = NO;
+            temp.enableVoIP = NO;
             temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
             
@@ -356,7 +349,7 @@
             temp.conversationType = ConversationType_GROUP;
             temp.currentTargetName = group.groupName;
             temp.enableUnreadBadge = NO;
-            temp.enableVOIP = NO;
+            temp.enableVoIP = NO;
             temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
         }
@@ -370,13 +363,12 @@
             temp.conversationType = ConversationType_GROUP;
             temp.currentTargetName = group.groupName;
             temp.enableUnreadBadge = NO;
-            temp.enableVOIP = NO;
+            temp.enableVoIP = NO;
             temp.portraitStyle = RCUserAvatarCycle;
             [self.navigationController pushViewController:temp animated:YES];
         }
         if (6 == indexPath.row) {
             DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
-            
             temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
             temp.conversationType = ConversationType_PRIVATE;
             temp.currentTargetName = @"单聊";
@@ -386,6 +378,15 @@
             [self.navigationController pushViewController:temp animated:YES];
         }
         
+        if (7 == indexPath.row) {
+            RCChatViewController *temp = [[RCChatViewController alloc]init];
+            temp.currentTarget = @"chatroom002";
+            temp.conversationType = ConversationType_CHATROOM;
+            temp.enableSettings = NO;
+            temp.currentTargetName = @"聊天室一";
+            temp.portraitStyle = RCUserAvatarCycle;
+            [self.navigationController pushViewController:temp animated:YES];
+        }
         //注销
         if (8 == indexPath.row) {
             [[RCIM sharedRCIM] disconnect:NO];
