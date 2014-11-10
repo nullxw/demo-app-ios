@@ -28,12 +28,8 @@ extern NSString * const MMProgressHUDAnimationDismiss;
 extern NSString * const MMProgressHUDAnimationWindowFadeOut;
 extern NSString * const MMProgressHUDAnimationKeyShowAnimation;
 extern NSString * const MMProgressHUDAnimationKeyDismissAnimation;
+extern CGFloat const MMProgressHUDStandardDismissDelay;
 
-#if TARGET_IPHONE_SIMULATOR //----Modified by hequn, avoid ARMV7 & ARMV7s compile problem.
-extern float const MMProgressHUDStandardDismissDelay;
-#else
-extern CGFloat const MMProgressHUDStandardDismissDelay = 0.75f;
-#endif
 
 @class MMProgressHUDWindow;
 @class MMProgressHUDOverlayView;

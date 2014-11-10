@@ -21,22 +21,15 @@
 #error MMProgressHUD uses APIs only available in iOS 5.0+
 #endif
 
-static const BOOL kMMProgressHUDDebugMode = NO;
-
 NSString * const MMProgressHUDDefaultConfirmationMessage = @"Cancel?";
 NSString * const MMProgressHUDAnimationShow = @"mm-progress-hud-present-animation";
 NSString * const MMProgressHUDAnimationDismiss = @"mm-progress-hud-dismiss-animation";
 NSString * const MMProgressHUDAnimationWindowFadeOut = @"mm-progress-hud-window-fade-out";
 NSString * const MMProgressHUDAnimationKeyShowAnimation = @"show";
 NSString * const MMProgressHUDAnimationKeyDismissAnimation = @"dismiss";
-
 NSUInteger const MMProgressHUDConfirmationPulseCount = 8;//Keep this number even
-
-#if TARGET_IPHONE_SIMULATOR //----Modified by hequn, avoid ARMV7 & ARMV7s compile problem.
-CGFloat const MMProgressHUDStandardDismissDelay = 0.75f;
-#endif//TARGET_IPHONE_SIMULATOR
-
-CGSize const MMProgressHUDDefaultImageSize = {37.f, 37.f};
+CGFloat    const MMProgressHUDStandardDismissDelay = 0.75f;
+CGSize     const MMProgressHUDDefaultImageSize = {37.f, 37.f};
 
 #pragma mark - MMProgressHUD
 @interface MMProgressHUD () <MMHudDelegate>
