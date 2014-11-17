@@ -386,7 +386,7 @@
             DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
             temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
             temp.conversationType = ConversationType_PRIVATE;
-            temp.currentTargetName = @"单聊";
+            temp.currentTargetName = @"图文单聊";
             temp.enableSettings = NO;
             temp.portraitStyle = RCUserAvatarCycle;
             
