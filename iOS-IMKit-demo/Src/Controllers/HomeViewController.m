@@ -277,6 +277,17 @@
             [self.navigationController pushViewController:temp animated:YES];
         }
         
+        if (6 == indexPath.row) {
+            //just for showoff
+            DemoRichContentMessageViewController *temp = [[DemoRichContentMessageViewController alloc]init];
+            temp.currentTarget = [UserManager shareMainUser ].mainUser.userId;
+            temp.conversationType = ConversationType_PRIVATE;
+            temp.currentTargetName = @"图文单聊";
+            temp.enableSettings = NO;
+            temp.portraitStyle = RCUserAvatarRectangle;
+            [self.navigationController pushViewController:temp animated:YES];
+        }
+        
         if (7 == indexPath.row) {
             
             RCChatViewController *temp = [[RCChatViewController alloc]init];
