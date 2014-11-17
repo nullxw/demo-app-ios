@@ -358,6 +358,11 @@
 				TargetAttributes = {
 					B267DF861932E23900B5FFC3 = {
 						DevelopmentTeam = LESEXUKLEU;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
