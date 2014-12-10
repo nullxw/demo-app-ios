@@ -328,7 +328,7 @@
             DemoChatViewController *temp = [[DemoChatViewController alloc]init];
             
             temp.currentTarget = @"kefu114";
-            temp.conversationType = ConversationType_PRIVATE;
+            temp.conversationType = ConversationType_CUSTOMERSERVICE;
             temp.currentTargetName = @"客服";
             temp.enableSettings = NO;
             temp.enableVoIP = NO;
