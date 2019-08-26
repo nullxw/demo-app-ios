@@ -7,22 +7,33 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
+#import "SigninViewController.h"
 #import "DemoUIConstantDefine.h"
+#import "DemoCommonConfig.h"
+#import  <libNBSAppAgent/NBSAppAgent.h>
+
+#define RONGCLOUD_IM_APPKEY    @"z3v5yqkbv8v30" //这个AppKey值RongCloud实例。
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //注册听云
+    
+    [NBSAppAgent  startWithAppID:@"a546c342ba704acf91b27e9603b6860d"];
+    
+    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // 创建登录页面
-    LoginViewController* loginVC = [[LoginViewController alloc] init];
+    SigninViewController* loginVC = [[SigninViewController alloc] init];
 
     [loginVC.view setFrame:self.window.frame];
 
     UINavigationController *rootNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
 
-    rootNavi.navigationBar.translucent = NO;
+    //rootNavi.navigationBar.translucent = NO;
     [rootNavi.navigationBar setBackgroundImage:[self createImageWithColor:RGBCOLOR(43, 132, 210)] forBarMetrics:UIBarMetricsDefault];
     self.window.rootViewController = rootNavi;
 
@@ -30,9 +41,47 @@
     [self.window makeKeyAndVisible];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
+                                                                                             |UIRemoteNotificationTypeSound
+                                                                                             |UIRemoteNotificationTypeAlert) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    } else {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
+    
+    [[RCIM sharedRCIM]setReceiveMessageDelegate:self];
     
     return YES;
+}
+
+//#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    //register to receive notifications
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    //handle the actions
+    if ([identifier isEqualToString:@"declineAction"]){
+    }
+    else if ([identifier isEqualToString:@"answerAction"]){
+    }
+}
+//#endif
+
+-(void)didReceivedMessage:(RCMessage *)message left:(int)nLeft
+{
+    if (0 == nLeft) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
+        });
+    }
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -45,7 +94,9 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    //[[RCConnection defaultConnection] closeIMServer];
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[RCIM sharedRCIM] getTotalUnreadCount];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -65,6 +116,7 @@
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"error:%@",error);
+    //[RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -75,12 +127,7 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSLog(@"deviceToken:%@",deviceToken);
-    NSString *dToken = [[[[deviceToken description]
-                          stringByReplacingOccurrencesOfString:@"<" withString:@""]
-                         stringByReplacingOccurrencesOfString:@">" withString:@""]
-                        stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [[NSUserDefaults standardUserDefaults] setObject:dToken forKey:@"DeviceToken"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[RCIM sharedRCIM]setDeviceToken:deviceToken];
 }
 
 -(UIImage *)createImageWithColor:(UIColor *)color
